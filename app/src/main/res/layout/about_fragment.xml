@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.setting.about.AboutFragment">
+
+    <include layout="@layout/layout_toolbar"
+             android:id="@+id/setting_toolbar"/>
+
+    <com.creative.spotifykt.spotifylite.ui.view.EncoreBoldTextView
+            android:id="@+id/tv_version"
+            android:paddingTop="20dp"
+            android:text="1.9.8-rc"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            android:text="@string/app_version"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            android:text="@string/term_and_conditions"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingStart="@dimen/setting_padding_left"
+            android:paddingEnd="@dimen/setting_padding_right"
+            android:paddingTop="@dimen/setting_padding_top"
+            android:paddingBottom="@dimen/setting_padding_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            android:text="@string/privacy_policy"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingStart="@dimen/setting_padding_left"
+            android:paddingEnd="@dimen/setting_padding_right"
+            android:paddingTop="@dimen/setting_padding_top"
+            android:paddingBottom="@dimen/setting_padding_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            android:text="@string/open_source_libraries"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingStart="@dimen/setting_padding_left"
+            android:paddingEnd="@dimen/setting_padding_right"
+            android:paddingTop="@dimen/setting_padding_top"
+            android:paddingBottom="@dimen/setting_padding_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>

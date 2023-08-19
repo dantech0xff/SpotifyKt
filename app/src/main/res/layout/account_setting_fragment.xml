@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.setting.account.AccountSettingFragment">
+
+    <include layout="@layout/layout_toolbar"
+             android:id="@+id/setting_toolbar"/>
+
+    <include layout="@layout/item_setting_row"
+             android:id="@+id/user_name_row"/>
+
+    <include layout="@layout/item_setting_row"
+             android:id="@+id/email_row"/>
+
+    <include layout="@layout/item_setting_row"
+             android:id="@+id/account_row"/>
+
+    <include layout="@layout/item_setting_row"
+             android:id="@+id/upgrade_premium_row"/>
+
+</LinearLayout>

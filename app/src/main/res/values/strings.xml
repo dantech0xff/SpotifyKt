@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name" translatable="false">Spotify Lite</string>
+    <string name="title_home" translatable="false">Home</string>
+    <string name="title_dashboard" translatable="false">Dashboard</string>
+    <string name="title_search" translatable="false">Search</string>
+    <string name="title_notifications" translatable="false">Notifications</string>
+    <string name="title_favorite" translatable="false">Favorite</string>
+    <string name="title_premium" translatable="false">Premium</string>
+    <string name="recent_title">Recently Played</string>
+    <string name="title_for_you">Dành cho bạn</string>
+    <string name="podcasts">Podcasts</string>
+    <string name="settings">Settings</string>
+    <string name="app_internal_storage">App internal storage</string>
+    <string name="warning_delete_downloads">This is the music downloaded for offline listening on Spotify Lite. You\'ll
+        need to download it again to listen offline if you delete it.
+    </string>
+    <string name="delete_all_downloads">Delete all downloads</string>
+    <string name="audio_quality">Audio Quality</string>
+    <string name="basic">Basic</string>
+    <string name="warning_audio_quality">Higher audio quality will use more mobile data from your plan. It may also take
+        longer to load on slow net works.
+    </string>
+    <string name="quality_basic">Cơ bản</string>
+    <string name="quality_basic_desc">Khoảng 0.5 MB một bài hát</string>
+    <string name="quality_medium">Bình thường</string>
+    <string name="quality_medium_desc">Khoảng 1 MB một bài hát</string>
+    <string name="quality_high">Cao</string>
+    <string name="quality_high_desc">Khoảng 2-4 MB một bài hát</string>
+    <string name="data_saving">Trình tiết kiệm dữ liệu</string>
+    <string name="data_saving_desc">Tính năng này sẽ chuyển chất lượng âm thanh thành Cơ bản khi bạn phát nhạc bằng dữ
+        liệu di động.
+    </string>
+    <string name="setting_equalizer">Bộ chỉnh âm</string>
+    <string name="setting_equalizer_desc">Mở bảng điều khiển bộ chỉnh âm</string>
+    <string name="cross_fade_song">Chuyển bài</string>
+    <string name="cross_fade_song_desc">Cho phép chuyển giữa các bài hát.</string>
+    <string name="gap_less_song">Phát liên tục</string>
+    <string name="gap_less_song_desc">Cho phép phát liên tục.</string>
+    <string name="auto_mix">Tự động phối</string>
+    <string name="auto_mix_desc">Cho phép chuyển đổi mượt mà giữa các bài hát trong danh sách phát.</string>
+    <string name="normalize_volume">Normalize volume</string>
+    <string name="normalize_volume_desc">Set the same volume level for all tracks.</string>
+    <string name="download_setting_title">Download using cellular</string>
+    <string name="download_setting_subtitle">Recommended setting: Off</string>
+    <string name="app_version">App Version</string>
+    <string name="term_and_conditions">Term and Conditions</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="open_source_libraries">Open Source Libraries</string>
+    <string name="search_box_desc">Search artists, songs and playlists</string>
+    <string name="albums">Albums</string>
+    <string name="artists">Artists</string>
+    <string name="playlists">Playlists</string>
+    <string name="get_premium">GET PREMIUM</string>
+    <string name="terms_and_conditions_apply">Terms and conditions apply.</string>
+    <string name="spotify_free">Spotify Free</string>
+    <string name="current_plan">CURRENT PLAN</string>
+    <string name="mini">Mini</string>
+    <string name="mini_desc">Day and week plans Ad-free music on mobile Download 30 songs on 1 mobile device</string>
+    <string name="view_plans">VIEW PLANS</string>
+    <string name="recommended_for_you">Recommended for you</string>
+    <string name="made_for_you">Made for you</string>
+</resources>

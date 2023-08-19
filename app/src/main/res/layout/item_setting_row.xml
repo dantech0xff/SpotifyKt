@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:paddingTop="@dimen/setting_padding_top"
+                android:paddingBottom="@dimen/setting_padding_bottom"
+                android:paddingStart="@dimen/setting_padding_left"
+                android:paddingEnd="@dimen/setting_padding_right"
+                android:clickable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true">
+
+    <com.creative.spotifykt.spotifylite.ui.view.RatioImageView
+            android:id="@+id/setting_icon"
+            android:visibility="gone"
+            android:src="@mipmap/ic_launcher"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="4dp"
+            android:layout_width="38dp"
+            android:layout_height="38dp"/>
+    <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            android:id="@+id/title_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_toEndOf="@id/setting_icon"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:layout_marginBottom="4dp"
+            android:text="Mobile Data"/>
+
+    <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/setting_text_title"
+            android:layout_toEndOf="@id/setting_icon"
+            android:textColor="@color/white"
+            android:layout_marginBottom="4dp"
+            android:text="Mobile Data"/>
+
+    <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            android:id="@+id/sub_title"
+            android:layout_below="@id/title"
+            android:layout_toEndOf="@id/setting_icon"
+            android:layout_toStartOf="@id/setting_switch"
+            android:textSize="@dimen/setting_text_sub_title"
+            android:text="459kb used by Spotify Lite this month"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <View
+            android:id="@+id/separate_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:visibility="gone"
+            android:background="?android:attr/windowBackground"
+            android:layout_centerVertical="true"/>
+
+    <com.creative.spotifykt.spotifylite.ui.view.RatioImageView
+            android:id="@+id/setting_check"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/round_check_24"
+            android:scaleType="centerInside"
+            android:visibility="gone"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+    <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/setting_switch"
+            android:visibility="gone"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <com.google.android.material.slider.Slider
+            android:id="@+id/setting_slider"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:valueFrom="0.0"
+            android:valueTo="100.0"
+            android:value="20.0"
+            android:layout_below="@id/sub_title"/>
+</RelativeLayout>

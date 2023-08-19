@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.setting.mobiledata.MobileDataFragment">
+
+    <include layout="@layout/layout_toolbar"
+             android:id="@+id/setting_toolbar"/>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center|bottom"
+            android:paddingTop="30dp"
+            android:paddingBottom="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                android:text="1"
+                android:textSize="22sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                android:text="MB"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreBoldTextView
+                android:text="/"
+                android:textSize="22sp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreBoldTextView
+                android:text="999"
+                android:textSize="22sp"
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreBoldTextView
+                android:text="MB"
+                android:textSize="22sp"
+                android:paddingRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <com.creative.spotifykt.spotifylite.ui.view.EncoreBoldTextView
+            android:text="mobile data used this month"
+            android:textColor="@color/white"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            android:text="Your limit will reset on August 1."
+            android:textSize="11sp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <LinearLayout
+            android:paddingTop="30dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <RelativeLayout
+                android:layout_marginBottom="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <View
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"/>
+            <View
+                    android:id="@+id/data_progress_line"
+                    android:background="@color/design_default_color_error"
+                    android:layout_marginBottom="3dp"
+                    android:layout_width="20dp"
+                    android:layout_height="2dp"/>
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                    android:text="0 B"
+                    android:textSize="11sp"
+                    android:gravity="start"
+                    android:layout_below="@id/data_progress_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                    android:text="99 MB"
+                    android:textSize="11sp"
+                    android:gravity="end"
+                    android:layout_below="@id/data_progress_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                android:text="Used: 99 MB"
+                android:textSize="11sp"
+                android:gravity="start"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                android:text="Remaining: 322 MB"
+                android:textSize="11sp"
+                android:textColor="@color/white"
+                android:gravity="start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                android:text="Set a monthly limit for Spotify Lite:"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <GridLayout
+                android:id="@+id/grid_monthly_limit_data"
+                android:columnCount="3"
+                android:useDefaultMargins="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:text="250 MB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:text="250 MB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:text="250 MB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:text="250 MB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:text="250 MB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:text="250 MB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </GridLayout>
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                android:text="We'll let you know if it goes over your limit."
+                android:textSize="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

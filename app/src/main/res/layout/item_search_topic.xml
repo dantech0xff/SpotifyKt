@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardBackgroundColor="@color/cardview_dark_background"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="1dp"
+        android:background="?android:selectableItemBackground"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            android:id="@+id/tv_topic"
+            android:text="@string/title_search"
+            android:textSize="20sp"
+            android:layout_gravity="center|start"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+</androidx.cardview.widget.CardView>

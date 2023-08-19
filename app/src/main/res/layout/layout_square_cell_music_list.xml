@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="handleActionIconClick"
+            type="com.creative.spotifykt.spotifylite.ui.IDeeplinkHandler" />
+        <variable
+            name="data"
+            type="com.creative.spotifykt.spotifylite.data.MusicListUI" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/horizontal_root"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:id="@+id/header_view"
+            android:paddingStart="@dimen/xds_space_l"
+            android:paddingEnd="@dimen/xds_space_l"
+            android:paddingTop="@dimen/xds_space_l"
+            android:paddingBottom="@dimen/xds_space_l"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreBoldTextView
+                android:id="@+id/header_title"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/xds_text_size_heading1"
+                android:gravity="center"
+                app:bindTextLabel="@{data.headline}"
+                tools:text="@string/recent_title"/>
+            <ImageView
+                android:id="@+id/btn_header_action"
+                android:onClick="@{() -> handleActionIconClick.handleDeeplink(data.actionIcon.deeplink)}"
+                app:bindImageUrl="@{data.actionIcon.image}"
+                android:layout_gravity="center_vertical|end"
+                android:src="@drawable/round_settings_24"
+                android:scaleType="centerInside"
+                android:layout_width="@dimen/xds_icon_size_xl"
+                android:layout_height="@dimen/xds_icon_size_xl"/>
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            tools:listitem="@layout/item_music_square"
+            tools:itemCount="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+</layout>

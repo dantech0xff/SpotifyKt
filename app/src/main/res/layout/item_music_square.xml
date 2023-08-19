@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="deeplinkHandler"
+            type="com.creative.spotifykt.spotifylite.ui.IDeeplinkHandler" />
+        <variable
+            name="data"
+            type="com.creative.spotifykt.spotifylite.data.MusicSquareUI" />
+    </data>
+
+    <LinearLayout
+        android:onClick="@{() -> deeplinkHandler.handleDeeplink(data.deeplink)}"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.creative.spotifykt.spotifylite.ui.view.RatioImageView
+            android:id="@+id/image_thumb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:bindImageUrl="@{data.image}"
+            android:scaleType="centerCrop"
+            tools:src="@mipmap/ic_launcher"/>
+
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreBoldTextView
+            android:layout_marginTop="@dimen/xds_space_s"
+            android:maxLines="2"
+            app:bindTextLabel="@{data.headline}"
+            tools:textColor="@color/xds_color_font_primary"
+            tools:text="Hello my world!123123123123"
+            android:gravity="start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            android:id="@+id/text_name"
+            app:bindTextLabel="@{data.subHeadline}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:textColor="@color/xds_color_font_primary"
+            tools:text="Ngày hôm ấy"
+            android:maxLines="2" />
+    </LinearLayout>
+
+</layout>

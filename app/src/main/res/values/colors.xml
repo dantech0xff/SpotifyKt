@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primaryBackground">#FF000000</color>
+
+    <array name="list_color">
+        <item>#ff0000</item>
+        <item>#fb3c4c</item>
+        <item>#03e6cb</item>
+        <item>#0084ff</item>
+        <item>#f50057</item>
+        <item>#ffc300</item>
+        <item>#ff7e2a</item>
+        <item>#ff5ca1</item>
+        <item>#20cdf5</item>
+        <item>#7646fe</item>
+        <item>#d696bb</item>
+        <item>#12cf13</item>
+        <item>#0060ff</item>
+        <item>#ff5705</item>
+        <item>#ff0575</item>
+    </array>
+
+    <color name="xds_color_font_primary">#FFFFFFFF</color>
+    <color name="xds_color_font_secondary">#FFB3B3B3</color>
+    <color name="xds_color_font_tertiary">#FF666666</color>
+    <color name="xds_color_font_quaternary">#FF333333</color>
+    <color name="xds_color_font_inverse">#FF000000</color>
+    <color name="xds_color_font_success">#FF00C853</color>
+    <color name="xds_color_font_warning">#FFFFD600</color>
+    <color name="xds_color_font_error">#FFFF1744</color>
+    <color name="xds_color_font_link">#FF1E88E5</color>
+
+    <color name="xds_color_background_primary">#FF000000</color>
+    <color name="xds_color_background_secondary">#FF1F1F1F</color>
+
+    <color name="xds_color_purple_200">#FFBB86FC</color>
+    <color name="xds_color_purple_500">#FF6200EE</color>
+    <color name="xds_color_purple_700">#FF3700B3</color>
+    <color name="xds_color_teal_200">#FF03DAC5</color>
+    <color name="xds_color_teal_700">#FF018786</color>
+    <color name="xds_color_black">#FF000000</color>
+    <color name="xds_color_white">#FFFFFFFF</color>
+
+    <color name="xds_color_red_500">#FFF44336</color>
+    <color name="xds_color_red_700">#FFD32F2F</color>
+    <color name="xds_color_red_900">#FFB71C1C</color>
+
+    <color name="xds_color_blue_500">#FF2196F3</color>
+    <color name="xds_color_blue_700">#FF1976D2</color>
+    <color name="xds_color_blue_900">#FF0D47A1</color>
+</resources>

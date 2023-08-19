@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/mobile_navigation"
+            app:startDestination="@id/navigation_home">
+
+    <fragment
+            android:id="@+id/navigation_home"
+            android:name="com.creative.spotifykt.spotifylite.ui.home.HomeFragment"
+            android:label="@string/title_home"
+            tools:layout="@layout/fragment_home">
+    </fragment>
+
+    <fragment
+            android:id="@+id/navigation_search"
+            android:name="com.creative.spotifykt.spotifylite.ui.search.SearchFragment"
+            android:label="@string/title_search"
+            tools:layout="@layout/search_fragment">
+        <action android:id="@+id/action_navigation_search_to_searchResultFragment"
+                app:enterAnim="@anim/fade_in_anim"
+                app:exitAnim="@anim/fade_out_anim"
+                app:popExitAnim="@anim/fade_out_anim"
+                app:popEnterAnim="@anim/fade_in_anim"
+                app:destination="@id/searchResultFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/searchResultFragment"
+              android:name="com.creative.spotifykt.spotifylite.ui.search.result.SearchResultFragment"
+              android:label="search_result_fragment"
+              tools:layout="@layout/search_result_fragment"/>
+
+    <fragment
+            android:id="@+id/navigation_favorite"
+            android:name="com.creative.spotifykt.spotifylite.ui.favorite.FavoriteFragment"
+            android:label="@string/title_favorite"
+            tools:layout="@layout/favorite_fragment"/>
+
+    <fragment android:id="@+id/navigation_premium"
+              android:name="com.creative.spotifykt.spotifylite.ui.premium.PremiumFragment"
+              android:label="@string/title_premium" tools:layout="@layout/premium_fragment"/>
+
+</navigation>

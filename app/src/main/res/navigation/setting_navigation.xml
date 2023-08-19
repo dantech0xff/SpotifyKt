@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/setting_navigation"
+            app:startDestination="@id/mainSettingFragment">
+
+    <fragment android:id="@+id/mainSettingFragment"
+              android:name="com.creative.spotifykt.spotifylite.ui.setting.main.MainSettingFragment"
+              android:label="main_setting_fragment"
+              tools:layout="@layout/main_setting_fragment">
+        
+        <action android:id="@+id/action_mainSettingFragment_to_mobileDataFragment"
+                app:enterAnim="@anim/fade_in_anim"
+                app:exitAnim="@anim/fade_out_anim"
+                app:popExitAnim="@anim/fade_out_anim"
+                app:popEnterAnim="@anim/fade_in_anim"
+                app:destination="@id/mobileDataFragment"/>
+
+        <action android:id="@+id/action_mainSettingFragment_to_storageFragment"
+                app:enterAnim="@anim/fade_in_anim"
+                app:exitAnim="@anim/fade_out_anim"
+                app:popExitAnim="@anim/fade_out_anim"
+                app:popEnterAnim="@anim/fade_in_anim"
+                app:destination="@id/storageFragment"/>
+
+        <action android:id="@+id/action_mainSettingFragment_to_audioSettingFragment"
+                app:enterAnim="@anim/fade_in_anim"
+                app:exitAnim="@anim/fade_out_anim"
+                app:popExitAnim="@anim/fade_out_anim"
+                app:popEnterAnim="@anim/fade_in_anim"
+                app:destination="@id/audioSettingFragment"/>
+
+        <action android:id="@+id/action_mainSettingFragment_to_downloadSettingsFragment"
+                app:enterAnim="@anim/fade_in_anim"
+                app:exitAnim="@anim/fade_out_anim"
+                app:popExitAnim="@anim/fade_out_anim"
+                app:popEnterAnim="@anim/fade_in_anim"
+                app:destination="@id/downloadSettingsFragment"/>
+
+        <action android:id="@+id/action_mainSettingFragment_to_explicitContentFragment"
+                app:enterAnim="@anim/fade_in_anim"
+                app:exitAnim="@anim/fade_out_anim"
+                app:popExitAnim="@anim/fade_out_anim"
+                app:popEnterAnim="@anim/fade_in_anim"
+                app:destination="@id/explicitContentFragment"/>
+
+        <action android:id="@+id/action_mainSettingFragment_to_accountSettingFragment"
+                app:enterAnim="@anim/fade_in_anim"
+                app:exitAnim="@anim/fade_out_anim"
+                app:popExitAnim="@anim/fade_out_anim"
+                app:popEnterAnim="@anim/fade_in_anim"
+                app:destination="@id/accountSettingFragment"/>
+
+        <action android:id="@+id/action_mainSettingFragment_to_aboutFragment"
+                app:enterAnim="@anim/fade_in_anim"
+                app:exitAnim="@anim/fade_out_anim"
+                app:popExitAnim="@anim/fade_out_anim"
+                app:popEnterAnim="@anim/fade_in_anim"
+                app:destination="@id/aboutFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/mobileDataFragment"
+              android:name="com.creative.spotifykt.spotifylite.ui.setting.mobiledata.MobileDataFragment"
+              android:label="mobile_data_fragment"
+              tools:layout="@layout/mobile_data_fragment"/>
+
+    <fragment android:id="@+id/storageFragment"
+              android:name="com.creative.spotifykt.spotifylite.ui.setting.storage.StorageFragment"
+              android:label="storage_fragment"
+              tools:layout="@layout/storage_fragment"/>
+
+    <fragment android:id="@+id/audioSettingFragment"
+              android:name="com.creative.spotifykt.spotifylite.ui.setting.audio.AudioSettingFragment"
+              android:label="audio_setting_fragment"
+              tools:layout="@layout/audio_setting_fragment"/>
+
+    <fragment android:id="@+id/downloadSettingsFragment"
+              android:name="com.creative.spotifykt.spotifylite.ui.setting.download.DownloadSettingFragment"
+              android:label="download_settings_fragment"
+              tools:layout="@layout/download_setting_fragment"/>
+
+    <fragment android:id="@+id/explicitContentFragment"
+              android:name="com.creative.spotifykt.spotifylite.ui.setting.explicit.ExplicitContentFragment"
+              android:label="explicit_content_fragment"
+              tools:layout="@layout/explicit_content_fragment"/>
+
+    <fragment android:id="@+id/accountSettingFragment"
+              android:name="com.creative.spotifykt.spotifylite.ui.setting.account.AccountSettingFragment"
+              android:label="account_setting_fragment"
+              tools:layout="@layout/account_setting_fragment"/>
+
+    <fragment android:id="@+id/aboutFragment"
+              android:name="com.creative.spotifykt.spotifylite.ui.setting.about.AboutFragment"
+              android:label="about_fragment"
+              tools:layout="@layout/about_fragment"/>
+
+</navigation>

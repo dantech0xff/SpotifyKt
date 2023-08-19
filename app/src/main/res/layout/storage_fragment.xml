@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.setting.storage.StorageFragment">
+
+    <include layout="@layout/layout_toolbar"
+             android:id="@+id/setting_toolbar"/>
+
+    <LinearLayout
+            android:id="@+id/app_internal_storage_layout"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                android:id="@+id/tv_app_internal_storage"
+                android:text="@string/app_internal_storage"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:background="@color/cardview_dark_background"
+                android:layout_height="2.5dp"
+                android:layout_marginTop="10dp">
+            <View android:layout_width="10dp"
+                  android:layout_height="match_parent"
+            android:background="@color/white"/>
+        </FrameLayout>
+
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                android:id="@+id/tv_other_app"
+                android:text="Other Apps: 48 GB"
+                android:textColor="@color/white"
+                android:layout_marginTop="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                android:id="@+id/tv_spotify_lite"
+                android:text="Spotify Lite: 90 MB"
+                android:textColor="@color/white"
+                android:paddingBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                android:id="@+id/tv_free_space"
+                android:text="Free Space: 20 GB"
+                android:textColor="@color/white"
+                android:paddingBottom="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <View android:layout_width="match_parent"
+              android:background="@color/cardview_dark_background"
+              android:layout_height="1dp"/>
+
+        <LinearLayout
+                android:id="@+id/app_cache_storage_layout"
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                    android:id="@+id/tv_cache_storage"
+                    android:text="Cache: 14MB"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                    android:textSize="10sp"
+                    android:text="These are small, temporary files to make the app work faster on slow networks."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                    android:layout_width="wrap_content"
+                    android:text="Clear cache"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/downloads_storage_layout"
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                    android:id="@+id/tv_downloads_storage"
+                    android:text="Downloads: 14MB"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                    android:textSize="10sp"
+                    android:text="@string/warning_delete_downloads"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/delete_all_downloads"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

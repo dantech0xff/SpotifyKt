@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.search.result.SearchResultFragment">
+
+    <LinearLayout
+            android:id="@+id/layout_setting_toolbar"
+            android:background="?android:attr/windowBackground"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_height="58dp">
+        <com.creative.spotifykt.spotifylite.ui.view.RatioImageView
+                android:id="@+id/search_back_nav"
+                android:src="@drawable/round_arrow_back_24"
+                android:tint="@color/white"
+                android:scaleType="centerInside"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+        <androidx.appcompat.widget.AppCompatEditText
+                android:background="@null"
+                android:textSize="15sp"
+                android:id="@+id/search_text_edit"
+                android:textColor="@color/white"
+                android:hint="@string/search_box_desc"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_search_result"
+            tools:listitem="@layout/item_music_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+    />
+</LinearLayout>

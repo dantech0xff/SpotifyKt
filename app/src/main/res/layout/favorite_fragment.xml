@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:background="@color/primaryBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".spotifylite.ui.favorite.FavoriteFragment">
+
+    <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:background="@color/primaryBackground"
+            app:tabMode="scrollable"
+            app:tabGravity="fill"
+            app:tabIndicatorGravity="bottom"
+            app:tabTextColor="@color/white"
+            app:tabTextAppearance="@style/TabLayoutTextAppearance"
+            app:tabIndicatorHeight="1dp"
+            app:tabIndicatorColor="@color/cardview_dark_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    </androidx.viewpager2.widget.ViewPager2>
+</LinearLayout>

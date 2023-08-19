@@ -1,0 +1,52 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="setting_padding_left">16dp</dimen>
+    <dimen name="setting_padding_right">16dp</dimen>
+    <dimen name="setting_text_sub_title">12sp</dimen>
+    <dimen name="setting_text_title">15sp</dimen>
+    <dimen name="setting_padding_top">10dp</dimen>
+    <dimen name="setting_padding_bottom">10dp</dimen>
+    <dimen name="vertical_row_height_dp">40dp</dimen>
+
+    <dimen name="xds_space_xs">2dp</dimen>
+    <dimen name="xds_space_s">4dp</dimen>
+    <dimen name="xds_space_m">8dp</dimen>
+    <dimen name="xds_space_l">16dp</dimen>
+    <dimen name="xds_space_xl">24dp</dimen>
+    <dimen name="xds_space_xxl">32dp</dimen>
+
+    <dimen name="xds_icon_size_s">16dp</dimen>
+    <dimen name="xds_icon_size_m">24dp</dimen>
+    <dimen name="xds_icon_size_l">32dp</dimen>
+    <dimen name="xds_icon_size_xl">48dp</dimen>
+    <dimen name="xds_icon_size_xxl">64dp</dimen>
+
+    <dimen name="xds_logo_size_s">24dp</dimen>
+    <dimen name="xds_logo_size_m">32dp</dimen>
+    <dimen name="xds_logo_size_l">48dp</dimen>
+    <dimen name="xds_logo_size_xl">64dp</dimen>
+    <dimen name="xds_logo_size_xxl">96dp</dimen>
+
+    <dimen name="xds_text_size_xs">10sp</dimen>
+    <dimen name="xds_text_size_s">12sp</dimen>
+    <dimen name="xds_text_size_m">14sp</dimen>
+    <dimen name="xds_text_size_l">16sp</dimen>
+    <dimen name="xds_text_size_xl">18sp</dimen>
+    <dimen name="xds_text_size_xxl">20sp</dimen>
+
+    <dimen name="xds_text_size_heading1">32sp</dimen>
+    <dimen name="xds_text_size_heading2">24sp</dimen>
+    <dimen name="xds_text_size_heading3">20sp</dimen>
+    <dimen name="xds_text_size_heading4">18sp</dimen>
+    <dimen name="xds_text_size_heading5">16sp</dimen>
+    <dimen name="xds_text_size_heading6">14sp</dimen>
+    <dimen name="xds_text_size_body1">16sp</dimen>
+    <dimen name="xds_text_size_body2">14sp</dimen>
+    <dimen name="xds_text_size_caption">12sp</dimen>
+    <dimen name="xds_text_size_button">14sp</dimen>
+    <dimen name="xds_text_size_subtitle1">16sp</dimen>
+    <dimen name="xds_text_size_subtitle2">14sp</dimen>
+
+</resources>

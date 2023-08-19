@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.setting.audio.AudioSettingFragment">
+
+    <include layout="@layout/layout_toolbar"
+             android:id="@+id/setting_toolbar"/>
+
+    <ScrollView
+            android:id="@+id/audio_setting_scroller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                    android:id="@+id/layout_audio_quality"
+                    android:paddingTop="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <com.creative.spotifykt.spotifylite.ui.view.EncoreBoldTextView
+                        android:text="@string/audio_quality"
+                        android:textSize="20sp"
+                        android:paddingTop="@dimen/setting_padding_top"
+                        android:paddingBottom="@dimen/setting_padding_bottom"
+                        android:paddingStart="@dimen/setting_padding_left"
+                        android:paddingEnd="@dimen/setting_padding_right"
+                        android:textColor="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <include layout="@layout/item_setting_row"
+                         android:id="@+id/setting_audio_basic"/>
+
+                <include layout="@layout/item_setting_row"
+                         android:id="@+id/setting_audio_medium"/>
+
+                <include layout="@layout/item_setting_row"
+                         android:id="@+id/setting_audio_high"/>
+
+                <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/setting_padding_left"
+                        android:paddingEnd="@dimen/setting_padding_right"
+                        android:paddingBottom="@dimen/setting_padding_top"
+                        android:textSize="@dimen/setting_text_sub_title"
+                        android:text="@string/warning_audio_quality"/>
+            </LinearLayout>
+
+            <include layout="@layout/separate_line"/>
+            <include layout="@layout/item_setting_row"
+                     android:id="@+id/setting_data_saver"/>
+
+            <include layout="@layout/separate_line"/>
+
+
+            <include layout="@layout/item_setting_row"
+                     android:id="@+id/setting_equalizer"/>
+            <include layout="@layout/separate_line"/>
+
+            <include layout="@layout/item_setting_row"
+                     android:id="@+id/setting_cross_fade"/>
+            <include layout="@layout/separate_line"/>
+
+            <include layout="@layout/item_setting_row"
+                     android:id="@+id/setting_gap_less"/>
+            <include layout="@layout/separate_line"/>
+
+            <include layout="@layout/item_setting_row"
+                     android:id="@+id/setting_auto_mix"/>
+            <include layout="@layout/separate_line"/>
+
+            <include layout="@layout/item_setting_row"
+                     android:id="@+id/setting_normalize_volume"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
