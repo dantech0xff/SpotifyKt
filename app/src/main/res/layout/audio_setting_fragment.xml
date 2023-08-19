@@ -25,7 +25,7 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                <com.creative.spotifykt.spotifylite.ui.view.EncoreBoldTextView
+                <com.creative.spotifykt.ui.view.EncoreBoldTextView
                         android:text="@string/audio_quality"
                         android:textSize="20sp"
                         android:paddingTop="@dimen/setting_padding_top"
@@ -45,7 +45,7 @@
                 <include layout="@layout/item_setting_row"
                          android:id="@+id/setting_audio_high"/>
 
-                <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+                <com.creative.spotifykt.ui.view.EncoreTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingStart="@dimen/setting_padding_left"

@@ -6,14 +6,14 @@
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="58dp">
-    <com.creative.spotifykt.spotifylite.ui.view.RatioImageView
+    <com.creative.spotifykt.ui.view.RatioImageView
             android:id="@+id/setting_back_nav"
             android:src="@drawable/round_arrow_back_24"
             android:layout_centerVertical="true"
             android:scaleType="centerInside"
             android:layout_width="50dp"
             android:layout_height="50dp"/>
-    <com.creative.spotifykt.spotifylite.ui.view.EncoreBoldTextView
+    <com.creative.spotifykt.ui.view.EncoreBoldTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"

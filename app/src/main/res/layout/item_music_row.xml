@@ -10,7 +10,7 @@
                 android:layout_height="wrap_content"
                 android:focusable="true">
 
-    <com.creative.spotifykt.spotifylite.ui.view.RatioImageView
+    <com.creative.spotifykt.ui.view.RatioImageView
             android:id="@+id/setting_icon"
             android:visibility="visible"
             android:src="@mipmap/ic_launcher"
@@ -19,7 +19,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"/>
 
-    <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+    <com.creative.spotifykt.ui.view.EncoreTextView
             android:id="@+id/title_center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             android:layout_marginBottom="4dp"
             android:text="Mobile Data"/>
 
-    <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+    <com.creative.spotifykt.ui.view.EncoreTextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             android:layout_marginBottom="4dp"
             android:text="Binz"/>
 
-    <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+    <com.creative.spotifykt.ui.view.EncoreTextView
             android:id="@+id/sub_title"
             android:layout_below="@id/title"
             android:layout_toEndOf="@id/setting_icon"

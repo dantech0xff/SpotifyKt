@@ -12,7 +12,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="match_parent">
-        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+        <com.creative.spotifykt.ui.view.EncoreTextView
                 android:text="FREE"
                 android:layout_marginTop="5dp"
                 android:layout_centerHorizontal="true"
@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+        <com.creative.spotifykt.ui.view.EncoreTextView
                 android:text="Ad breaks"
                 android:id="@+id/free_desc"
                 android:layout_centerInParent="true"
@@ -33,7 +33,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="match_parent">
-        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+        <com.creative.spotifykt.ui.view.EncoreTextView
                 android:text="PREMIUM"
                 android:layout_marginTop="5dp"
                 android:layout_centerHorizontal="true"
@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+        <com.creative.spotifykt.ui.view.EncoreTextView
                 android:text="Ad free Music"
                 android:id="@+id/premium_desc"
                 android:layout_centerInParent="true"

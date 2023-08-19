@@ -15,7 +15,7 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_height="58dp">
-        <com.creative.spotifykt.spotifylite.ui.view.RatioImageView
+        <com.creative.spotifykt.ui.view.RatioImageView
                 android:id="@+id/search_back_nav"
                 android:src="@drawable/round_arrow_back_24"
                 android:tint="@color/white"

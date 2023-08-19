@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+    <com.creative.spotifykt.ui.view.EncoreTextView
             android:id="@+id/tv_topic"
             android:text="@string/title_search"
             android:textSize="20sp"

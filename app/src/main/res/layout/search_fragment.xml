@@ -9,9 +9,9 @@
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:background="@color/primaryBackground"
-        tools:context=".spotifylite.ui.search.SearchFragment">
+        tools:context=".ui.search.SearchFragment">
 
-    <com.creative.spotifykt.spotifylite.ui.view.EncoreBoldTextView
+    <com.creative.spotifykt.ui.view.EncoreBoldTextView
             android:id="@+id/search_tittle"
             android:text="@string/title_search"
             android:textColor="@color/white"
@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/round_find_in_page_24"
                     android:contentDescription="@string/title_search"/>
-            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            <com.creative.spotifykt.ui.view.EncoreTextView
                     android:text="@string/search_box_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>

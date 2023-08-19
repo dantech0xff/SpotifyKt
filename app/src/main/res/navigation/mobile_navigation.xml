@@ -7,14 +7,14 @@
 
     <fragment
             android:id="@+id/navigation_home"
-            android:name="com.creative.spotifykt.spotifylite.ui.home.HomeFragment"
+            android:name="com.creative.spotifykt.ui.home.HomeFragment"
             android:label="@string/title_home"
             tools:layout="@layout/fragment_home">
     </fragment>
 
     <fragment
             android:id="@+id/navigation_search"
-            android:name="com.creative.spotifykt.spotifylite.ui.search.SearchFragment"
+            android:name="com.creative.spotifykt.ui.search.SearchFragment"
             android:label="@string/title_search"
             tools:layout="@layout/search_fragment">
         <action android:id="@+id/action_navigation_search_to_searchResultFragment"
@@ -26,18 +26,18 @@
     </fragment>
 
     <fragment android:id="@+id/searchResultFragment"
-              android:name="com.creative.spotifykt.spotifylite.ui.search.result.SearchResultFragment"
+              android:name="com.creative.spotifykt.ui.search.result.SearchResultFragment"
               android:label="search_result_fragment"
               tools:layout="@layout/search_result_fragment"/>
 
     <fragment
             android:id="@+id/navigation_favorite"
-            android:name="com.creative.spotifykt.spotifylite.ui.favorite.FavoriteFragment"
+            android:name="com.creative.spotifykt.ui.favorite.FavoriteFragment"
             android:label="@string/title_favorite"
             tools:layout="@layout/favorite_fragment"/>
 
     <fragment android:id="@+id/navigation_premium"
-              android:name="com.creative.spotifykt.spotifylite.ui.premium.PremiumFragment"
+              android:name="com.creative.spotifykt.ui.premium.PremiumFragment"
               android:label="@string/title_premium" tools:layout="@layout/premium_fragment"/>
 
 </navigation>

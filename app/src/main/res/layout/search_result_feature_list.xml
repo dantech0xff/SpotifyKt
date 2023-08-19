@@ -6,7 +6,7 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
-    <com.creative.spotifykt.spotifylite.ui.view.EncoreBoldTextView
+    <com.creative.spotifykt.ui.view.EncoreBoldTextView
             android:id="@+id/text_title"
             android:textSize="16sp"
             android:paddingBottom="10dp"

@@ -18,7 +18,7 @@
             android:paddingLeft="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+        <com.creative.spotifykt.ui.view.EncoreTextView
                 android:id="@+id/tv_app_internal_storage"
                 android:text="@string/app_internal_storage"
                 android:textColor="@color/white"
@@ -36,7 +36,7 @@
             android:background="@color/white"/>
         </FrameLayout>
 
-        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+        <com.creative.spotifykt.ui.view.EncoreTextView
                 android:id="@+id/tv_other_app"
                 android:text="Other Apps: 48 GB"
                 android:textColor="@color/white"
@@ -45,14 +45,14 @@
                 android:paddingBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+        <com.creative.spotifykt.ui.view.EncoreTextView
                 android:id="@+id/tv_spotify_lite"
                 android:text="Spotify Lite: 90 MB"
                 android:textColor="@color/white"
                 android:paddingBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-        <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+        <com.creative.spotifykt.ui.view.EncoreTextView
                 android:id="@+id/tv_free_space"
                 android:text="Free Space: 20 GB"
                 android:textColor="@color/white"
@@ -69,20 +69,20 @@
                 android:paddingTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            <com.creative.spotifykt.ui.view.EncoreTextView
                     android:id="@+id/tv_cache_storage"
                     android:text="Cache: 14MB"
                     android:layout_marginBottom="10dp"
                     android:textColor="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            <com.creative.spotifykt.ui.view.EncoreTextView
                     android:textSize="10sp"
                     android:text="These are small, temporary files to make the app work faster on slow networks."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
-            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            <com.creative.spotifykt.ui.view.EncoreTextView
                     android:layout_width="wrap_content"
                     android:text="Clear cache"
                     android:layout_marginTop="10dp"
@@ -100,20 +100,20 @@
                 android:paddingTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            <com.creative.spotifykt.ui.view.EncoreTextView
                     android:id="@+id/tv_downloads_storage"
                     android:text="Downloads: 14MB"
                     android:layout_marginBottom="10dp"
                     android:textColor="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            <com.creative.spotifykt.ui.view.EncoreTextView
                     android:textSize="10sp"
                     android:text="@string/warning_delete_downloads"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
-            <com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+            <com.creative.spotifykt.ui.view.EncoreTextView
                     android:layout_width="wrap_content"
                     android:text="@string/delete_all_downloads"
                     android:layout_marginTop="10dp"

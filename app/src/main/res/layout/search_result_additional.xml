@@ -8,7 +8,7 @@
              android:clickable="true"
              android:layout_width="match_parent"
              android:layout_height="wrap_content" android:focusable="true">
-<com.creative.spotifykt.spotifylite.ui.view.EncoreTextView
+<com.creative.spotifykt.ui.view.EncoreTextView
         android:id="@+id/text_title"
         android:gravity="center_vertical"
         android:layout_width="match_parent"

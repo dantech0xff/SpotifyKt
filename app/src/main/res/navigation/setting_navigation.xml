@@ -5,7 +5,7 @@
             app:startDestination="@id/mainSettingFragment">
 
     <fragment android:id="@+id/mainSettingFragment"
-              android:name="com.creative.spotifykt.spotifylite.ui.setting.main.MainSettingFragment"
+              android:name="com.creative.spotifykt.ui.setting.main.MainSettingFragment"
               android:label="main_setting_fragment"
               tools:layout="@layout/main_setting_fragment">
         
@@ -60,37 +60,37 @@
     </fragment>
 
     <fragment android:id="@+id/mobileDataFragment"
-              android:name="com.creative.spotifykt.spotifylite.ui.setting.mobiledata.MobileDataFragment"
+              android:name="com.creative.spotifykt.ui.setting.mobiledata.MobileDataFragment"
               android:label="mobile_data_fragment"
               tools:layout="@layout/mobile_data_fragment"/>
 
     <fragment android:id="@+id/storageFragment"
-              android:name="com.creative.spotifykt.spotifylite.ui.setting.storage.StorageFragment"
+              android:name="com.creative.spotifykt.ui.setting.storage.StorageFragment"
               android:label="storage_fragment"
               tools:layout="@layout/storage_fragment"/>
 
     <fragment android:id="@+id/audioSettingFragment"
-              android:name="com.creative.spotifykt.spotifylite.ui.setting.audio.AudioSettingFragment"
+              android:name="com.creative.spotifykt.ui.setting.audio.AudioSettingFragment"
               android:label="audio_setting_fragment"
               tools:layout="@layout/audio_setting_fragment"/>
 
     <fragment android:id="@+id/downloadSettingsFragment"
-              android:name="com.creative.spotifykt.spotifylite.ui.setting.download.DownloadSettingFragment"
+              android:name="com.creative.spotifykt.ui.setting.download.DownloadSettingFragment"
               android:label="download_settings_fragment"
               tools:layout="@layout/download_setting_fragment"/>
 
     <fragment android:id="@+id/explicitContentFragment"
-              android:name="com.creative.spotifykt.spotifylite.ui.setting.explicit.ExplicitContentFragment"
+              android:name="com.creative.spotifykt.ui.setting.explicit.ExplicitContentFragment"
               android:label="explicit_content_fragment"
               tools:layout="@layout/explicit_content_fragment"/>
 
     <fragment android:id="@+id/accountSettingFragment"
-              android:name="com.creative.spotifykt.spotifylite.ui.setting.account.AccountSettingFragment"
+              android:name="com.creative.spotifykt.ui.setting.account.AccountSettingFragment"
               android:label="account_setting_fragment"
               tools:layout="@layout/account_setting_fragment"/>
 
     <fragment android:id="@+id/aboutFragment"
-              android:name="com.creative.spotifykt.spotifylite.ui.setting.about.AboutFragment"
+              android:name="com.creative.spotifykt.ui.setting.about.AboutFragment"
               android:label="about_fragment"
               tools:layout="@layout/about_fragment"/>
 

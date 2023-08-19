@@ -8,7 +8,7 @@
         <item name="fontFamily">@font/encore_font_circular_book</item>
     </style>
 
-    <style name="SpotifyLite" parent="Theme.AppCompat.NoActionBar">
+    <style name="SpotifyKt" parent="Theme.AppCompat.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryVariant">@color/black</item>

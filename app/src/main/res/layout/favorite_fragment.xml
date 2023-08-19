@@ -7,7 +7,7 @@
         android:background="@color/primaryBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".spotifylite.ui.favorite.FavoriteFragment">
+        tools:context=".ui.favorite.FavoriteFragment">
 
     <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
