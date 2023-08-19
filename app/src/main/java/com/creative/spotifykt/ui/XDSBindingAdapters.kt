@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
@@ -62,5 +63,31 @@ fun bindTextLabel(textView: TextView, textLabel: TextLabel?) {
                 )
             )
         }
+    }
+}
+
+
+fun String.hexToColor(): Int {
+    // Remove the "#" if it's present
+    val hex = if (this.startsWith("#")) this.substring(1) else this
+
+    // Parse the hex string to an integer
+    val color = hex.toLong(16).toInt()
+
+    // Extract the individual color components (R, G, B)
+    val red = color shr 16 and 0xFF
+    val green = color shr 8 and 0xFF
+    val blue = color and 0xFF
+
+    // Create the RGB color by combining the components
+    return android.graphics.Color.rgb(red, green, blue)
+}
+
+
+@BindingAdapter("bindCardViewBackground")
+fun bindCardViewBackground(view: CardView, color: String?) {
+    color?.let {
+        // Color Int from Hex
+        view.setCardBackgroundColor(color.hexToColor())
     }
 }

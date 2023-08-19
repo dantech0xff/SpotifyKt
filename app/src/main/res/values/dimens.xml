@@ -49,4 +49,16 @@
     <dimen name="xds_text_size_subtitle1">16sp</dimen>
     <dimen name="xds_text_size_subtitle2">14sp</dimen>
 
+    <dimen name="xds_rounded_corner_s">4dp</dimen>
+    <dimen name="xds_rounded_corner_m">8dp</dimen>
+    <dimen name="xds_rounded_corner_l">16dp</dimen>
+    <dimen name="xds_rounded_corner_xl">24dp</dimen>
+    <dimen name="xds_rounded_corner_xxl">32dp</dimen>
+
+    <dimen name="xds_elevation_s">4dp</dimen>
+    <dimen name="xds_elevation_m">8dp</dimen>
+    <dimen name="xds_elevation_l">16dp</dimen>
+    <dimen name="xds_elevation_xl">24dp</dimen>
+    <dimen name="xds_elevation_xxl">32dp</dimen>
+
 </resources>

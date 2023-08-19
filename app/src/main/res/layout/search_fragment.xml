@@ -1,59 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="deeplinkHandler"
+            type="com.creative.spotifykt.ui.IDeeplinkHandler" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
         android:background="@color/primaryBackground"
         tools:context=".ui.search.SearchFragment">
 
-    <com.creative.spotifykt.ui.view.EncoreBoldTextView
+        <com.creative.spotifykt.ui.view.EncoreBoldTextView
             android:id="@+id/search_tittle"
             android:text="@string/title_search"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+            android:textSize="@dimen/xds_text_size_heading1"
+            android:padding="@dimen/xds_space_l"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-    <androidx.cardview.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/cardview_dark_background"
-            app:cardCornerRadius="6dp"
-            android:elevation="1dp">
-        <LinearLayout
+            app:cardBackgroundColor="@color/cardview_light_background"
+            app:cardCornerRadius="@dimen/xds_rounded_corner_m"
+            android:layout_marginStart="@dimen/xds_space_l"
+            android:layout_marginEnd="@dimen/xds_space_l"
+            android:elevation="@dimen/xds_elevation_m">
+            <LinearLayout
                 android:id="@+id/layout_search_bar"
                 android:gravity="center"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
+                android:padding="@dimen/xds_space_l"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            <ImageView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/xds_space_m"
+                    android:layout_marginEnd="@dimen/xds_space_m"
                     android:src="@drawable/round_find_in_page_24"
+                    app:tint="@color/xds_color_font_quaternary"
                     android:contentDescription="@string/title_search"/>
-            <com.creative.spotifykt.ui.view.EncoreTextView
+                <com.creative.spotifykt.ui.view.EncoreTextView
+                    android:textColor="@color/xds_color_font_quaternary"
+                    android:textSize="@dimen/xds_text_size_heading4"
                     android:text="@string/search_box_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-    <androidx.recyclerview.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_search_topic"
             tools:listitem="@layout/item_search_topic"
             tools:itemCount="2"
             android:scrollbars="none"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-    </androidx.recyclerview.widget.RecyclerView>
-</LinearLayout>
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+</layout>
