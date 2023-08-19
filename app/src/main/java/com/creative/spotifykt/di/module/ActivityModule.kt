@@ -3,8 +3,8 @@ package com.creative.spotifykt.di.module
 import androidx.lifecycle.ViewModelProvider
 import com.creative.spotifykt.core.viewmodel.viewModelFactory
 import com.creative.spotifykt.core.ui.BaseActivity
-import com.creative.spotifykt.ui.main.MainActivityViewModel
-import com.creative.spotifykt.ui.setting.SettingActivityViewModel
+import com.creative.spotifykt.ui.activity.main.MainActivityViewModel
+import com.creative.spotifykt.ui.activity.setting.SettingActivityViewModel
 import dagger.Module
 import dagger.Provides
 

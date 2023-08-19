@@ -1,9 +1,9 @@
 package com.creative.spotifykt.di.component
 
-import com.creative.spotifykt.ui.main.MainActivity
+import com.creative.spotifykt.ui.activity.main.MainActivity
 import com.creative.spotifykt.di.ActivityScope
 import com.creative.spotifykt.di.module.ActivityModule
-import com.creative.spotifykt.ui.setting.SettingActivity
+import com.creative.spotifykt.ui.activity.setting.SettingActivity
 import dagger.Component
 
 @ActivityScope

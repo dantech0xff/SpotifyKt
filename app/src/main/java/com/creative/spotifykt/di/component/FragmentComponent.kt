@@ -8,7 +8,7 @@ import com.creative.spotifykt.ui.home.HomeFragment
 import com.creative.spotifykt.ui.premium.PremiumFragment
 import com.creative.spotifykt.ui.search.SearchFragment
 import com.creative.spotifykt.ui.search.result.SearchResultFragment
-import com.creative.spotifykt.ui.setting.SettingActivity
+import com.creative.spotifykt.ui.activity.setting.SettingActivity
 import com.creative.spotifykt.ui.setting.about.AboutFragment
 import com.creative.spotifykt.ui.setting.account.AccountSettingFragment
 import com.creative.spotifykt.ui.setting.audio.AudioSettingFragment

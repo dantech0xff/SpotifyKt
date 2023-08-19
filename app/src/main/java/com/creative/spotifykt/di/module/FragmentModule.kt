@@ -12,7 +12,7 @@ import com.creative.spotifykt.ui.home.HomeFragmentViewModel
 import com.creative.spotifykt.ui.premium.PremiumViewModel
 import com.creative.spotifykt.ui.search.SearchViewModel
 import com.creative.spotifykt.ui.search.result.SearchResultViewModel
-import com.creative.spotifykt.ui.setting.SettingActivityViewModel
+import com.creative.spotifykt.ui.activity.setting.SettingActivityViewModel
 import com.creative.spotifykt.ui.setting.about.AboutViewModel
 import com.creative.spotifykt.ui.setting.account.AccountSettingViewModel
 import com.creative.spotifykt.ui.setting.audio.AudioSettingViewModel

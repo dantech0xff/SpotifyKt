@@ -1,4 +1,4 @@
-package com.creative.spotifykt.ui.setting
+package com.creative.spotifykt.ui.activity.setting
 
 import android.os.Bundle
 import androidx.navigation.findNavController
