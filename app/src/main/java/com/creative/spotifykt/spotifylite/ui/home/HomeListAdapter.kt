@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.creative.spotifykt.R
-import com.creative.spotifykt.base.utils.removeAllDecorations
+import com.creative.spotifykt.core.removeAllDecorations
 import com.creative.spotifykt.databinding.LayoutSquareCellMusicListBinding
 import com.creative.spotifykt.spotifylite.data.LayoutOrientation
 import com.creative.spotifykt.spotifylite.data.MusicListUI

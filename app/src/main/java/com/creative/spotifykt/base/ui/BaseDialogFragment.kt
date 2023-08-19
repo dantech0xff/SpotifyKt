@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.DialogFragment
-import com.creative.spotifykt.base.utils.toast
+import com.creative.spotifykt.core.toast
 import com.creative.spotifykt.spotifylite.di.component.DaggerDialogFragmentComponent
 import com.creative.spotifykt.base.viewmodel.BaseViewModel
 import com.creative.spotifykt.spotifylite.di.component.DialogFragmentComponent

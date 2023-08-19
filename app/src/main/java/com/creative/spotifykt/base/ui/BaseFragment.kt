@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.creative.spotifykt.base.utils.toast
+import com.creative.spotifykt.core.toast
 import com.creative.spotifykt.base.viewmodel.BaseViewModel
 import com.creative.spotifykt.spotifylite.App
 import com.creative.spotifykt.spotifylite.di.component.DaggerFragmentComponent

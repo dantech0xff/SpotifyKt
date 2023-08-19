@@ -15,7 +15,7 @@ import com.creative.spotifykt.spotifylite.data.SettingRowItem
 import com.creative.spotifykt.spotifylite.di.component.FragmentComponent
 import com.creative.spotifykt.spotifylite.ui.setting.SettingRowViewWrapper
 import com.creative.spotifykt.base.ui.BaseFragment
-import com.creative.spotifykt.base.utils.dpToPixelsInt
+import com.creative.spotifykt.core.dpToPixelsInt
 
 class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSettingViewModel>(), View.OnClickListener {
 

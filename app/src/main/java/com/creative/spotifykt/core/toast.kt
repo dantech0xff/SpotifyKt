@@ -1,4 +1,4 @@
-package com.creative.spotifykt.base.utils
+package com.creative.spotifykt.core
 
 import android.content.Context
 import android.widget.Toast

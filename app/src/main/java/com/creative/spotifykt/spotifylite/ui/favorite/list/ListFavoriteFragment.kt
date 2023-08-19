@@ -9,7 +9,7 @@ import com.creative.spotifykt.databinding.ListFavoriteFragmentBinding
 import com.creative.spotifykt.spotifylite.data.FavMusicData
 import com.creative.spotifykt.spotifylite.di.component.FragmentComponent
 import com.creative.spotifykt.base.ui.BaseFragment
-import com.creative.spotifykt.base.utils.toast
+import com.creative.spotifykt.core.toast
 
 class ListFavoriteFragment : BaseFragment<ListFavoriteFragmentBinding, ListFavoriteViewModel>() {
 

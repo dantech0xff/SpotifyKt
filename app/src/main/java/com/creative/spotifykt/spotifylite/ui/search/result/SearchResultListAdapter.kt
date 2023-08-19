@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.creative.spotifykt.base.utils.toast
+import com.creative.spotifykt.core.toast
 import com.creative.spotifykt.databinding.ItemMusicRowBinding
 import com.creative.spotifykt.databinding.SearchResultAdditionalBinding
 import com.creative.spotifykt.databinding.SearchResultFeatureListBinding

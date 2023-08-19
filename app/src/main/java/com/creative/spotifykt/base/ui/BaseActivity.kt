@@ -3,7 +3,7 @@ package com.creative.spotifykt.base.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.creative.spotifykt.base.utils.toast
+import com.creative.spotifykt.core.toast
 import com.creative.spotifykt.spotifylite.App
 import com.creative.spotifykt.spotifylite.di.component.ActivityComponent
 import com.creative.spotifykt.spotifylite.di.component.DaggerActivityComponent

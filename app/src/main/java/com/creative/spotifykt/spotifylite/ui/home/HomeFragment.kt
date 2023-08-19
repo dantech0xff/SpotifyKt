@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.creative.spotifykt.base.ui.BaseFragment
-import com.creative.spotifykt.base.utils.toast
+import com.creative.spotifykt.core.toast
 import com.creative.spotifykt.databinding.FragmentHomeBinding
 import com.creative.spotifykt.spotifylite.di.component.FragmentComponent
 import com.creative.spotifykt.spotifylite.ui.IDeeplinkHandler
