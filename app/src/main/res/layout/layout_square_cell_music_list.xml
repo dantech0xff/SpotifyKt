@@ -21,8 +21,8 @@
             android:id="@+id/header_view"
             android:paddingStart="@dimen/xds_space_l"
             android:paddingEnd="@dimen/xds_space_l"
-            android:paddingTop="@dimen/xds_space_l"
-            android:paddingBottom="@dimen/xds_space_l"
+            android:paddingTop="@dimen/xds_space_s"
+            android:paddingBottom="@dimen/xds_space_s"
             android:layout_gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

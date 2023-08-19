@@ -12,7 +12,7 @@ import com.creative.spotifykt.data.model.local.MusicListUI
 import com.creative.spotifykt.data.model.local.MusicSquareUI
 import com.creative.spotifykt.data.model.local.TextLabel
 
-class HomeFragmentViewModel(
+class HomeViewModel(
     private val appContext: App
 ) : BaseViewModel() {
 
@@ -35,7 +35,7 @@ class HomeFragmentViewModel(
         add(
             MusicListUI(
                 0,
-                headline = TextLabel(appContext.getString(R.string.recent_title), "SECONDARY", "SECONDARY"),
+                headline = TextLabel(appContext.getString(R.string.recent_title), "PRIMARY"),
                 actionIcon = ActionIcon(),
                 items = listDumData.toList(),
                 LayoutConfig(
@@ -48,12 +48,12 @@ class HomeFragmentViewModel(
         add(
             MusicListUI(
                 1,
-                headline = TextLabel(appContext.getString(R.string.recent_title), "SECONDARY", "SECONDARY"),
+                headline = TextLabel(appContext.getString(R.string.recent_title), "PRIMARY"),
                 actionIcon = ActionIcon(),
                 items = listDumData.toList(),
                 LayoutConfig(
                     orientation = LayoutOrientation.HORIZONTAL.value,
-                    spanCount = 3
+                    spanCount = 2
                 )
             )
         )
@@ -72,7 +72,7 @@ class HomeFragmentViewModel(
 
         add(
             MusicListUI(
-                2, TextLabel(appContext.getString(R.string.recommended_for_you)),
+                3, TextLabel(appContext.getString(R.string.recommended_for_you)),
                 items = listDumData.toList(),
                 actionIcon = ActionIcon(),
                 layoutConfig = LayoutConfig(

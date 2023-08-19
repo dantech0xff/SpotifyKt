@@ -8,7 +8,7 @@ import com.creative.spotifykt.App
 import com.creative.spotifykt.ui.favorite.FavoriteViewModel
 import com.creative.spotifykt.ui.favorite.list.ListFavoriteViewModel
 import com.creative.spotifykt.ui.setting.download.DownloadSettingViewModel
-import com.creative.spotifykt.ui.home.HomeFragmentViewModel
+import com.creative.spotifykt.ui.home.HomeViewModel
 import com.creative.spotifykt.ui.premium.PremiumViewModel
 import com.creative.spotifykt.ui.search.SearchViewModel
 import com.creative.spotifykt.ui.search.result.SearchResultViewModel
@@ -30,11 +30,11 @@ class FragmentModule (private val fragment: BaseFragment<*, *>) {
     fun provideLinearLayoutManager(): LinearLayoutManager = LinearLayoutManager(fragment.context)
 
     @Provides
-    fun provideHomeViewModel(app: App): HomeFragmentViewModel =
+    fun provideHomeViewModel(app: App): HomeViewModel =
         ViewModelProvider(fragment.requireActivity(),
             viewModelFactory {
-                HomeFragmentViewModel(app)
-            })[HomeFragmentViewModel::class.java]
+                HomeViewModel(app)
+            })[HomeViewModel::class.java]
 
     @Provides
     fun provideSettingFragmentViewModel(): SettingActivityViewModel =
