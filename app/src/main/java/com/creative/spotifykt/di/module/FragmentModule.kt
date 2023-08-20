@@ -28,54 +28,51 @@ import dagger.Provides
 class FragmentModule (private val fragment: BaseFragment<*, *>) {
 
     @Provides
-    fun provideLinearLayoutManager(): LinearLayoutManager = LinearLayoutManager(fragment.context)
-
-    @Provides
     fun provideHomeViewModel(app: App): HomeViewModel =
-        ViewModelProvider(fragment.requireActivity(),
+        ViewModelProvider(fragment,
             viewModelFactory {
                 HomeViewModel(app)
             })[HomeViewModel::class.java]
 
     @Provides
     fun provideSettingFragmentViewModel(): SettingActivityViewModel =
-        ViewModelProvider(fragment.requireActivity(), viewModelFactory { SettingActivityViewModel() })[SettingActivityViewModel::class.java]
+        ViewModelProvider(fragment, viewModelFactory { SettingActivityViewModel() })[SettingActivityViewModel::class.java]
 
     @Provides
     fun provideMainSettingViewModel(): MainSettingViewModel =
-        ViewModelProvider(fragment.requireActivity(), viewModelFactory { MainSettingViewModel() })[MainSettingViewModel::class.java]
+        ViewModelProvider(fragment, viewModelFactory { MainSettingViewModel() })[MainSettingViewModel::class.java]
 
     @Provides
     fun provideMobileDataViewModel(): MobileDataViewModel =
-        ViewModelProvider(fragment.requireActivity(), viewModelFactory { MobileDataViewModel() })[MobileDataViewModel::class.java]
+        ViewModelProvider(fragment, viewModelFactory { MobileDataViewModel() })[MobileDataViewModel::class.java]
 
     @Provides
     fun provideStorageViewModel(): StorageViewModel =
-        ViewModelProvider(fragment.requireActivity(), viewModelFactory { StorageViewModel() })[StorageViewModel::class.java]
+        ViewModelProvider(fragment, viewModelFactory { StorageViewModel() })[StorageViewModel::class.java]
 
     @Provides
     fun provideAudioSettingViewModel(): AudioSettingViewModel =
-        ViewModelProvider(fragment.requireActivity(), viewModelFactory { AudioSettingViewModel() })[AudioSettingViewModel::class.java]
+        ViewModelProvider(fragment, viewModelFactory { AudioSettingViewModel() })[AudioSettingViewModel::class.java]
 
     @Provides
     fun providePremiumViewModel(): PremiumViewModel =
-        ViewModelProvider(fragment.requireActivity(), viewModelFactory { PremiumViewModel() })[PremiumViewModel::class.java]
+        ViewModelProvider(fragment, viewModelFactory { PremiumViewModel() })[PremiumViewModel::class.java]
 
     @Provides
     fun provideDownloadSettingsViewModel(): DownloadSettingViewModel =
-        ViewModelProvider(fragment.requireActivity(), viewModelFactory { DownloadSettingViewModel() })[DownloadSettingViewModel::class.java]
+        ViewModelProvider(fragment, viewModelFactory { DownloadSettingViewModel() })[DownloadSettingViewModel::class.java]
 
     @Provides
     fun provideExplicitContentViewModel(): ExplicitContentViewModel =
-        ViewModelProvider(fragment.requireActivity(), viewModelFactory { ExplicitContentViewModel() })[ExplicitContentViewModel::class.java]
+        ViewModelProvider(fragment, viewModelFactory { ExplicitContentViewModel() })[ExplicitContentViewModel::class.java]
 
     @Provides
     fun provideAccountSettingViewModel(): AccountSettingViewModel =
-        ViewModelProvider(fragment.requireActivity(), viewModelFactory { AccountSettingViewModel() })[AccountSettingViewModel::class.java]
+        ViewModelProvider(fragment, viewModelFactory { AccountSettingViewModel() })[AccountSettingViewModel::class.java]
 
     @Provides
     fun provideAboutViewModel(): AboutViewModel =
-        ViewModelProvider(fragment.requireActivity(), viewModelFactory { AboutViewModel() })[AboutViewModel::class.java]
+        ViewModelProvider(fragment, viewModelFactory { AboutViewModel() })[AboutViewModel::class.java]
 
     @Provides
     fun provideSearchViewModel(getSearchResultUseCase: GetSearchResultUseCase): SearchViewModel =
@@ -85,13 +82,13 @@ class FragmentModule (private val fragment: BaseFragment<*, *>) {
 
     @Provides
     fun provideFavoriteViewModel(): FavoriteViewModel =
-        ViewModelProvider(fragment.requireActivity(), viewModelFactory { FavoriteViewModel() })[FavoriteViewModel::class.java]
+        ViewModelProvider(fragment, viewModelFactory { FavoriteViewModel() })[FavoriteViewModel::class.java]
 
     @Provides
     fun provideSearchResultViewModel(): SearchResultViewModel =
-        ViewModelProvider(fragment.requireActivity(), viewModelFactory { SearchResultViewModel() })[SearchResultViewModel::class.java]
+        ViewModelProvider(fragment, viewModelFactory { SearchResultViewModel() })[SearchResultViewModel::class.java]
 
     @Provides
     fun provideListFavoriteViewModel(): ListFavoriteViewModel =
-        ViewModelProvider(fragment.requireActivity(), viewModelFactory { ListFavoriteViewModel() })[ListFavoriteViewModel::class.java]
+        ViewModelProvider(fragment, viewModelFactory { ListFavoriteViewModel() })[ListFavoriteViewModel::class.java]
 }
