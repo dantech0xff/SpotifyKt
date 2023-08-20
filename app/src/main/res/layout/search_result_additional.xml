@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:paddingTop="@dimen/setting_padding_top"
-             android:paddingBottom="@dimen/setting_padding_bottom"
-             android:paddingStart="@dimen/setting_padding_left"
-             android:paddingEnd="@dimen/setting_padding_right"
-             android:background="?android:attr/selectableItemBackground"
-             android:clickable="true"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content" android:focusable="true">
-<com.creative.spotifykt.ui.view.EncoreTextView
-        android:id="@+id/text_title"
-        android:gravity="center_vertical"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="deeplinkHandler"
+            type="com.creative.spotifykt.ui.IDeeplinkHandler" />
+        <variable
+            name="data"
+            type="com.creative.spotifykt.data.model.local.SearchResultText" />
+    </data>
+    <FrameLayout
+        android:padding="@dimen/xds_space_l"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="@{()->deeplinkHandler.handleDeeplink(data.deeplink)}"
         android:layout_width="match_parent"
-        android:textSize="15sp"
-        android:layout_height="@dimen/vertical_row_height_dp"/>
-</FrameLayout>
+        android:layout_height="wrap_content">
+
+        <com.creative.spotifykt.ui.view.EncoreTextView
+            tools:text="Clear All"
+            app:bindTextLabel="@{data.textLabel}"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/xds_text_size_heading4"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+</layout>

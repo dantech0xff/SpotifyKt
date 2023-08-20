@@ -1,34 +1,31 @@
 package com.creative.spotifykt.ui.search.result
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.viewbinding.ViewBinding
-import com.creative.spotifykt.core.toast
 import com.creative.spotifykt.databinding.ItemMusicRowBinding
 import com.creative.spotifykt.databinding.SearchResultAdditionalBinding
 import com.creative.spotifykt.databinding.SearchResultFeatureListBinding
-import com.creative.spotifykt.data.model.local.MusicSquareUI
-import com.creative.spotifykt.data.model.local.SearchResultData
+import com.creative.spotifykt.data.model.local.SearchResult
+import com.creative.spotifykt.data.model.local.SearchResultText
 import com.creative.spotifykt.data.model.local.SearchResultType
+import com.creative.spotifykt.ui.IDeeplinkHandler
 import com.creative.spotifykt.ui.home.MusicListAdapter
 
-class SearchResultListAdapter : ListAdapter<SearchResultData, SearchResultListAdapter.SearchResultVH>(DIFF_CALLBACK) {
+class SearchResultListAdapter(
+    private val deeplinkHandler: IDeeplinkHandler? = null,
+) : ListAdapter<SearchResult, ViewHolder>(DIFF_CALLBACK) {
 
-    inner class SearchResultVH(val viewBinding: ViewBinding) : RecyclerView.ViewHolder(viewBinding.root) {
-        private val musicAdapter: MusicListAdapter by lazy {
-            MusicListAdapter()
-        }
+    inner class SearchResultVH(val viewBinding: ViewBinding) : ViewHolder(viewBinding.root) {
 
-        private fun onMusicItemClick(musicItem: MusicSquareUI) {
-            itemView.context.toast(musicItem.toString())
-        }
-
-        fun bind(resultData: SearchResultData) {
-            when (resultData.type) {
+        fun bind(resultData: SearchResult) {
+            /*when (resultData.type) {
                 SearchResultType.MUSIC -> {
                     with(viewBinding as ItemMusicRowBinding) {
                         title.text = resultData.title
@@ -55,65 +52,58 @@ class SearchResultListAdapter : ListAdapter<SearchResultData, SearchResultListAd
                         textTitle.text = resultData.title
                     }
                 }
-            }
+            }*/
+        }
+    }
+
+    inner class SearchResultTextViewHolder(val viewBinding: SearchResultAdditionalBinding)
+        : ViewHolder(viewBinding.root) {
+        fun bind(data: SearchResultText?) {
+            viewBinding.data = data
+            viewBinding.deeplinkHandler = deeplinkHandler
         }
     }
 
     companion object {
-        const val ROW_TYPE_MUSIC = 1
-        const val ROW_TYPE_LIST_FEATURE = 2
-        const val ROW_TYPE_ADDITIONAL = 3
+        const val ROW_TYPE_TEXT = 1
+        const val ROW_TYPE_MUSIC = 2
+        const val ROW_TYPE_FEATURE_LIST = 3
 
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<SearchResultData>() {
-            override fun areItemsTheSame(oldItem: SearchResultData, newItem: SearchResultData): Boolean =
-                oldItem.title == newItem.title
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<SearchResult>() {
+            override fun areItemsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean =
+                oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: SearchResultData, newItem: SearchResultData): Boolean =
+            override fun areContentsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean =
                 oldItem == newItem
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchResultVH {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return when (viewType) {
-            ROW_TYPE_MUSIC -> SearchResultVH(
-                ItemMusicRowBinding.inflate(
-                    LayoutInflater.from(parent.context),
-                    parent, false
-                )
-            )
-
-            ROW_TYPE_LIST_FEATURE -> SearchResultVH(
-                SearchResultFeatureListBinding.inflate(
-                    LayoutInflater.from(parent.context),
-                    parent, false
-                )
-            )
-
-            ROW_TYPE_ADDITIONAL -> SearchResultVH(
+            ROW_TYPE_TEXT -> SearchResultTextViewHolder(
                 SearchResultAdditionalBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent, false
                 )
             )
 
-            else -> SearchResultVH(
-                SearchResultAdditionalBinding.inflate(
-                    LayoutInflater.from(parent.context),
-                    parent, false
-                )
-            )
+            else -> object : ViewHolder(View(parent.context)) {}
         }
     }
 
-    override fun onBindViewHolder(holder: SearchResultVH, position: Int) {
-        holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        when (getItemViewType(position)) {
+            ROW_TYPE_TEXT -> (holder as? SearchResultTextViewHolder)?.bind(getItem(position).searchResultText)
+        }
+        (holder as? SearchResultVH)?.bind(getItem(position))
     }
 
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position).type) {
-            SearchResultType.MUSIC -> ROW_TYPE_MUSIC
-            SearchResultType.FEATURE -> ROW_TYPE_LIST_FEATURE
-            SearchResultType.ADDITIONAL -> ROW_TYPE_ADDITIONAL
+            SearchResultType.TEXT.value -> ROW_TYPE_TEXT
+            SearchResultType.MUSIC_ROW.value -> ROW_TYPE_MUSIC
+            SearchResultType.FEATURE_LIST.value -> ROW_TYPE_FEATURE_LIST
+            else -> super.getItemViewType(position)
         }
     }
 }

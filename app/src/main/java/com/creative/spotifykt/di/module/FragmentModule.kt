@@ -20,6 +20,7 @@ import com.creative.spotifykt.ui.setting.explicit.ExplicitContentViewModel
 import com.creative.spotifykt.ui.setting.main.MainSettingViewModel
 import com.creative.spotifykt.ui.setting.mobiledata.MobileDataViewModel
 import com.creative.spotifykt.ui.setting.storage.StorageViewModel
+import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
 import dagger.Module
 import dagger.Provides
 
@@ -77,8 +78,10 @@ class FragmentModule (private val fragment: BaseFragment<*, *>) {
         ViewModelProvider(fragment.requireActivity(), viewModelFactory { AboutViewModel() })[AboutViewModel::class.java]
 
     @Provides
-    fun provideSearchViewModel(): SearchViewModel =
-        ViewModelProvider(fragment.requireActivity(), viewModelFactory { SearchViewModel() })[SearchViewModel::class.java]
+    fun provideSearchViewModel(getSearchResultUseCase: GetSearchResultUseCase): SearchViewModel =
+        ViewModelProvider(fragment, viewModelFactory {
+            SearchViewModel(getSearchResultUseCase)
+        })[SearchViewModel::class.java]
 
     @Provides
     fun provideFavoriteViewModel(): FavoriteViewModel =

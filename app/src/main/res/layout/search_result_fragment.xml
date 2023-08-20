@@ -1,43 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.creative.spotifykt.ui.search.result.SearchResultState"/>
+        <variable
+            name="vm"
+            type="com.creative.spotifykt.ui.search.result.SearchResultViewModel" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".ui.search.result.SearchResultFragment">
 
-    <LinearLayout
+        <LinearLayout
             android:id="@+id/layout_setting_toolbar"
             android:background="?android:attr/windowBackground"
             android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:orientation="horizontal"
             android:gravity="center"
-            android:layout_height="58dp">
-        <com.creative.spotifykt.ui.view.RatioImageView
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <com.creative.spotifykt.ui.view.RatioImageView
                 android:id="@+id/search_back_nav"
                 android:src="@drawable/round_arrow_back_24"
                 android:tint="@color/white"
                 android:scaleType="centerInside"
-                android:layout_width="50dp"
-                android:layout_height="50dp"/>
-        <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="@dimen/xds_icon_size_xl"
+                android:layout_height="@dimen/xds_icon_size_xl"/>
+            <com.creative.spotifykt.ui.view.EncoreEditText
                 android:background="@null"
-                android:textSize="15sp"
+                android:textSize="@dimen/xds_text_size_heading4"
+                android:layout_marginEnd="@dimen/xds_space_l"
+                android:layout_marginStart="@dimen/xds_space_m"
                 android:id="@+id/search_text_edit"
-                android:textColor="@color/white"
+                android:textColor="@color/xds_color_white"
                 android:hint="@string/search_box_desc"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-    </LinearLayout>
+                android:layout_height="match_parent"/>
+        </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
+            tools:visibility="gone"
+            app:bindVisibleOrGone="@{vm.searchResult instanceof SearchResultState.Success}"
             android:id="@+id/list_search_result"
             tools:listitem="@layout/item_music_row"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-    />
-</LinearLayout>
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            tools:visibility="gone"
+            app:bindVisibleOrGone="@{vm.searchResult instanceof SearchResultState.Empty}"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.creative.spotifykt.ui.view.EncoreBoldTextView
+                tools:textColor="@color/xds_color_font_primary"
+                android:textSize="@dimen/xds_text_size_heading4"
+                tools:text="Find the music you love"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <com.creative.spotifykt.ui.view.EncoreTextView
+                android:layout_marginTop="@dimen/xds_space_s"
+                tools:textColor="@color/xds_color_font_secondary"
+                android:textSize="@dimen/xds_text_size_heading4"
+                tools:text="from million of artists, songs and playlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            tools:visibility="gone"
+            android:gravity="center|top"
+            app:bindVisibleOrGone="@{vm.searchResult instanceof SearchResultState.Loading}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.creative.spotifykt.ui.view.EncoreTextView
+                tools:text="Searching..."
+                android:textSize="@dimen/xds_text_size_heading3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            tools:visibility="gone"
+            app:bindVisibleOrGone="@{vm.searchResult instanceof SearchResultState.Error}"
+            android:gravity="center|top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.creative.spotifykt.ui.view.EncoreTextView
+                tools:text="Something went wrong!"
+                android:textSize="@dimen/xds_text_size_heading3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

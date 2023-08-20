@@ -4,8 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.creative.spotifykt.core.viewmodel.BaseViewModel
 import com.creative.spotifykt.data.model.local.MusicSearchTopic
+import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
 
-class SearchViewModel : BaseViewModel() {
+class SearchViewModel(
+    private val getSearchResultUseCase: GetSearchResultUseCase
+) : BaseViewModel() {
     private val listSearchLiveData: MutableLiveData<SearchListState> = MutableLiveData()
     val listSearch: LiveData<SearchListState> = listSearchLiveData
 

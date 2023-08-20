@@ -1,6 +1,5 @@
 package com.creative.spotifykt.ui
 
-import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -8,13 +7,9 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.Target
 import com.creative.spotifykt.R
 import com.creative.spotifykt.data.model.local.TextLabel
 
@@ -90,4 +85,13 @@ fun bindCardViewBackground(view: CardView, color: String?) {
         // Color Int from Hex
         view.setCardBackgroundColor(color.hexToColor())
     }
+}
+
+@BindingAdapter("bindVisibleOrGone")
+fun bindVisibleOrGone(view: View, isVisible: Boolean?) {
+    if (isVisible == null) {
+        view.visibility = View.GONE
+        return
+    }
+    view.visibility = if (isVisible) View.VISIBLE else View.GONE
 }

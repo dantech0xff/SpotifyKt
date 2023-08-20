@@ -4,6 +4,7 @@ import android.app.Application
 import com.creative.spotifykt.di.component.AppComponent
 import com.creative.spotifykt.di.component.DaggerAppComponent
 import com.creative.spotifykt.di.module.AppModule
+import com.creative.spotifykt.di.module.biz.UseCaseModule
 
 class App : Application() {
 
@@ -18,6 +19,10 @@ class App : Application() {
         appComponent = DaggerAppComponent
             .builder()
             .appModule(AppModule(this))
+            .databaseModule(com.creative.spotifykt.di.module.biz.DatabaseModule())
+            .networkModule(com.creative.spotifykt.di.module.biz.NetworkModule())
+            .repoModule(com.creative.spotifykt.di.module.biz.RepoModule())
+            .useCaseModule(UseCaseModule())
             .build()
         appComponent.inject(this)
     }
