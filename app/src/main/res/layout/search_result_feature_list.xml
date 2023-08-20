@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
-              android:paddingTop="@dimen/setting_padding_top"
-              android:paddingBottom="@dimen/setting_padding_bottom"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.creative.spotifykt.ui.view.EncoreBoldTextView
-            android:id="@+id/text_title"
-            android:textSize="16sp"
-            android:paddingBottom="10dp"
+    <data>
+        <variable
+            name="data"
+            type="com.creative.spotifykt.data.model.local.SearchResultFeatureList" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.creative.spotifykt.ui.view.EncoreBoldTextView
+            tools:text="Featuring RPT MCK"
+            app:bindTextLabel="@{data.title}"
+            android:paddingTop="@dimen/xds_space_l"
+            android:paddingBottom="@dimen/xds_space_m"
+            android:textSize="@dimen/xds_text_size_heading2"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    <androidx.recyclerview.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_feature_music"
             tools:listitem="@layout/item_music_square"
             tools:itemCount="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-</LinearLayout>
+    </LinearLayout>
+</layout>

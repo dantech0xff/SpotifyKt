@@ -40,12 +40,12 @@ class ListFavAdapter : RecyclerView.Adapter<ListFavAdapter.FavMusicRowVH>() {
                 title.visibility = View.VISIBLE
                 subTitle.text = item.subTitle
                 subTitle.visibility = View.VISIBLE
-                titleCenter.visibility = View.GONE
+//                titleCenter.visibility = View.GONE
             } else {
-                titleCenter.apply {
-                    visibility = View.VISIBLE
-                    text = item.title
-                }
+//                titleCenter.apply {
+//                    visibility = View.VISIBLE
+//                    text = item.title
+//                }
                 title.visibility = View.GONE
                 subTitle.visibility = View.GONE
             }

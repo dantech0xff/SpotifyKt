@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@color/primaryBackground"
         tools:context=".ui.search.result.SearchResultFragment">
 
         <LinearLayout
@@ -22,6 +23,8 @@
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:gravity="center"
+            android:paddingTop="@dimen/xds_space_m"
+            android:paddingBottom="@dimen/xds_space_m"
             android:orientation="horizontal"
             android:layout_height="wrap_content">
 

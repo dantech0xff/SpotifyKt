@@ -12,7 +12,7 @@ data class MusicSquareUI(
     val deeplink: String? = null,
     val headline: TextLabel? = null,
     val subHeadline: TextLabel? = null,
-     ) : Parcelable
+) : Parcelable
 
 
 @Parcelize
@@ -21,4 +21,4 @@ data class TextLabel(
      val text: String? = null,
      val colorStyle: String? = null,
      val sizeStyle: String? = null,
-     ) : Parcelable
+) : Parcelable

@@ -6,6 +6,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @JsonClass(generateAdapter = true)
+data class ListSearchResult(
+    val items: List<SearchResult?>? = null
+) : Parcelable
+
+@Parcelize
+@JsonClass(generateAdapter = true)
 data class SearchResult(
     val id: String? = null,
     val type: String? = null,
@@ -18,7 +24,8 @@ data class SearchResult(
 @JsonClass(generateAdapter = true)
 data class SearchResultText(
     val deeplink: String? = null,
-    val textLabel: TextLabel? = null) : Parcelable
+    val headline: TextLabel? = null,
+) : Parcelable
 
 @Parcelize
 @JsonClass(generateAdapter = true)
@@ -32,8 +39,8 @@ data class SearchResultFeatureList(
 data class SearchResultMusicRow(
     val deeplink: String? = null,
     val image: String? = null,
-    val title: TextLabel? = null,
-    val subTitle: TextLabel? = null) : Parcelable
+    val headline: TextLabel? = null,
+    val subHeadline: TextLabel? = null) : Parcelable
 
 enum class SearchResultType(val value: String) {
     TEXT("TEXT"),

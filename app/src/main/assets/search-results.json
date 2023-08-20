@@ -1,0 +1,210 @@
+{
+  "items": [
+    {
+      "id": "0de9a94b",
+      "type": "MUSIC_ROW",
+      "searchResultMusicRow": {
+        "deeplink": "music_deeplink",
+        "image": "music_image_url",
+        "headline": {
+          "text": "Music Headline",
+          "colorStyle": "COLOR_STYLE",
+          "sizeStyle": "SIZE_STYLE"
+        },
+        "subHeadline": {
+          "text": "Music Subheadline",
+          "colorStyle": "COLOR_STYLE",
+          "sizeStyle": "SIZE_STYLE"
+        }
+      }
+    },
+    {
+      "id": "2467f84a",
+      "type": "FEATURE_LIST",
+      "searchResultFeatureList": {
+        "deeplink": "feature_list_deeplink",
+        "title": {
+          "text": "Feature List Title",
+          "colorStyle": "COLOR_STYLE",
+          "sizeStyle": "SIZE_STYLE"
+        },
+        "featureList": [
+          {
+            "id": "c6a9a2f0",
+            "image": "feature_image_1_url",
+            "deeplink": "feature_1_deeplink",
+            "headline": {
+              "text": "Feature 1 Headline",
+              "colorStyle": "COLOR_STYLE",
+              "sizeStyle": "SIZE_STYLE"
+            },
+            "subHeadline": {
+              "text": "Feature 1 Subheadline",
+              "colorStyle": "COLOR_STYLE",
+              "sizeStyle": "SIZE_STYLE"
+            }
+          },
+          {
+            "id": "dfea0eb1",
+            "image": "feature_image_2_url",
+            "deeplink": "feature_2_deeplink",
+            "headline": {
+              "text": "Feature 2 Headline",
+              "colorStyle": "COLOR_STYLE",
+              "sizeStyle": "SIZE_STYLE"
+            },
+            "subHeadline": {
+              "text": "Feature 2 Subheadline",
+              "colorStyle": "COLOR_STYLE",
+              "sizeStyle": "SIZE_STYLE"
+            }
+          },
+          {
+            "id": "b1f2d5cc",
+            "image": "feature_image_3_url",
+            "deeplink": "feature_3_deeplink",
+            "headline": {
+              "text": "Feature 3 Headline",
+              "colorStyle": "COLOR_STYLE",
+              "sizeStyle": "SIZE_STYLE"
+            },
+            "subHeadline": {
+              "text": "Feature 3 Subheadline",
+              "colorStyle": "COLOR_STYLE",
+              "sizeStyle": "SIZE_STYLE"
+            }
+          },
+          {
+            "id": "385b7b47",
+            "image": "feature_image_4_url",
+            "deeplink": "feature_4_deeplink",
+            "headline": {
+              "text": "Feature 4 Headline",
+              "colorStyle": "COLOR_STYLE",
+              "sizeStyle": "SIZE_STYLE"
+            },
+            "subHeadline": {
+              "text": "Feature 4 Subheadline",
+              "colorStyle": "COLOR_STYLE",
+              "sizeStyle": "SIZE_STYLE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "4a79a498",
+      "type": "MUSIC_ROW",
+      "searchResultMusicRow": {
+        "deeplink": "music_deeplink",
+        "image": "music_image_url",
+        "headline": {
+          "text": "Music Headline",
+          "colorStyle": "COLOR_STYLE",
+          "sizeStyle": "SIZE_STYLE"
+        },
+        "subHeadline": {
+          "text": "Music Subheadline",
+          "colorStyle": "COLOR_STYLE",
+          "sizeStyle": "SIZE_STYLE"
+        }
+      }
+    },
+    {
+      "id": "6f7a7652",
+      "type": "MUSIC_ROW",
+      "searchResultMusicRow": {
+        "deeplink": "music_deeplink",
+        "image": "music_image_url",
+        "headline": {
+          "text": "Music Headline",
+          "colorStyle": "COLOR_STYLE",
+          "sizeStyle": "SIZE_STYLE"
+        },
+        "subHeadline": {
+          "text": "Music Subheadline",
+          "colorStyle": "COLOR_STYLE",
+          "sizeStyle": "SIZE_STYLE"
+        }
+      }
+    },
+    {
+      "id": "9b62a07b",
+      "type": "MUSIC_ROW",
+      "searchResultMusicRow": {
+        "deeplink": "music_deeplink",
+        "image": "music_image_url",
+        "headline": {
+          "text": "Music Headline",
+          "colorStyle": "COLOR_STYLE",
+          "sizeStyle": "SIZE_STYLE"
+        },
+        "subHeadline": {
+          "text": "Music Subheadline",
+          "colorStyle": "COLOR_STYLE",
+          "sizeStyle": "SIZE_STYLE"
+        }
+      }
+    },
+    {
+      "id": "8c16f40e",
+      "type": "TEXT",
+      "searchResultText": {
+        "deeplink": "text_deeplink",
+        "headline": {
+          "text": "Text Headline",
+          "colorStyle": "COLOR_STYLE",
+          "sizeStyle": "SIZE_STYLE"
+        }
+      }
+    },
+    {
+      "id": "10f2ec4c",
+      "type": "TEXT",
+      "searchResultText": {
+        "deeplink": "text_deeplink",
+        "headline": {
+          "text": "Text Headline",
+          "colorStyle": "COLOR_STYLE",
+          "sizeStyle": "SIZE_STYLE"
+        }
+      }
+    },
+    {
+      "id": "7c871c3c",
+      "type": "TEXT",
+      "searchResultText": {
+        "deeplink": "text_deeplink",
+        "headline": {
+          "text": "Text Headline",
+          "colorStyle": "COLOR_STYLE",
+          "sizeStyle": "SIZE_STYLE"
+        }
+      }
+    },
+    {
+      "id": "5cf307a5",
+      "type": "TEXT",
+      "searchResultText": {
+        "deeplink": "text_deeplink",
+        "headline": {
+          "text": "Text Headline",
+          "colorStyle": "COLOR_STYLE",
+          "sizeStyle": "SIZE_STYLE"
+        }
+      }
+    },
+    {
+      "id": "3fba603b",
+      "type": "TEXT",
+      "searchResultText": {
+        "deeplink": "text_deeplink",
+        "headline": {
+          "text": "Text Headline",
+          "colorStyle": "COLOR_STYLE",
+          "sizeStyle": "SIZE_STYLE"
+        }
+      }
+    }
+  ]
+}

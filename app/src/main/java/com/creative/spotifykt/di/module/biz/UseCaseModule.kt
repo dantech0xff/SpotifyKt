@@ -16,7 +16,9 @@ import dagger.Provides
 @Module
 class UseCaseModule {
     @Provides
-    fun provideGetSearchResultUseCase() = GetSearchResultUseCase()
+    fun provideGetSearchResultUseCase(
+        app: App, moshi: Moshi
+    ) = GetSearchResultUseCase(app, moshi)
 
     @Provides
     fun provideGetSearchTopicUseCase(

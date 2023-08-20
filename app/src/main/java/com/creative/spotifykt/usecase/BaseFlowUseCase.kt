@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
  */
 
 abstract class BaseFlowUseCase<In,Out> {
-    abstract fun create(input: In): Flow<Out>
+    protected abstract fun create(input: In): Flow<Out>
     fun execute(input: In): Flow<Out> {
         return create(input)
     }

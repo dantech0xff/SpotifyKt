@@ -10,15 +10,27 @@ import android.view.inputmethod.InputMethodManager
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.creative.spotifykt.core.log
 import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.data.model.local.SearchResult
 import com.creative.spotifykt.databinding.SearchResultFragmentBinding
 import com.creative.spotifykt.di.component.FragmentComponent
+import com.creative.spotifykt.ui.IDeeplinkHandler
 
 class SearchResultFragment : BaseFragment<SearchResultFragmentBinding, SearchResultViewModel>() {
 
-    private val searchResultAdapter: SearchResultListAdapter by lazy { SearchResultListAdapter() }
+    private val searchResultAdapter: SearchResultListAdapter by lazy {
+        SearchResultListAdapter(deeplinkHandler)
+    }
 
+    private val deeplinkHandler: IDeeplinkHandler by lazy {
+        object : IDeeplinkHandler {
+
+            override fun handleDeeplink(deeplink: String?) {
+                log("handleDeeplink: $deeplink")
+            }
+        }
+    }
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?): SearchResultFragmentBinding =
         SearchResultFragmentBinding.inflate(inflater, container, false)
 
