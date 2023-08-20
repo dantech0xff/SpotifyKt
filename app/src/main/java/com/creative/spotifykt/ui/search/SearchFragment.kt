@@ -46,6 +46,7 @@ class SearchFragment : BaseFragment<SearchFragmentBinding, SearchViewModel>(), I
                     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
                         super.getItemOffsets(outRect, view, parent, state)
                         val index = parent.getChildAdapterPosition(view)
+                        val total = parent.adapter?.itemCount ?: 0
                         if (index % spanCount == 0) {
                             outRect.left = resources.getDimensionPixelSize(R.dimen.xds_space_l)
                             outRect.right = resources.getDimensionPixelSize(R.dimen.xds_space_m) / 2
@@ -55,6 +56,16 @@ class SearchFragment : BaseFragment<SearchFragmentBinding, SearchViewModel>(), I
                         } else {
                             outRect.left = resources.getDimensionPixelSize(R.dimen.xds_space_m) / 2
                             outRect.right = resources.getDimensionPixelSize(R.dimen.xds_space_m) / 2
+                        }
+                        if (index < spanCount) {
+                            outRect.top = resources.getDimensionPixelSize(R.dimen.xds_space_m)
+                            outRect.bottom = resources.getDimensionPixelSize(R.dimen.xds_space_m) / 2
+                        } else if (index >= total - spanCount) {
+                            outRect.top = resources.getDimensionPixelSize(R.dimen.xds_space_m) / 2
+                            outRect.bottom = resources.getDimensionPixelSize(R.dimen.xds_space_m)
+                        } else {
+                            outRect.top = resources.getDimensionPixelSize(R.dimen.xds_space_m) / 2
+                            outRect.bottom = resources.getDimensionPixelSize(R.dimen.xds_space_m) / 2
                         }
                     }
                 })
@@ -66,16 +77,16 @@ class SearchFragment : BaseFragment<SearchFragmentBinding, SearchViewModel>(), I
         super.setupObservers()
         viewModel.listSearch.observe(viewLifecycleOwner) {
             when (it) {
-                is SearchListState.Loading -> {
+                is ListTopicSearchState.Loading -> {
                     log("Loading")
                 }
 
-                is SearchListState.Success -> {
+                is ListTopicSearchState.Success -> {
                     log("Success")
                     listSearchAdapter.submitList(it.data)
                 }
 
-                is SearchListState.Error -> {
+                is ListTopicSearchState.Error -> {
                     log("Error")
                 }
             }

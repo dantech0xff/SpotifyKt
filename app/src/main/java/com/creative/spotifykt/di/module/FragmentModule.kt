@@ -1,26 +1,26 @@
 package com.creative.spotifykt.di.module
 
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.creative.spotifykt.core.viewmodel.viewModelFactory
-import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.App
+import com.creative.spotifykt.core.ui.BaseFragment
+import com.creative.spotifykt.core.viewmodel.viewModelFactory
+import com.creative.spotifykt.ui.activity.setting.SettingActivityViewModel
 import com.creative.spotifykt.ui.favorite.FavoriteViewModel
 import com.creative.spotifykt.ui.favorite.list.ListFavoriteViewModel
-import com.creative.spotifykt.ui.setting.download.DownloadSettingViewModel
 import com.creative.spotifykt.ui.home.HomeViewModel
 import com.creative.spotifykt.ui.premium.PremiumViewModel
 import com.creative.spotifykt.ui.search.SearchViewModel
 import com.creative.spotifykt.ui.search.result.SearchResultViewModel
-import com.creative.spotifykt.ui.activity.setting.SettingActivityViewModel
 import com.creative.spotifykt.ui.setting.about.AboutViewModel
 import com.creative.spotifykt.ui.setting.account.AccountSettingViewModel
 import com.creative.spotifykt.ui.setting.audio.AudioSettingViewModel
+import com.creative.spotifykt.ui.setting.download.DownloadSettingViewModel
 import com.creative.spotifykt.ui.setting.explicit.ExplicitContentViewModel
 import com.creative.spotifykt.ui.setting.main.MainSettingViewModel
 import com.creative.spotifykt.ui.setting.mobiledata.MobileDataViewModel
 import com.creative.spotifykt.ui.setting.storage.StorageViewModel
 import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
+import com.creative.spotifykt.usecase.search.GetSearchTopicUseCase
 import dagger.Module
 import dagger.Provides
 
@@ -75,9 +75,9 @@ class FragmentModule (private val fragment: BaseFragment<*, *>) {
         ViewModelProvider(fragment, viewModelFactory { AboutViewModel() })[AboutViewModel::class.java]
 
     @Provides
-    fun provideSearchViewModel(getSearchResultUseCase: GetSearchResultUseCase): SearchViewModel =
+    fun provideSearchViewModel(getSearchTopicUseCase: GetSearchTopicUseCase): SearchViewModel =
         ViewModelProvider(fragment, viewModelFactory {
-            SearchViewModel(getSearchResultUseCase)
+            SearchViewModel(getSearchTopicUseCase)
         })[SearchViewModel::class.java]
 
     @Provides
@@ -85,8 +85,12 @@ class FragmentModule (private val fragment: BaseFragment<*, *>) {
         ViewModelProvider(fragment, viewModelFactory { FavoriteViewModel() })[FavoriteViewModel::class.java]
 
     @Provides
-    fun provideSearchResultViewModel(): SearchResultViewModel =
-        ViewModelProvider(fragment, viewModelFactory { SearchResultViewModel() })[SearchResultViewModel::class.java]
+    fun provideSearchResultViewModel(
+        getSearchResultUseCase: GetSearchResultUseCase
+    ): SearchResultViewModel =
+        ViewModelProvider(fragment, viewModelFactory { SearchResultViewModel(
+            getSearchResultUseCase
+        ) })[SearchResultViewModel::class.java]
 
     @Provides
     fun provideListFavoriteViewModel(): ListFavoriteViewModel =

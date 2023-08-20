@@ -1,0 +1,104 @@
+{
+  "items" : [
+    {
+      "title": "Rock Music",
+      "color": "#FF424242",
+      "deeplink": "rock_music_deeplink"
+    },
+    {
+      "title": "Pop Hits",
+      "color": "#FF5722",
+      "deeplink": "pop_hits_deeplink"
+    },
+    {
+      "title": "Jazz Fusion",
+      "color": "#E91E63",
+      "deeplink": "jazz_fusion_deeplink"
+    },
+    {
+      "title": "Hip-Hop Beats",
+      "color": "#9C27B0",
+      "deeplink": "hip_hop_beats_deeplink"
+    },
+    {
+      "title": "Electronic Dance",
+      "color": "#673AB7",
+      "deeplink": "electronic_dance_deeplink"
+    },
+    {
+      "title": "Classical Masterpieces",
+      "color": "#3F51B5",
+      "deeplink": "classical_masterpieces_deeplink"
+    },
+    {
+      "title": "Reggae Vibes",
+      "color": "#2196F3",
+      "deeplink": "reggae_vibes_deeplink"
+    },
+    {
+      "title": "Country Tunes",
+      "color": "#03A9F4",
+      "deeplink": "country_tunes_deeplink"
+    },
+    {
+      "title": "Blues Legends",
+      "color": "#00BCD4",
+      "deeplink": "blues_legends_deeplink"
+    },
+    {
+      "title": "Metal Madness",
+      "color": "#009688",
+      "deeplink": "metal_madness_deeplink"
+    },
+    {
+      "title": "Folk Songs",
+      "color": "#4CAF50",
+      "deeplink": "folk_songs_deeplink"
+    },
+    {
+      "title": "Indie Artists",
+      "color": "#8BC34A",
+      "deeplink": "indie_artists_deeplink"
+    },
+    {
+      "title": "R&B Grooves",
+      "color": "#CDDC39",
+      "deeplink": "rb_grooves_deeplink"
+    },
+    {
+      "title": "Latin Rhythms",
+      "color": "#FFEB3B",
+      "deeplink": "latin_rhythms_deeplink"
+    },
+    {
+      "title": "K-Pop Sensations",
+      "color": "#FFC107",
+      "deeplink": "kpop_sensations_deeplink"
+    },
+    {
+      "title": "Reggaeton Hits",
+      "color": "#FF9800",
+      "deeplink": "reggaeton_hits_deeplink"
+    },
+    {
+      "title": "Soulful Ballads",
+      "color": "#FF5722",
+      "deeplink": "soulful_ballads_deeplink"
+    },
+    {
+      "title": "Guitar Legends",
+      "color": "#795548",
+      "deeplink": "guitar_legends_deeplink"
+    },
+    {
+      "title": "Piano Classics",
+      "color": "#9E9E9E",
+      "deeplink": "piano_classics_deeplink"
+    },
+    {
+      "title": "EDM Party Mix",
+      "color": "#607D8B",
+      "deeplink": "edm_party_mix_deeplink"
+    }
+  ]
+}

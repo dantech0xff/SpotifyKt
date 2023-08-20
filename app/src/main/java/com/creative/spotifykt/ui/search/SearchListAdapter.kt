@@ -6,15 +6,15 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.creative.spotifykt.databinding.ItemSearchTopicBinding
-import com.creative.spotifykt.data.model.local.MusicSearchTopic
+import com.creative.spotifykt.data.model.local.SearchTopic
 import com.creative.spotifykt.ui.IDeeplinkHandler
 
 class SearchListAdapter(
     private val handleDeeplink: IDeeplinkHandler? = null
-) : ListAdapter<MusicSearchTopic, SearchListAdapter.SearchTopicVH>(DIFF_CALLBACK) {
+) : ListAdapter<SearchTopic, SearchListAdapter.SearchTopicVH>(DIFF_CALLBACK) {
     inner class SearchTopicVH(val viewBinding: ItemSearchTopicBinding) :
         RecyclerView.ViewHolder(viewBinding.root) {
-        fun bind(item: MusicSearchTopic) {
+        fun bind(item: SearchTopic) {
             viewBinding.data = item
             viewBinding.deeplinkClick = handleDeeplink
         }
@@ -22,11 +22,11 @@ class SearchListAdapter(
 
     companion object {
 
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MusicSearchTopic>() {
-            override fun areItemsTheSame(oldItem: MusicSearchTopic, newItem: MusicSearchTopic): Boolean =
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<SearchTopic>() {
+            override fun areItemsTheSame(oldItem: SearchTopic, newItem: SearchTopic): Boolean =
                 oldItem.deeplink == newItem.deeplink
 
-            override fun areContentsTheSame(oldItem: MusicSearchTopic, newItem: MusicSearchTopic): Boolean =
+            override fun areContentsTheSame(oldItem: SearchTopic, newItem: SearchTopic): Boolean =
                 oldItem == newItem
         }
     }

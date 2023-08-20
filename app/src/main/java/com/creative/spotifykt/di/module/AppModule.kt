@@ -5,6 +5,7 @@ import com.creative.spotifykt.App
 import com.creative.spotifykt.di.ApplicationContext
 import com.creative.spotifykt.di.CacheDirectory
 import com.creative.spotifykt.di.FileDirectory
+import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import java.io.File
@@ -43,4 +44,8 @@ class AppModule (private val application: App) {
         }
         return fileRootCache
     }
+
+    @Provides
+    @Singleton
+    fun provideMoshi(): Moshi = Moshi.Builder().build()
 }

@@ -1,6 +1,7 @@
 package com.creative.spotifykt.di.getter
 
 import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
+import com.creative.spotifykt.usecase.search.GetSearchTopicUseCase
 
 /**
  * Created by dan on 20/08/2023
@@ -10,4 +11,5 @@ import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
 
 interface IUseCaseModule {
     val getSearchResultUseCase: GetSearchResultUseCase
+    val getSearchTopicUseCase: GetSearchTopicUseCase
 }

@@ -1,6 +1,7 @@
 package com.creative.spotifykt
 
 import android.app.Application
+import android.os.StrictMode
 import com.creative.spotifykt.di.component.AppComponent
 import com.creative.spotifykt.di.component.DaggerAppComponent
 import com.creative.spotifykt.di.module.AppModule
@@ -13,6 +14,15 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         injectDependencies()
+        if (BuildConfig.DEBUG) {
+            StrictMode.setThreadPolicy(
+                StrictMode.ThreadPolicy.Builder()
+                    .detectAll()
+                    .penaltyLog()
+                    .penaltyDeath()
+                    .build()
+            )
+        }
     }
 
     private fun injectDependencies() {

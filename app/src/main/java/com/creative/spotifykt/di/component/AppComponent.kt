@@ -11,6 +11,7 @@ import com.creative.spotifykt.di.module.biz.DatabaseModule
 import com.creative.spotifykt.di.module.biz.NetworkModule
 import com.creative.spotifykt.di.module.biz.RepoModule
 import com.creative.spotifykt.di.module.biz.UseCaseModule
+import com.squareup.moshi.Moshi
 import dagger.Component
 import java.io.File
 import javax.inject.Singleton
@@ -34,4 +35,6 @@ interface AppComponent : IUseCaseModule {
 
     @CacheDirectory
     fun getCacheRootPath(): File
+
+    val moshi: Moshi
 }

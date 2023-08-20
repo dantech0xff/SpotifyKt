@@ -1,6 +1,9 @@
 package com.creative.spotifykt.di.module.biz
 
+import com.creative.spotifykt.App
 import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
+import com.creative.spotifykt.usecase.search.GetSearchTopicUseCase
+import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 
@@ -14,4 +17,9 @@ import dagger.Provides
 class UseCaseModule {
     @Provides
     fun provideGetSearchResultUseCase() = GetSearchResultUseCase()
+
+    @Provides
+    fun provideGetSearchTopicUseCase(
+        app: App, moshi: Moshi
+    ) = GetSearchTopicUseCase(app, moshi)
 }

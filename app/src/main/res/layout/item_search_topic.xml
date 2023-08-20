@@ -4,7 +4,7 @@
     <data>
         <variable
             name="data"
-            type="com.creative.spotifykt.data.model.local.MusicSearchTopic" />
+            type="com.creative.spotifykt.data.model.local.SearchTopic" />
         <variable
             name="deeplinkClick"
             type="com.creative.spotifykt.ui.IDeeplinkHandler" />
@@ -24,6 +24,8 @@
             android:textSize="@dimen/xds_text_size_heading4"
             android:layout_gravity="center|start"
             android:layout_margin="@dimen/xds_space_l"
+            android:paddingTop="@dimen/xds_space_m"
+            android:paddingBottom="@dimen/xds_space_m"
             android:textColor="@color/xds_color_white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
