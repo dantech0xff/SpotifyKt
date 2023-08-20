@@ -4,16 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.creative.spotifykt.databinding.ListFavoriteFragmentBinding
-import com.creative.spotifykt.data.model.local.FavMusicData
-import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.core.ui.BaseFragment
-import com.creative.spotifykt.core.toast
+import com.creative.spotifykt.databinding.ListFavoriteFragmentBinding
+import com.creative.spotifykt.di.component.FragmentComponent
 
 class ListFavoriteFragment : BaseFragment<ListFavoriteFragmentBinding, ListFavoriteViewModel>() {
 
-    private lateinit var recyclerViewFavItems: RecyclerView
     private val favAdapter: ListFavAdapter by lazy { ListFavAdapter() }
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?): ListFavoriteFragmentBinding =
@@ -24,26 +20,20 @@ class ListFavoriteFragment : BaseFragment<ListFavoriteFragmentBinding, ListFavor
     }
 
     override fun setupView(savedInstanceState: Bundle?) {
-        recyclerViewFavItems = requireViewBinding().listFavoriteItems
-        val viewModelKey = arguments?.getString("tab_position", "") as String
+        viewBinding?.apply {
+            listFavoriteItems.adapter = favAdapter
+            listFavoriteItems.layoutManager = LinearLayoutManager(requireContext()).apply {
+                orientation = LinearLayoutManager.VERTICAL
+            }
+        }
+    }
 
-        recyclerViewFavItems.adapter = favAdapter
-        favAdapter.setOnItemClickListener { (item) ->
-            activity?.toast(item)
+    override fun setupObservers() {
+        super.setupObservers()
+        viewModel.listFavorite.observe(viewLifecycleOwner) {
+            if (it is ListFavoriteState.Success) {
+                favAdapter.submitList(it.data)
+            }
         }
-        recyclerViewFavItems.layoutManager = LinearLayoutManager(requireContext()).apply {
-            orientation = LinearLayoutManager.VERTICAL
-        }
-
-        val listItem = mutableListOf<FavMusicData>()
-        for (i in 1..100) {
-            listItem.add(
-                FavMusicData(
-                    id = "$i $viewModelKey",
-                    title = "$viewModelKey Title $i", subTitle = if (i < 100 / 1.5) "$viewModelKey Sub Title $i" else ""
-                )
-            )
-        }
-        favAdapter.differ.submitList(listItem)
     }
 }

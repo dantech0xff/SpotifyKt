@@ -1,5 +1,7 @@
 package com.creative.spotifykt.di.getter
 
+import com.creative.spotifykt.usecase.favorite.GetFavoriteListUseCase
+import com.creative.spotifykt.usecase.favorite.GetTabLayoutUseCase
 import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
 import com.creative.spotifykt.usecase.search.GetSearchTopicUseCase
 
@@ -12,4 +14,6 @@ import com.creative.spotifykt.usecase.search.GetSearchTopicUseCase
 interface IUseCaseModule {
     val getSearchResultUseCase: GetSearchResultUseCase
     val getSearchTopicUseCase: GetSearchTopicUseCase
+    val getTabLayoutUseCase: GetTabLayoutUseCase
+    val getFavoriteListUseCase: GetFavoriteListUseCase
 }

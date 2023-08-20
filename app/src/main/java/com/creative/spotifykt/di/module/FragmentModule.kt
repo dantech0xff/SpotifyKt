@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.creative.spotifykt.App
 import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.core.viewmodel.viewModelFactory
+import com.creative.spotifykt.data.model.local.getFavoriteTab
 import com.creative.spotifykt.ui.activity.setting.SettingActivityViewModel
 import com.creative.spotifykt.ui.favorite.FavoriteViewModel
 import com.creative.spotifykt.ui.favorite.list.ListFavoriteViewModel
@@ -19,6 +20,8 @@ import com.creative.spotifykt.ui.setting.explicit.ExplicitContentViewModel
 import com.creative.spotifykt.ui.setting.main.MainSettingViewModel
 import com.creative.spotifykt.ui.setting.mobiledata.MobileDataViewModel
 import com.creative.spotifykt.ui.setting.storage.StorageViewModel
+import com.creative.spotifykt.usecase.favorite.GetFavoriteListUseCase
+import com.creative.spotifykt.usecase.favorite.GetTabLayoutUseCase
 import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
 import com.creative.spotifykt.usecase.search.GetSearchTopicUseCase
 import dagger.Module
@@ -81,18 +84,32 @@ class FragmentModule (private val fragment: BaseFragment<*, *>) {
         })[SearchViewModel::class.java]
 
     @Provides
-    fun provideFavoriteViewModel(): FavoriteViewModel =
-        ViewModelProvider(fragment, viewModelFactory { FavoriteViewModel() })[FavoriteViewModel::class.java]
+    fun provideFavoriteViewModel(
+        getTabLayoutUseCase: GetTabLayoutUseCase
+    ): FavoriteViewModel =
+        ViewModelProvider(fragment, viewModelFactory {
+            FavoriteViewModel(
+                getTabLayoutUseCase
+            )
+        })[FavoriteViewModel::class.java]
 
     @Provides
     fun provideSearchResultViewModel(
         getSearchResultUseCase: GetSearchResultUseCase
     ): SearchResultViewModel =
-        ViewModelProvider(fragment, viewModelFactory { SearchResultViewModel(
-            getSearchResultUseCase
-        ) })[SearchResultViewModel::class.java]
+        ViewModelProvider(fragment, viewModelFactory {
+            SearchResultViewModel(
+                getSearchResultUseCase
+            )
+        })[SearchResultViewModel::class.java]
 
     @Provides
-    fun provideListFavoriteViewModel(): ListFavoriteViewModel =
-        ViewModelProvider(fragment, viewModelFactory { ListFavoriteViewModel() })[ListFavoriteViewModel::class.java]
+    fun provideListFavoriteViewModel(
+        getFavoriteListUseCase: GetFavoriteListUseCase
+    ): ListFavoriteViewModel =
+        ViewModelProvider(fragment, viewModelFactory {
+            ListFavoriteViewModel(
+                fragment.arguments?.getFavoriteTab(), getFavoriteListUseCase
+            )
+        })[ListFavoriteViewModel::class.java]
 }

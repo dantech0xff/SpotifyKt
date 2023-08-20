@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "id": "PLAYLIST",
+      "title": "Playlists"
+    },
+    {
+      "id": "ARTIST",
+      "title": "Artists"
+    },
+    {
+      "id": "ALBUM",
+      "title": "Albums"
+    },
+    {
+      "id": "PODCAST",
+      "title": "Podcasts"
+    }
+  ]
+}

@@ -1,63 +1,51 @@
 package com.creative.spotifykt.ui.favorite.list
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.creative.spotifykt.data.model.local.FavoriteMusicRow
+import com.creative.spotifykt.data.model.local.toSearchResultMusicRow
 import com.creative.spotifykt.databinding.ItemMusicRowBinding
-import com.creative.spotifykt.data.model.local.FavMusicData
+import com.creative.spotifykt.ui.IDeeplinkHandler
 
-class ListFavAdapter : RecyclerView.Adapter<ListFavAdapter.FavMusicRowVH>() {
-    inner class FavMusicRowVH(val viewBinding: ItemMusicRowBinding) : RecyclerView.ViewHolder(viewBinding.root)
-
-    private val differCallback = object : DiffUtil.ItemCallback<FavMusicData>() {
-        override fun areItemsTheSame(oldItem: FavMusicData, newItem: FavMusicData): Boolean {
-            return oldItem.id == newItem.id
-        }
-
-        override fun areContentsTheSame(oldItem: FavMusicData, newItem: FavMusicData): Boolean {
-            return oldItem.title == newItem.title
-                    && oldItem.subTitle == newItem.subTitle && oldItem.id == newItem.id
+class ListFavAdapter(
+    private val deeplinkHandler: IDeeplinkHandler? = null
+) : RecyclerView.Adapter<ListFavAdapter.FavMusicRowVH>() {
+    inner class FavMusicRowVH(private val viewBinding: ItemMusicRowBinding) :
+        RecyclerView.ViewHolder(viewBinding.root) {
+        fun bind(item: FavoriteMusicRow) {
+            viewBinding.deeplinkHandler = deeplinkHandler
+            viewBinding.data = item.toSearchResultMusicRow()
         }
     }
-    val differ = AsyncListDiffer(this, differCallback)
+
+    private val differCallback = object : DiffUtil.ItemCallback<FavoriteMusicRow>() {
+        override fun areItemsTheSame(oldItem: FavoriteMusicRow, newItem: FavoriteMusicRow): Boolean {
+            return oldItem == newItem
+        }
+
+        override fun areContentsTheSame(oldItem: FavoriteMusicRow, newItem: FavoriteMusicRow): Boolean {
+            return oldItem == newItem
+        }
+    }
+    private val differ = AsyncListDiffer(this, differCallback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavMusicRowVH {
         return FavMusicRowVH(ItemMusicRowBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-    }
-
-    override fun onBindViewHolder(holder: FavMusicRowVH, position: Int) {
-        val item = differ.currentList[position]
-        holder.viewBinding.apply {
-            root.setOnClickListener {
-                onItemClickListener?.let { it(item) }
-            }
-
-            if (item.subTitle.isNotEmpty()) {
-                title.text = item.title
-                title.visibility = View.VISIBLE
-                subTitle.text = item.subTitle
-                subTitle.visibility = View.VISIBLE
-//                titleCenter.visibility = View.GONE
-            } else {
-//                titleCenter.apply {
-//                    visibility = View.VISIBLE
-//                    text = item.title
-//                }
-                title.visibility = View.GONE
-                subTitle.visibility = View.GONE
-            }
-        }
     }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
 
-    private var onItemClickListener: ((FavMusicData) -> Unit)? = null
-    fun setOnItemClickListener(listener: (FavMusicData) -> Unit) {
-        onItemClickListener = listener
+    fun submitList(list: List<FavoriteMusicRow>?) {
+        differ.submitList(list)
+    }
+
+    override fun onBindViewHolder(holder: FavMusicRowVH, position: Int) {
+        val item = differ.currentList[position]
+        holder.bind(item)
     }
 }

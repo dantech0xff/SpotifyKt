@@ -6,21 +6,24 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import androidx.viewpager2.widget.ViewPager2
-import com.creative.spotifykt.R
+import com.creative.spotifykt.core.ui.BaseFragment
+import com.creative.spotifykt.data.model.local.FavMusicTab
 import com.creative.spotifykt.databinding.FavoriteFragmentBinding
 import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.favorite.list.ListFavoriteFragment
-import com.creative.spotifykt.core.ui.BaseFragment
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+
+/**
+ * Created by dan on 20/08/2023
+ *
+ * Copyright © 2023 1010 Creative. All rights reserved.
+ */
 
 class FavoriteFragment : BaseFragment<FavoriteFragmentBinding, FavoriteViewModel>() {
 
-    private lateinit var viewPager: ViewPager2
-    private lateinit var tabLayout: TabLayout
-
-    private val adapter: ScreenSlidePagerAdapter by lazy { ScreenSlidePagerAdapter(requireActivity()) }
+    private val pagerAdapter: ScreenSlidePagerAdapter by lazy {
+        ScreenSlidePagerAdapter(requireActivity())
+    }
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?): FavoriteFragmentBinding =
         FavoriteFragmentBinding.inflate(inflater, container, false)
@@ -29,41 +32,47 @@ class FavoriteFragment : BaseFragment<FavoriteFragmentBinding, FavoriteViewModel
         fragmentComponent.inject(this)
     }
 
-    private val listTitle by lazy {
-        listOf(
-            getString(R.string.playlists),
-            getString(R.string.artists),
-            getString(R.string.albums),
-            getString(R.string.podcasts)
-        )
+    override fun setupView(savedInstanceState: Bundle?) {
+        viewBinding?.apply {
+            viewPager.adapter = pagerAdapter
+            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+                tab.text = (viewModel.tabLayout.value as? TabLayoutState.Success)?.data?.getOrNull(position)?.title.orEmpty()
+            }.attach()
+        }
     }
 
-    override fun setupView(savedInstanceState: Bundle?) {
-        viewPager = viewBinding!!.viewPager
-        tabLayout = viewBinding!!.tabLayout
-        viewPager.adapter = adapter
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = listTitle[position % listTitle.size]
-        }.attach()
+    override fun setupObservers() {
+        super.setupObservers()
+        viewModel.tabLayout.observe(viewLifecycleOwner) {
+            if (it is TabLayoutState.Success) {
+                pagerAdapter.updateList(it.data)
+            }
+        }
     }
 
     /**
      * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
      * sequence.
      */
-    private inner class ScreenSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
-        override fun getItemCount(): Int = FAVORITE_TAB_COUNT
+    private inner class ScreenSlidePagerAdapter(
+        fa: FragmentActivity
+    ) : FragmentStateAdapter(fa) {
+
+        private var listTabs: List<FavMusicTab> = listOf()
+
+        fun updateList(list: List<FavMusicTab>) {
+            listTabs = list
+            notifyDataSetChanged()
+        }
+
+        override fun getItemCount(): Int = listTabs.size
 
         override fun createFragment(position: Int): Fragment {
             return ListFavoriteFragment().apply {
                 arguments = Bundle().apply {
-                    putString("tab_position", listTitle[position % listTitle.size])
+                    putParcelable(FavMusicTab::class.java.name, listTabs.getOrNull(position))
                 }
             }
         }
-    }
-
-    companion object {
-        const val FAVORITE_TAB_COUNT = 4
     }
 }

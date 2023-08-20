@@ -1,0 +1,284 @@
+{
+  "items": [
+    {
+      "deeplink": "music_deeplink_1",
+      "image": "music_image_url_1",
+      "headline": {
+        "text": "Pop",
+        "colorStyle": "COLOR_STYLE_1",
+        "sizeStyle": "SIZE_STYLE_1"
+      },
+      "subHeadline": {
+        "text": "Top Hits",
+        "colorStyle": "COLOR_STYLE_1",
+        "sizeStyle": "SIZE_STYLE_1"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_2",
+      "image": "music_image_url_2",
+      "headline": {
+        "text": "Rock",
+        "colorStyle": "COLOR_STYLE_2",
+        "sizeStyle": "SIZE_STYLE_2"
+      },
+      "subHeadline": {
+        "text": "Classic Rock",
+        "colorStyle": "COLOR_STYLE_2",
+        "sizeStyle": "SIZE_STYLE_2"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_3",
+      "image": "music_image_url_3",
+      "headline": {
+        "text": "Jazz",
+        "colorStyle": "COLOR_STYLE_3",
+        "sizeStyle": "SIZE_STYLE_3"
+      },
+      "subHeadline": {
+        "text": "Smooth Jazz",
+        "colorStyle": "COLOR_STYLE_3",
+        "sizeStyle": "SIZE_STYLE_3"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_4",
+      "image": "music_image_url_4",
+      "headline": {
+        "text": "Hip-Hop",
+        "colorStyle": "COLOR_STYLE_4",
+        "sizeStyle": "SIZE_STYLE_4"
+      },
+      "subHeadline": {
+        "text": "Rap",
+        "colorStyle": "COLOR_STYLE_4",
+        "sizeStyle": "SIZE_STYLE_4"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_5",
+      "image": "music_image_url_5",
+      "headline": {
+        "text": "Electronic",
+        "colorStyle": "COLOR_STYLE_5",
+        "sizeStyle": "SIZE_STYLE_5"
+      },
+      "subHeadline": {
+        "text": "EDM",
+        "colorStyle": "COLOR_STYLE_5",
+        "sizeStyle": "SIZE_STYLE_5"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_6",
+      "image": "music_image_url_6",
+      "headline": {
+        "text": "Country",
+        "colorStyle": "COLOR_STYLE_6",
+        "sizeStyle": "SIZE_STYLE_6"
+      },
+      "subHeadline": {
+        "text": "Bluegrass",
+        "colorStyle": "COLOR_STYLE_6",
+        "sizeStyle": "SIZE_STYLE_6"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_7",
+      "image": "music_image_url_7",
+      "headline": {
+        "text": "Classical",
+        "colorStyle": "COLOR_STYLE_7",
+        "sizeStyle": "SIZE_STYLE_7"
+      },
+      "subHeadline": {
+        "text": "Orchestral",
+        "colorStyle": "COLOR_STYLE_7",
+        "sizeStyle": "SIZE_STYLE_7"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_8",
+      "image": "music_image_url_8",
+      "headline": {
+        "text": "R&B",
+        "colorStyle": "COLOR_STYLE_8",
+        "sizeStyle": "SIZE_STYLE_8"
+      },
+      "subHeadline": {
+        "text": "Soul",
+        "colorStyle": "COLOR_STYLE_8",
+        "sizeStyle": "SIZE_STYLE_8"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_9",
+      "image": "music_image_url_9",
+      "headline": {
+        "text": "Reggae",
+        "colorStyle": "COLOR_STYLE_9",
+        "sizeStyle": "SIZE_STYLE_9"
+      },
+      "subHeadline": {
+        "text": "Dancehall",
+        "colorStyle": "COLOR_STYLE_9",
+        "sizeStyle": "SIZE_STYLE_9"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_10",
+      "image": "music_image_url_10",
+      "headline": {
+        "text": "Blues",
+        "colorStyle": "COLOR_STYLE_10",
+        "sizeStyle": "SIZE_STYLE_10"
+      },
+      "subHeadline": {
+        "text": "Delta Blues",
+        "colorStyle": "COLOR_STYLE_10",
+        "sizeStyle": "SIZE_STYLE_10"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_11",
+      "image": "music_image_url_11",
+      "headline": {
+        "text": "Folk",
+        "colorStyle": "COLOR_STYLE_11",
+        "sizeStyle": "SIZE_STYLE_11"
+      },
+      "subHeadline": {
+        "text": "Acoustic",
+        "colorStyle": "COLOR_STYLE_11",
+        "sizeStyle": "SIZE_STYLE_11"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_12",
+      "image": "music_image_url_12",
+      "headline": {
+        "text": "Metal",
+        "colorStyle": "COLOR_STYLE_12",
+        "sizeStyle": "SIZE_STYLE_12"
+      },
+      "subHeadline": {
+        "text": "Heavy Metal",
+        "colorStyle": "COLOR_STYLE_12",
+        "sizeStyle": "SIZE_STYLE_12"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_13",
+      "image": "music_image_url_13",
+      "headline": {
+        "text": "Indie",
+        "colorStyle": "COLOR_STYLE_13",
+        "sizeStyle": "SIZE_STYLE_13"
+      },
+      "subHeadline": {
+        "text": "Alternative",
+        "colorStyle": "COLOR_STYLE_13",
+        "sizeStyle": "SIZE_STYLE_13"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_14",
+      "image": "music_image_url_14",
+      "headline": {
+        "text": "Pop",
+        "colorStyle": "COLOR_STYLE_14",
+        "sizeStyle": "SIZE_STYLE_14"
+      },
+      "subHeadline": {
+        "text": "Top Hits",
+        "colorStyle": "COLOR_STYLE_14",
+        "sizeStyle": "SIZE_STYLE_14"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_15",
+      "image": "music_image_url_15",
+      "headline": {
+        "text": "Rock",
+        "colorStyle": "COLOR_STYLE_15",
+        "sizeStyle": "SIZE_STYLE_15"
+      },
+      "subHeadline": {
+        "text": "Classic Rock",
+        "colorStyle": "COLOR_STYLE_15",
+        "sizeStyle": "SIZE_STYLE_15"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_16",
+      "image": "music_image_url_16",
+      "headline": {
+        "text": "Jazz",
+        "colorStyle": "COLOR_STYLE_16",
+        "sizeStyle": "SIZE_STYLE_16"
+      },
+      "subHeadline": {
+        "text": "Smooth Jazz",
+        "colorStyle": "COLOR_STYLE_16",
+        "sizeStyle": "SIZE_STYLE_16"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_17",
+      "image": "music_image_url_17",
+      "headline": {
+        "text": "Hip-Hop",
+        "colorStyle": "COLOR_STYLE_17",
+        "sizeStyle": "SIZE_STYLE_17"
+      },
+      "subHeadline": {
+        "text": "Rap",
+        "colorStyle": "COLOR_STYLE_17",
+        "sizeStyle": "SIZE_STYLE_17"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_18",
+      "image": "music_image_url_18",
+      "headline": {
+        "text": "Electronic",
+        "colorStyle": "COLOR_STYLE_18",
+        "sizeStyle": "SIZE_STYLE_18"
+      },
+      "subHeadline": {
+        "text": "EDM",
+        "colorStyle": "COLOR_STYLE_18",
+        "sizeStyle": "SIZE_STYLE_18"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_19",
+      "image": "music_image_url_19",
+      "headline": {
+        "text": "Country",
+        "colorStyle": "COLOR_STYLE_19",
+        "sizeStyle": "SIZE_STYLE_19"
+      },
+      "subHeadline": {
+        "text": "Bluegrass",
+        "colorStyle": "COLOR_STYLE_19",
+        "sizeStyle": "SIZE_STYLE_19"
+      }
+    },
+    {
+      "deeplink": "music_deeplink_20",
+      "image": "music_image_url_20",
+      "headline": {
+        "text": "Classical",
+        "colorStyle": "COLOR_STYLE_20",
+        "sizeStyle": "SIZE_STYLE_20"
+      },
+      "subHeadline": {
+        "text": "Orchestral",
+        "colorStyle": "COLOR_STYLE_20",
+        "sizeStyle": "SIZE_STYLE_20"
+      }
+    }
+  ]
+}
