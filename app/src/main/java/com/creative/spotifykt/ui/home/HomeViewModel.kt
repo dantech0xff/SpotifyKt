@@ -17,7 +17,7 @@ class HomeViewModel(
 ) : BaseViewModel() {
 
     private val listDumData = mutableListOf<MusicSquareUI>().apply {
-        for (i in 0..21) {
+        for (i in 0..10) {
             add(
                 MusicSquareUI(
                     id = i.toString(),

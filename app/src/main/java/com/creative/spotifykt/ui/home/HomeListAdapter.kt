@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.creative.spotifykt.R
+import com.creative.spotifykt.core.log
 import com.creative.spotifykt.core.removeAllDecorations
 import com.creative.spotifykt.databinding.LayoutSquareCellMusicListBinding
 import com.creative.spotifykt.data.model.local.LayoutOrientation
@@ -22,7 +23,9 @@ class HomeListAdapter(
     private val handleDeeplink: IDeeplinkHandler? = null
 ) : ListAdapter<MusicListUI, HomeListAdapter.HomeMusicVH>(DIFF_CALLBACK) {
 
-    private val squareRecyclerPool = RecyclerView.RecycledViewPool()
+    init {
+        setHasStableIds(true)
+    }
 
     inner class HomeMusicVH(private val itemViewBinding: LayoutSquareCellMusicListBinding) :
         RecyclerView.ViewHolder(itemViewBinding.root) {
@@ -33,14 +36,11 @@ class HomeListAdapter(
         init {
             itemViewBinding.apply {
                 recyclerView.adapter = musicAdapter
-                recyclerView.setRecycledViewPool(squareRecyclerPool)
             }
         }
 
         fun bind(item: MusicListUI) {
             itemViewBinding.apply {
-                recyclerView.removeAllDecorations()
-
                 data = item
                 handleActionIconClick = handleDeeplink
 
@@ -51,69 +51,77 @@ class HomeListAdapter(
                 val spaceLeftRight = root.context.resources.getDimensionPixelSize(R.dimen.xds_space_l)
                 val spaceBetween = root.context.resources.getDimensionPixelSize(R.dimen.xds_space_s)
 
-                recyclerView.layoutManager = if (orientation == LayoutOrientation.HORIZONTAL.value) {
-                    recyclerView.addItemDecoration(object : ItemDecoration() {
-                        override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-                            super.getItemOffsets(outRect, view, parent, state)
-                            (view as? ViewGroup)?.apply {
-                                layoutParams = layoutParams.apply {
-                                    width = (screenWidth - spaceLeftRight) / MAGIC_COL_PER_WIDTH_SCREEN_HORIZONTAL
-                                    height = LayoutParams.WRAP_CONTENT
+                if (recyclerView.layoutManager == null) {
+                    recyclerView.layoutManager = if (orientation == LayoutOrientation.HORIZONTAL.value) {
+                        recyclerView.addItemDecoration(object : ItemDecoration() {
+                            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                                super.getItemOffsets(outRect, view, parent, state)
+                                (view as? ViewGroup)?.apply {
+                                    layoutParams = layoutParams.apply {
+                                        width = (screenWidth - spaceLeftRight) / MAGIC_COL_PER_WIDTH_SCREEN_HORIZONTAL
+                                        height = LayoutParams.WRAP_CONTENT
+                                    }
+                                }
+                                outRect.apply {
+                                    if (parent.getChildAdapterPosition(view) < spanCount) {
+                                        left = spaceLeftRight
+                                        right = spaceBetween / 2
+                                    } else {
+                                        right = spaceBetween / 2
+                                        left = spaceBetween / 2
+                                    }
+                                    top = spaceBetween / 2
+                                    bottom = spaceBetween / 2
                                 }
                             }
-                            val index = parent.getChildAdapterPosition(view)
-                            if (index < spanCount) {
-                                outRect.left = spaceLeftRight
-                                outRect.right = spaceBetween / 2
-                            } else {
-                                outRect.right = spaceBetween / 2
-                                outRect.left = spaceBetween / 2
-                            }
-                            outRect.top = spaceBetween / 2
-                            outRect.bottom = spaceBetween / 2
-                        }
-                    })
-                    if (spanCount > 1) {
-                        GridLayoutManager(root.context, spanCount, GridLayoutManager.HORIZONTAL, false).apply {
-                            recycleChildrenOnDetach = true
+                        })
+                        if (spanCount > 1) {
+                            GridLayoutManager(root.context, spanCount, GridLayoutManager.HORIZONTAL, false)
+                        } else {
+                            LinearLayoutManager(root.context, LinearLayoutManager.HORIZONTAL, false)
                         }
                     } else {
-                        LinearLayoutManager(root.context, LinearLayoutManager.HORIZONTAL, false).apply {
-                            recycleChildrenOnDetach = true
-                        }
-                    }
-                } else {
-                    recyclerView.addItemDecoration(object : ItemDecoration() {
-                        override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-                            super.getItemOffsets(outRect, view, parent, state)
-                            (view as? ViewGroup)?.apply {
-                                layoutParams = layoutParams.apply {
-                                    width = (screenWidth - spaceLeftRight * 2 - spaceBetween * (spanCount - 1)) / spanCount
-                                    height = LayoutParams.WRAP_CONTENT
+                        recyclerView.addItemDecoration(object : ItemDecoration() {
+                            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                                super.getItemOffsets(outRect, view, parent, state)
+                                (view as? ViewGroup)?.apply {
+                                    layoutParams = layoutParams.apply {
+                                        width = (screenWidth - spaceLeftRight * 2 - spaceBetween * (spanCount - 1)) / spanCount
+                                        height = LayoutParams.WRAP_CONTENT
+                                    }
+                                }
+                                outRect.apply {
+                                    if (parent.getChildAdapterPosition(view) % spanCount == 0) {
+                                        left = spaceLeftRight
+                                        right = spaceBetween / 2
+                                    } else {
+                                        right = spaceBetween / 2
+                                        left = spaceBetween / 2
+                                    }
+                                    top = spaceBetween / 2
+                                    bottom = spaceBetween / 2
                                 }
                             }
-
-                            val index = parent.getChildAdapterPosition(view)
-                            if (index % spanCount == 0) {
-                                outRect.left = spaceLeftRight
-                                outRect.right = spaceBetween / 2
-                            } else {
-                                outRect.right = spaceBetween / 2
-                                outRect.left = spaceBetween / 2
-                            }
-                            outRect.top = spaceBetween / 2
-                            outRect.bottom = spaceBetween / 2
+                        })
+                        if (spanCount == 1) {
+                            LinearLayoutManager(root.context, LinearLayoutManager.VERTICAL, false)
+                        } else {
+                            GridLayoutManager(root.context, spanCount, GridLayoutManager.VERTICAL, false)
                         }
-                    })
-                    GridLayoutManager(root.context, spanCount, GridLayoutManager.VERTICAL, false).apply {
-                        recycleChildrenOnDetach = true
                     }
                 }
+
                 musicAdapter.apply {
                     submitList(item.items)
                 }
+
+                executePendingBindings()
             }
         }
+    }
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeMusicVH {
@@ -127,6 +135,22 @@ class HomeListAdapter(
 
     override fun onBindViewHolder(holder: HomeMusicVH, position: Int) {
         holder.bind(getItem(position))
+        log("HomeListAdapter onBindViewHolder: $position")
+    }
+
+    override fun onViewRecycled(holder: HomeMusicVH) {
+        super.onViewRecycled(holder)
+        log("HomeListAdapter onViewRecycled: ${holder.adapterPosition}")
+    }
+
+    override fun onViewAttachedToWindow(holder: HomeMusicVH) {
+        super.onViewAttachedToWindow(holder)
+        log("HomeListAdapter onViewAttachedToWindow: ${holder.adapterPosition}")
+    }
+
+    override fun onViewDetachedFromWindow(holder: HomeMusicVH) {
+        super.onViewDetachedFromWindow(holder)
+        log("HomeListAdapter onViewDetachedFromWindow: ${holder.adapterPosition}")
     }
 
     companion object {

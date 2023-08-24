@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.util.lruCache
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -27,8 +28,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         )
     }
 
-    private val homeRecyclerPool = RecyclerView.RecycledViewPool()
-
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?) =
         FragmentHomeBinding.inflate(inflater, container, false)
 
@@ -41,11 +40,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             lifecycleOwner = viewLifecycleOwner
             homeRecyclerView.apply {
                 adapter = homeAdapter
-                layoutManager = LinearLayoutManager(this@HomeFragment.requireContext()).apply {
-                    orientation = LinearLayoutManager.VERTICAL
-                    recycleChildrenOnDetach = true
-                }
-                setRecycledViewPool(homeRecyclerPool)
+                layoutManager = LinearLayoutManager(context)
                 addItemDecoration(object : ItemDecoration() {
                     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
                         super.getItemOffsets(outRect, view, parent, state)
@@ -78,6 +73,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     // show success
                     homeAdapter.submitList(it.data)
                 }
+
+                else -> {}
             }
         }
     }

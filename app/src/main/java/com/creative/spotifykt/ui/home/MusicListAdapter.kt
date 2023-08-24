@@ -18,6 +18,7 @@ class MusicListAdapter(
             itemViewBinding.apply {
                 data = item
                 deeplinkHandler = handleDeeplink
+                executePendingBindings()
             }
         }
     }
