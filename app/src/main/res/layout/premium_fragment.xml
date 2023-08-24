@@ -1,224 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/primaryBackground"
-        tools:context=".ui.premium.PremiumFragment">
-    <ScrollView
-            android:scrollbars="none"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <LinearLayout
+            android:layout_height="match_parent"
+            android:background="@color/primaryBackground"
+            tools:context=".ui.premium.PremiumFragment">
+        <ScrollView
+                android:scrollbars="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <LinearLayout
                 android:orientation="vertical"
                 android:gravity="top|center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            <include layout="@layout/layout_toolbar"
-                     android:visibility="invisible"
-                     android:id="@+id/premium_toolbar"/>
 
-            <com.creative.spotifykt.ui.view.EncoreBoldTextView
-                    android:text="Get more out of your\nmusic with Premium"
-                    android:textSize="22sp"
-                    android:textColor="@color/white"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_marginEnd="36dp"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_height="wrap_content"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/list_diff_info"
-                    tools:listitem="@layout/item_premium_info"
-                    tools:itemCount="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            <com.creative.spotifykt.ui.view.EncoreBoldTextView
-                    android:text="@string/get_premium"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:paddingStart="25dp"
-                    android:paddingEnd="25dp"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            <com.creative.spotifykt.ui.view.EncoreTextView
-                    android:textSize="9sp"
-                    android:text="@string/terms_and_conditions_apply"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            <androidx.cardview.widget.CardView
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="6dp"
-                    app:cardBackgroundColor="@color/cardview_dark_background"
-                    app:cardElevation="2dp"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                <RelativeLayout
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:paddingStart="20dp"
-                        android:paddingEnd="20dp"
+                    <com.creative.spotifykt.ui.view.RatioImageView
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <com.creative.spotifykt.ui.view.EncoreBoldTextView
+                        android:id="@+id/header_title"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        tools:text="Come back to Premium: 3 months for 59,000đ"
+                        android:textSize="@dimen/xds_text_size_heading2"
+                        android:textColor="@color/xds_color_white"
+                        android:padding="@dimen/xds_space_l"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <com.creative.spotifykt.ui.view.EncoreTextView
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/header_title"
+                        tools:text="LIMITED TIME OFFER"
+                        android:textSize="@dimen/xds_text_size_caption"
+                        android:paddingStart="@dimen/xds_space_l"
+                        android:paddingEnd="@dimen/xds_space_l"
+                        android:textColor="@color/xds_color_white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.cardview.widget.CardView
+                    app:cardElevation="@dimen/xds_elevation_l"
+                    android:layout_marginStart="@dimen/xds_space_l"
+                    android:layout_marginEnd="@dimen/xds_space_l"
+                    android:layout_marginTop="@dimen/xds_space_m"
+                    android:layout_marginBottom="@dimen/xds_space_m"
+                    app:cardBackgroundColor="@color/cardview_light_background"
+                    app:cardCornerRadius="@dimen/xds_logo_size_l"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/xds_logo_size_l">
+                    <com.creative.spotifykt.ui.view.EncoreTextView
+                        tools:text="RESUME PREMIUM"
+                        android:gravity="center"
+                        android:textColor="@color/xds_color_black"
+                        android:textSize="@dimen/xds_text_size_heading3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </androidx.cardview.widget.CardView>
+
+                <com.creative.spotifykt.ui.view.EncoreTextView
+                    tools:text="Individual plan only 59,000đ for 3 months"
+                    android:textSize="@dimen/xds_text_size_subtitle3"
+                    android:paddingStart="@dimen/xds_space_l"
+                    android:paddingEnd="@dimen/xds_space_l"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.cardview.widget.CardView
+                    app:cardElevation="@dimen/xds_elevation_l"
+                    app:cardCornerRadius="@dimen/xds_rounded_corner_l"
+                    android:layout_margin="@dimen/xds_space_l"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                    <com.creative.spotifykt.ui.view.EncoreBoldTextView
+                        <com.creative.spotifykt.ui.view.EncoreBoldTextView
+                            android:padding="@dimen/xds_space_l"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:text="Why join Premium?"
+                            android:textColor="@color/xds_color_white"
+                            android:textSize="@dimen/xds_text_size_heading3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:background="@color/xds_color_white"
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"/>
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <com.creative.spotifykt.ui.view.EncoreTextView
+                                tools:visibility="visible"
+                                android:visibility="gone"
+                                tools:text="Listen offline without Wi-Fi or mobile data"
+                                android:textColor="@color/xds_color_white"
+                                android:textSize="@dimen/xds_text_size_heading5"
+                                android:padding="@dimen/xds_space_l"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="@dimen/xds_rounded_corner_l"
+                    android:layout_margin="@dimen/xds_space_l"
+                    app:cardBackgroundColor="@color/cardview_dark_background"
+                    app:cardElevation="@dimen/xds_elevation_l"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:padding="@dimen/xds_space_xl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.creative.spotifykt.ui.view.EncoreTextView
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
                             android:text="@string/spotify_free"
-                            android:textSize="18sp"
-                            android:layout_alignParentStart="true"
-                            android:layout_centerVertical="true"
+                            android:textColor="@color/xds_color_white"
+                            android:textSize="@dimen/xds_text_size_heading3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
-                    <com.creative.spotifykt.ui.view.EncoreTextView
+                        <com.creative.spotifykt.ui.view.EncoreTextView
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:textColor="@color/xds_color_white"
                             android:text="@string/current_plan"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                    android:layout_margin="10dp"
+                <com.creative.spotifykt.ui.view.EncoreBoldTextView
+                    tools:text="Pick your Premium"
+                    android:padding="@dimen/xds_space_l"
+                    android:textColor="@color/xds_color_white"
+                    android:textSize="@dimen/xds_text_size_heading3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_margin="@dimen/xds_space_l"
                     app:cardCornerRadius="6dp"
                     app:cardBackgroundColor="@color/cardview_dark_background"
-                    app:cardElevation="2dp"
-                    app:contentPaddingRight="30dp"
-                    app:contentPaddingLeft="30dp"
+                    app:cardElevation="@dimen/xds_elevation_l"
+                    app:contentPadding="@dimen/xds_elevation_l"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                <LinearLayout
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                    <RelativeLayout
-                            android:layout_marginBottom="20dp"
-                            android:layout_marginTop="20dp"
+                    <LinearLayout
+                            android:gravity="center"
+                            android:orientation="vertical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
+                        <RelativeLayout
+                                android:layout_marginBottom="20dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                            <com.creative.spotifykt.ui.view.EncoreBoldTextView
+                                    android:id="@+id/mini_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    tools:text="From 2,300đ"
+                                    android:layout_alignParentEnd="true" />
+                            <com.creative.spotifykt.ui.view.EncoreTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="FOR 1 DAY"
+                                    android:layout_below="@id/mini_price"
+                                    android:layout_alignParentEnd="true"
+                            />
+                            <com.creative.spotifykt.ui.view.EncoreBoldTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/mini"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentStart="true"
+                            />
+                        </RelativeLayout>
+                        <com.creative.spotifykt.ui.view.EncoreTextView
+                                android:text="@string/mini_desc"
+                                android:textAlignment="center"
+                                android:layout_marginBottom="20dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
                         <com.creative.spotifykt.ui.view.EncoreBoldTextView
-                                android:id="@+id/mini_price"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="From 2,300đ"
-                                android:layout_alignParentEnd="true"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingEnd="20dp"
+                                android:paddingStart="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="@string/view_plans"
                         />
                         <com.creative.spotifykt.ui.view.EncoreTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="FOR 1 DAY"
-                                android:layout_below="@id/mini_price"
-                                android:layout_alignParentEnd="true"
-                        />
-                        <com.creative.spotifykt.ui.view.EncoreBoldTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/mini"
-                                android:layout_centerVertical="true"
-                                android:layout_alignParentStart="true"
-                        />
-                    </RelativeLayout>
-                    <com.creative.spotifykt.ui.view.EncoreTextView
-                            android:text="@string/mini_desc"
-                            android:textAlignment="center"
-                            android:layout_marginBottom="20dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                    <com.creative.spotifykt.ui.view.EncoreBoldTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp"
-                            android:paddingEnd="20dp"
-                            android:paddingStart="20dp"
-                            android:layout_marginBottom="5dp"
-                            android:text="@string/view_plans"
-                    />
-                    <com.creative.spotifykt.ui.view.EncoreTextView
-                            android:text="@string/terms_and_conditions_apply"
-                            android:textSize="9sp"
-                            android:textAlignment="center"
-                            android:layout_marginBottom="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                                android:text="@string/terms_and_conditions_apply"
+                                android:textSize="9sp"
+                                android:textAlignment="center"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="6dp"
-                    app:cardBackgroundColor="@color/cardview_dark_background"
-                    app:cardElevation="2dp"
-                    app:contentPaddingRight="30dp"
-                    app:contentPaddingLeft="30dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <LinearLayout
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                    <RelativeLayout
-                            android:layout_marginBottom="20dp"
-                            android:layout_marginTop="20dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                        <com.creative.spotifykt.ui.view.EncoreBoldTextView
-                                android:id="@+id/premium_price"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="From 2,300đ"
-                                android:layout_alignParentEnd="true"
-                        />
-                        <com.creative.spotifykt.ui.view.EncoreTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="FOR 1 DAY"
-                                android:layout_below="@id/premium_price"
-                                android:layout_alignParentEnd="true"
-                        />
-                        <com.creative.spotifykt.ui.view.EncoreBoldTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/mini"
-                                android:layout_centerVertical="true"
-                                android:layout_alignParentStart="true"
-                        />
-                    </RelativeLayout>
-                    <com.creative.spotifykt.ui.view.EncoreTextView
-                            android:text="@string/mini_desc"
-                            android:textAlignment="center"
-                            android:layout_marginBottom="20dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                    <com.creative.spotifykt.ui.view.EncoreBoldTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp"
-                            android:paddingEnd="20dp"
-                            android:paddingStart="20dp"
-                            android:layout_marginBottom="5dp"
-                            android:text="@string/view_plans"
-                    />
-                    <com.creative.spotifykt.ui.view.EncoreTextView
-                            android:text="@string/terms_and_conditions_apply"
-                            android:textSize="9sp"
-                            android:textAlignment="center"
-                            android:layout_marginBottom="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-    </ScrollView>
-</FrameLayout>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+</layout>

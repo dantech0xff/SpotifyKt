@@ -48,6 +48,7 @@
     <dimen name="xds_text_size_button">14sp</dimen>
     <dimen name="xds_text_size_subtitle1">16sp</dimen>
     <dimen name="xds_text_size_subtitle2">14sp</dimen>
+    <dimen name="xds_text_size_subtitle3">12sp</dimen>
 
     <dimen name="xds_rounded_corner_s">4dp</dimen>
     <dimen name="xds_rounded_corner_m">8dp</dimen>
