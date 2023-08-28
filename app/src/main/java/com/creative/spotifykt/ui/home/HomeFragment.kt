@@ -5,13 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.util.lruCache
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.creative.spotifykt.R
-import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.core.toast
+import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.databinding.FragmentHomeBinding
 import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IDeeplinkHandler
@@ -38,6 +37,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override fun setupView(savedInstanceState: Bundle?) {
         viewBinding?.apply {
             lifecycleOwner = viewLifecycleOwner
+            vm = viewModel
             homeRecyclerView.apply {
                 adapter = homeAdapter
                 layoutManager = LinearLayoutManager(context)
