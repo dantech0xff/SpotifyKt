@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.creative.spotifykt.R
 import com.creative.spotifykt.core.log
-import com.creative.spotifykt.core.removeAllDecorations
 import com.creative.spotifykt.databinding.LayoutSquareCellMusicListBinding
 import com.creative.spotifykt.data.model.local.LayoutOrientation
 import com.creative.spotifykt.data.model.local.MusicListUI
@@ -44,8 +43,8 @@ class HomeListAdapter(
                 data = item
                 handleActionIconClick = handleDeeplink
 
-                val spanCount = item.layoutConfig?.spanCount ?: 1
-                val orientation = item.layoutConfig?.orientation ?: LayoutOrientation.VERTICAL.value
+                val spanCount = item.layout?.spanCount ?: 1
+                val orientation = item.layout?.orientation ?: LayoutOrientation.VERTICAL.value
 
                 val screenWidth: Int = root.context.resources.displayMetrics.widthPixels
                 val spaceLeftRight = root.context.resources.getDimensionPixelSize(R.dimen.xds_space_l)

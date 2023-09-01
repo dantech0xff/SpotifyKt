@@ -63,7 +63,7 @@ class HomeViewModel(
                 2, TextLabel(appContext.getString(R.string.made_for_you)),
                 items = listDumData.toList(),
                 actionIcon = ActionIcon(),
-                layoutConfig = LayoutConfig(
+                layout = LayoutConfig(
                     orientation = LayoutOrientation.VERTICAL.value,
                     spanCount = 2
                 )
@@ -75,7 +75,7 @@ class HomeViewModel(
                 3, TextLabel(appContext.getString(R.string.recommended_for_you)),
                 items = listDumData.toList(),
                 actionIcon = ActionIcon(),
-                layoutConfig = LayoutConfig(
+                layout = LayoutConfig(
                     orientation = LayoutOrientation.VERTICAL.value,
                     spanCount = 2
                 )

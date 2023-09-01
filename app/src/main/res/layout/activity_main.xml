@@ -14,8 +14,7 @@
             android:id="@+id/bottom_nav_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?android:attr/windowBackground"
-            app:menu="@menu/bottom_nav_menu"/>
+            android:background="?android:attr/windowBackground" />
 
         <fragment
             android:id="@+id/nav_host_fragment"
