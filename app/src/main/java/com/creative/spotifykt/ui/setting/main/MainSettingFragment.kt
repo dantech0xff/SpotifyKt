@@ -2,24 +2,17 @@ package com.creative.spotifykt.ui.setting.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.navigation.fragment.findNavController
 import com.creative.spotifykt.R
-import com.creative.spotifykt.databinding.ItemSettingRowBinding
-import com.creative.spotifykt.databinding.LayoutToolbarBinding
-import com.creative.spotifykt.databinding.MainSettingFragmentBinding
-import com.creative.spotifykt.data.model.local.SettingActionId
-import com.creative.spotifykt.data.model.local.SettingRowItem
-import com.creative.spotifykt.di.component.FragmentComponent
-import com.creative.spotifykt.ui.setting.SettingRowViewWrapper
 import com.creative.spotifykt.core.ui.BaseFragment
-import com.creative.spotifykt.core.dpToPixelsInt
+import com.creative.spotifykt.data.model.local.SettingActionId
+import com.creative.spotifykt.data.model.local.SettingRowUI
+import com.creative.spotifykt.databinding.MainSettingFragmentBinding
+import com.creative.spotifykt.di.component.FragmentComponent
+import com.creative.spotifykt.ui.IAppBarHandler
 
-class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSettingViewModel>(), View.OnClickListener {
-
-    private lateinit var settingToolbar: LayoutToolbarBinding
+class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSettingViewModel>() {
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?) =
         MainSettingFragmentBinding.inflate(inflater, container, false)
@@ -28,29 +21,7 @@ class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSetting
         fragmentComponent.inject(this)
     }
 
-    override fun setupObservers() {
-        super.setupObservers()
-//        viewModel.listSettingLiveData.observe(this) { listSettingRows ->
-//            requireViewBinding().settingListItem.removeAllViews()
-//            listSettingRows.forEach { rowItem ->
-//                requireViewBinding().settingListItem.addView(
-//                    SettingRowViewWrapper(ItemSettingRowBinding.inflate(LayoutInflater.from(requireContext()))).apply {
-//                        bindData(rowItem) { row ->
-//                            handleSetting(row)
-//                        }
-//                    }.viewBinding.root,
-//                    LinearLayout.LayoutParams(
-//                        LinearLayout.LayoutParams.MATCH_PARENT,
-//                        LinearLayout.LayoutParams.WRAP_CONTENT
-//                    ).apply {
-//                        bottomMargin = requireContext().dpToPixelsInt(2)
-//                    }
-//                )
-//            }
-//        }
-    }
-
-    private fun handleSetting(settingItem: SettingRowItem) {
+    private fun handleSetting(settingItem: SettingRowUI) {
         when (settingItem.settingId) {
             SettingActionId.SETTING_MOBILE_DATA -> {
                 findNavController().navigate(R.id.action_mainSettingFragment_to_mobileDataFragment)
@@ -76,17 +47,13 @@ class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSetting
         }
     }
 
-    override fun onClick(v: View) {
-        when (v) {
-            settingToolbar.settingBackNav -> {
-                requireActivity().onBackPressed()
+    override fun setupView(savedInstanceState: Bundle?) {
+        viewBinding?.apply {
+            settingToolbar.appBarHandler = object : IAppBarHandler {
+                override fun handleBack() {
+                    findNavController().popBackStack()
+                }
             }
         }
-    }
-
-    override fun setupView(savedInstanceState: Bundle?) {
-        settingToolbar = requireViewBinding().settingToolbar
-        settingToolbar.settingBackNav.setOnClickListener(this)
-        viewModel.getListSetting()
     }
 }

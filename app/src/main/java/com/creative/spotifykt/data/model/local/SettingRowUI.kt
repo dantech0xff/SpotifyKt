@@ -1,15 +1,26 @@
 package com.creative.spotifykt.data.model.local
 
-import com.creative.spotifykt.core.BaseModelData
+import android.os.Parcelable
+import com.squareup.moshi.JsonClass
+import kotlinx.parcelize.Parcelize
 
-data class SettingRowItem(val rowType: SettingRowType,
-                          val settingId: String = "",
-                          val title: String = "",
-                          val subTitle: String = "",
-                          val iconRes: Int = 0) : BaseModelData
+@Parcelize
+@JsonClass(generateAdapter = true)
+data class SettingRowUI(
+    val rowType: String? = null,
+    val settingId: String? = null,
+    val deeplink: String? = null,
+    val title: TextLabel? = null,
+    val subTitle: TextLabel? = null,
+    val iconUrl: String? = null
+) : Parcelable
 
-enum class SettingRowType{
-    ROW_SETTING, ROW_SECTION_SEPARATE, ROW_SETTING_SWITCH, ROW_SETTING_CHECKBOX, ROW_SETTING_SLIDER
+enum class SettingRowType(val value: String) {
+    ROW_SETTING_TEXT("ROW_SETTING_TEXT"),
+    ROW_SECTION_SEPARATE("ROW_SECTION_SEPARATE"),
+    ROW_SETTING_SWITCH("ROW_SETTING_SWITCH"),
+    ROW_SETTING_CHECKBOX("ROW_SETTING_CHECKBOX"),
+    ROW_SETTING_SLIDER("ROW_SETTING_SLIDER"),
 }
 
 object SettingActionId {

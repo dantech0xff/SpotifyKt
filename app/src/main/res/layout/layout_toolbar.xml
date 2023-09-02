@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="appBarHandler"
+            type="com.creative.spotifykt.ui.IAppBarHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_setting_toolbar"
         android:background="?android:attr/windowBackground"
-        android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="58dp">
-    <com.creative.spotifykt.ui.view.RatioImageView
+        android:layout_height="wrap_content">
+        <com.creative.spotifykt.ui.view.RatioImageView
+            android:onClick="@{()->appBarHandler.handleBack()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:id="@+id/setting_back_nav"
             android:src="@drawable/round_arrow_back_24"
             android:layout_centerVertical="true"
             android:scaleType="centerInside"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
-    <com.creative.spotifykt.ui.view.EncoreBoldTextView
+            android:layout_width="@dimen/xds_icon_size_xl"
+            android:layout_height="@dimen/xds_icon_size_xl"/>
+        <com.creative.spotifykt.ui.view.EncoreBoldTextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="@dimen/xds_text_size_body1"
             android:layout_centerInParent="true"
             android:text="@string/settings"/>
-</RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
