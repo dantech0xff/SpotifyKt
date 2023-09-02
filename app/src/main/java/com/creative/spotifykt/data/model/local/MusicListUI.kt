@@ -6,6 +6,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @JsonClass(generateAdapter = true)
+data class HomeLayoutUI(
+    val entries: List<MusicListUI?>? = null
+): Parcelable
+
+@Parcelize
+@JsonClass(generateAdapter = true)
 data class MusicListUI(val id: Int? = null,
     val headline: TextLabel? = null,
     val actionIcon: ActionIcon? = null,

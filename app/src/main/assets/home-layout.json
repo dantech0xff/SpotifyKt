@@ -1,0 +1,487 @@
+{
+  "entries": [
+    {
+      "headline": {
+        "text": "Recently Played",
+        "colorStyle": "PRIMARY",
+        "sizeStyle": "H1"
+      },
+      "actionIcon": {
+        "image": "https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/folder_920_201707260845-1.png",
+        "deeplink": "spotifykt://app.setting"
+      },
+      "items": [
+        {
+          "id": "1",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "2",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "3",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "4",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "5",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "6",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        }
+      ],
+      "layout": {
+        "orientation": "HORIZONTAL",
+        "spanCount": 1
+      }
+    },
+    {
+      "headline": {
+        "text": "Recently Played",
+        "colorStyle": "PRIMARY",
+        "sizeStyle": "H1"
+      },
+      "actionIcon": null,
+      "items": [
+        {
+          "id": "1",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "2",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "3",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "4",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "5",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "6",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        }
+      ],
+      "layout": {
+        "orientation": "HORIZONTAL",
+        "spanCount": 1
+      }
+    },
+    {
+      "headline": {
+        "text": "Recently Played",
+        "colorStyle": "PRIMARY",
+        "sizeStyle": "H1"
+      },
+      "actionIcon": null,
+      "items": [
+        {
+          "id": "1",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "2",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "3",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "4",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "5",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "6",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        }
+      ],
+      "layout": {
+        "orientation": "HORIZONTAL",
+        "spanCount": 1
+      }
+    },
+    {
+      "headline": {
+        "text": "Recently Played",
+        "colorStyle": "PRIMARY",
+        "sizeStyle": "H1"
+      },
+      "actionIcon": null,
+      "items": [
+        {
+          "id": "1",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "2",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "3",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "4",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "5",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "6",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        }
+      ],
+      "layout": {
+        "orientation": "HORIZONTAL",
+        "spanCount": 1
+      }
+    },
+    {
+      "headline": {
+        "text": "Recently Played",
+        "colorStyle": "PRIMARY",
+        "sizeStyle": "H1"
+      },
+      "actionIcon": null,
+      "items": [
+        {
+          "id": "1",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "2",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "3",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "4",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "5",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "6",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        }
+      ],
+      "layout": {
+        "orientation": "HORIZONTAL",
+        "spanCount": 1
+      }
+    },
+    {
+      "headline": {
+        "text": "Recently Played",
+        "colorStyle": "PRIMARY",
+        "sizeStyle": "H1"
+      },
+      "actionIcon": null,
+      "items": [
+        {
+          "id": "1",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "2",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "3",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "4",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "5",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        },
+        {
+          "id": "6",
+          "image": "https://yt3.googleusercontent.com/hZDUwjoeQqigphL4A1tkg9c6hVp5yXmbboBR7PYFUSFj5PIJSA483NB5v7b0XVoTN9GCku3tqQ=s900-c-k-c0x00ffffff-no-rj",
+          "deeplink": "",
+          "headline": {
+            "text": "BLACK PINK",
+            "colorStyle": "PRIMARY",
+            "sizeStyle": "H1"
+          },
+          "subHeadline": null
+        }
+      ],
+      "layout": {
+        "orientation": "HORIZONTAL",
+        "spanCount": 1
+      }
+    }
+  ]
+}

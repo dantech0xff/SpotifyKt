@@ -29,7 +29,6 @@ fun bindImageUrl(view: ImageView, imageUrl: String?) {
                 .downsample(DownsampleStrategy.AT_MOST)
         )
         .transition(DrawableTransitionOptions.withCrossFade())
-        .placeholder(R.drawable.ic_launcher_foreground)
         .error(R.drawable.ic_launcher_foreground)
         .into(view)
 }

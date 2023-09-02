@@ -22,6 +22,7 @@ import com.creative.spotifykt.ui.setting.mobiledata.MobileDataViewModel
 import com.creative.spotifykt.ui.setting.storage.StorageViewModel
 import com.creative.spotifykt.usecase.favorite.GetFavoriteListUseCase
 import com.creative.spotifykt.usecase.favorite.GetTabLayoutUseCase
+import com.creative.spotifykt.usecase.home.GetHomeLayoutUseCase
 import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
 import com.creative.spotifykt.usecase.search.GetSearchTopicUseCase
 import dagger.Module
@@ -31,10 +32,10 @@ import dagger.Provides
 class FragmentModule (private val fragment: BaseFragment<*, *>) {
 
     @Provides
-    fun provideHomeViewModel(app: App): HomeViewModel =
+    fun provideHomeViewModel(app: App, getHomeLayoutUseCase: GetHomeLayoutUseCase): HomeViewModel =
         ViewModelProvider(fragment,
             viewModelFactory {
-                HomeViewModel(app)
+                HomeViewModel(app, getHomeLayoutUseCase)
             })[HomeViewModel::class.java]
 
     @Provides

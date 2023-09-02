@@ -36,15 +36,24 @@
                 android:gravity="center"
                 app:bindTextLabel="@{data.headline}"
                 tools:text="@string/recent_title"/>
+
+            <androidx.cardview.widget.CardView
+                app:bindVisibleOrGone="@{data.actionIcon.image.length() > 0}"
+                app:cardCornerRadius="@dimen/xds_rounded_corner_l"
+                app:cardElevation="0dp"
+                android:layout_gravity="center_vertical|end"
+                android:onClick="@{() -> handleActionIconClick.handleDeeplink(data.actionIcon.deeplink)}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/btn_header_action"
-                android:onClick="@{() -> handleActionIconClick.handleDeeplink(data.actionIcon.deeplink)}"
-                app:bindImageUrl="@{data.actionIcon.image}"
-                android:layout_gravity="center_vertical|end"
-                android:src="@drawable/round_settings_24"
-                android:scaleType="centerInside"
                 android:layout_width="@dimen/xds_icon_size_xl"
-                android:layout_height="@dimen/xds_icon_size_xl"/>
+                android:layout_height="@dimen/xds_icon_size_xl"
+                android:layout_gravity="center_vertical|end"
+                android:scaleType="centerInside"
+                app:bindImageUrl="@{data.actionIcon.image}"
+                tools:src="@drawable/round_settings_24" />
+            </androidx.cardview.widget.CardView>
         </FrameLayout>
 
         <androidx.recyclerview.widget.RecyclerView

@@ -5,12 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/setting_navigation"
     app:startDestination="@id/mainSettingFragment">
+
     <fragment
         android:id="@+id/mainSettingFragment"
         android:name="com.creative.spotifykt.ui.setting.main.MainSettingFragment"
         android:label="main_setting_fragment"
         tools:layout="@layout/main_setting_fragment">
-        
+
         <action
             android:id="@+id/action_mainSettingFragment_to_mobileDataFragment"
             app:enterAnim="@anim/fade_in_anim"
@@ -67,6 +68,7 @@
             app:popEnterAnim="@anim/fade_in_anim"
             app:destination="@id/aboutFragment"/>
     </fragment>
+
     <fragment
         android:id="@+id/mobileDataFragment"
         android:name="com.creative.spotifykt.ui.setting.mobiledata.MobileDataFragment"

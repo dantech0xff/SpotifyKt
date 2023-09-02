@@ -3,6 +3,7 @@ package com.creative.spotifykt.di.module.biz
 import com.creative.spotifykt.App
 import com.creative.spotifykt.usecase.favorite.GetFavoriteListUseCase
 import com.creative.spotifykt.usecase.favorite.GetTabLayoutUseCase
+import com.creative.spotifykt.usecase.home.GetHomeLayoutUseCase
 import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
 import com.creative.spotifykt.usecase.search.GetSearchTopicUseCase
 import com.squareup.moshi.Moshi
@@ -36,4 +37,9 @@ class UseCaseModule {
     fun provideGetFavoriteListUseCase(
         app: App, moshi: Moshi
     ) = GetFavoriteListUseCase(app, moshi)
+
+    @Provides
+    fun provideGetHomeLayoutUseCase(
+        app: App, moshi: Moshi
+    ) = GetHomeLayoutUseCase(app, moshi)
 }

@@ -1,5 +1,6 @@
 package com.creative.spotifykt.ui.home
 
+import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.creative.spotifykt.R
+import com.creative.spotifykt.core.debugToast
 import com.creative.spotifykt.core.toast
 import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.databinding.FragmentHomeBinding
@@ -21,7 +23,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         HomeListAdapter(
             object : IDeeplinkHandler {
                 override fun handleDeeplink(deeplink: String?) {
-                    activity?.toast(deeplink.orEmpty())
+                    activity?.debugToast(deeplink.orEmpty())
+                    activity?.apply {
+                        startActivity(
+                            Intent(Intent.ACTION_VIEW).apply {
+                                data = android.net.Uri.parse(deeplink)
+                            }
+                        )
+                    }
                 }
             }
         )
@@ -80,9 +89,4 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     override fun shouldInterceptBackPress(): Boolean = false
-
-    companion object {
-        const val DUMMY_URL =
-            "https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/folder_920_201707260845-1.png"
-    }
 }
