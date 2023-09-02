@@ -30,24 +30,24 @@ class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSetting
 
     override fun setupObservers() {
         super.setupObservers()
-        viewModel.listSettingLiveData.observe(this) { listSettingRows ->
-            requireViewBinding().settingListItem.removeAllViews()
-            listSettingRows.forEach { rowItem ->
-                requireViewBinding().settingListItem.addView(
-                    SettingRowViewWrapper(ItemSettingRowBinding.inflate(LayoutInflater.from(requireContext()))).apply {
-                        bindData(rowItem) { row ->
-                            handleSetting(row)
-                        }
-                    }.viewBinding.root,
-                    LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                    ).apply {
-                        bottomMargin = requireContext().dpToPixelsInt(2)
-                    }
-                )
-            }
-        }
+//        viewModel.listSettingLiveData.observe(this) { listSettingRows ->
+//            requireViewBinding().settingListItem.removeAllViews()
+//            listSettingRows.forEach { rowItem ->
+//                requireViewBinding().settingListItem.addView(
+//                    SettingRowViewWrapper(ItemSettingRowBinding.inflate(LayoutInflater.from(requireContext()))).apply {
+//                        bindData(rowItem) { row ->
+//                            handleSetting(row)
+//                        }
+//                    }.viewBinding.root,
+//                    LinearLayout.LayoutParams(
+//                        LinearLayout.LayoutParams.MATCH_PARENT,
+//                        LinearLayout.LayoutParams.WRAP_CONTENT
+//                    ).apply {
+//                        bottomMargin = requireContext().dpToPixelsInt(2)
+//                    }
+//                )
+//            }
+//        }
     }
 
     private fun handleSetting(settingItem: SettingRowItem) {

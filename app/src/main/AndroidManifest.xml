@@ -20,14 +20,33 @@
         <activity
             android:name=".ui.activity.main.MainActivity"
             android:windowSoftInputMode="adjustNothing"
+            android:launchMode="singleTask"
             android:exported="true">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
+                <data
+                    android:scheme="spotifykt"
+                    android:host="app" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.setting.SettingActivity" android:label="@string/settings"/>
 
+        <activity
+            android:name=".ui.activity.setting.SettingActivity"
+            android:launchMode="singleTask"
+            android:label="@string/settings"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="spotifykt"
+                    android:host="app.setting" />
+            </intent-filter>
+        </activity>
     </application>
-
 </manifest>
