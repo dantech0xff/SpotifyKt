@@ -5,14 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.creative.spotifykt.R
 import com.creative.spotifykt.databinding.LayoutToolbarBinding
 import com.creative.spotifykt.databinding.MobileDataFragmentBinding
 import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.core.ui.BaseFragment
+import com.creative.spotifykt.data.model.local.AppBarUI
+import com.creative.spotifykt.data.model.local.ColorStyle
+import com.creative.spotifykt.data.model.local.TextLabel
+import com.creative.spotifykt.ui.IAppBarHandler
 
-class MobileDataFragment : BaseFragment<MobileDataFragmentBinding, MobileDataViewModel>(), View.OnClickListener {
-
-    lateinit var toolbarBinding: LayoutToolbarBinding
+class MobileDataFragment : BaseFragment<MobileDataFragmentBinding, MobileDataViewModel>() {
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?) =
         MobileDataFragmentBinding.inflate(inflater, container, false)
@@ -22,15 +25,16 @@ class MobileDataFragment : BaseFragment<MobileDataFragmentBinding, MobileDataVie
     }
 
     override fun setupView(savedInstanceState: Bundle?) {
-        toolbarBinding = requireViewBinding().settingToolbar
-
-        toolbarBinding.settingBackNav.setOnClickListener(this)
-    }
-
-    override fun onClick(v: View?) {
-        when (v!!) {
-            toolbarBinding.settingBackNav -> {
-                findNavController().popBackStack()
+        viewBinding?.apply {
+            settingToolbar.data = AppBarUI(
+                title = TextLabel(
+                    text = getString(R.string.mobile_data), colorStyle = ColorStyle.PRIMARY.value
+                )
+            )
+            settingToolbar.appBarHandler = object : IAppBarHandler {
+                override fun handleBack() {
+                    findNavController().popBackStack()
+                }
             }
         }
     }

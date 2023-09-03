@@ -39,6 +39,7 @@
             android:launchMode="singleTask"
             android:label="@string/settings"
             android:exported="true">
+            <nav-graph android:value="@navigation/setting_navigation" />
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />

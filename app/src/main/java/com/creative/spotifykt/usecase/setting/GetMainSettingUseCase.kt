@@ -30,7 +30,7 @@ class GetMainSettingUseCase(
                 add(
                     SettingRowUI(
                         rowType = SettingRowType.ROW_SETTING_TEXT.value,
-                        deeplink = "",
+                        deeplink = "spotifykt://app.setting/mobile-data",
                         title = TextLabel(text = app.getString(R.string.mobile_data), colorStyle = "PRIMARY"),
                         subTitle = TextLabel(
                             text = app.getString(R.string.byte_used_by_spotify_this_month).format("0.0 MB")

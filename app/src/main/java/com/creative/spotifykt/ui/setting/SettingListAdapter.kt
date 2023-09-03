@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.creative.spotifykt.data.model.local.SettingRowUI
 import com.creative.spotifykt.databinding.ItemSettingRowBinding
+import com.creative.spotifykt.ui.ISettingRowHandler
 
 /**
  * Created by dan on 03/09/2023
@@ -14,7 +15,9 @@ import com.creative.spotifykt.databinding.ItemSettingRowBinding
  * Copyright © 2023 1010 Creative. All rights reserved.
  */
 
-class SettingListAdapter : ListAdapter<SettingRowUI, SettingListAdapter.SettingRowViewHolder>(DIFF_UTILS) {
+class SettingListAdapter(
+    private val settingRowHandler: ISettingRowHandler? = null
+) : ListAdapter<SettingRowUI, SettingListAdapter.SettingRowViewHolder>(DIFF_UTILS) {
 
     companion object {
         val DIFF_UTILS = object : DiffUtil.ItemCallback<SettingRowUI>() {
@@ -29,10 +32,14 @@ class SettingListAdapter : ListAdapter<SettingRowUI, SettingListAdapter.SettingR
         }
     }
 
-    inner class SettingRowViewHolder(private val binding: ItemSettingRowBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class SettingRowViewHolder(
+        private val binding: ItemSettingRowBinding
+    ) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(settingRowUI: SettingRowUI) {
             binding.apply {
                 data = settingRowUI
+                settingRowHandler = this@SettingListAdapter.settingRowHandler
                 executePendingBindings()
             }
         }

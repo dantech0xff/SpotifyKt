@@ -1,14 +1,12 @@
 package com.creative.spotifykt.ui.setting.main
 
-import android.graphics.Rect
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.creative.spotifykt.R
 import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.data.model.local.AppBarUI
@@ -18,12 +16,25 @@ import com.creative.spotifykt.data.model.local.TextLabel
 import com.creative.spotifykt.databinding.MainSettingFragmentBinding
 import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IAppBarHandler
+import com.creative.spotifykt.ui.ISettingRowHandler
 import com.creative.spotifykt.ui.setting.SettingListAdapter
 
 class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSettingViewModel>() {
 
     private val settingListAdapter by lazy {
-        SettingListAdapter()
+        SettingListAdapter(
+            object : ISettingRowHandler {
+                override fun onClick(settingRowUI: SettingRowUI) {
+                    handleSettingClick(settingRowUI)
+                }
+
+                override fun onSwitch(settingRowUI: SettingRowUI, isChecked: Boolean) {}
+
+                override fun onChecked(settingRowUI: SettingRowUI, isChecked: Boolean) {}
+
+                override fun onSlider(settingRowUI: SettingRowUI, value: Float) {}
+            }
+        )
     }
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?) =
@@ -33,34 +44,47 @@ class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSetting
         fragmentComponent.inject(this)
     }
 
-    private fun handleSetting(settingItem: SettingRowUI) {
-        when (settingItem.settingId) {
-            SettingActionId.SETTING_MOBILE_DATA -> {
-                findNavController().navigate(R.id.action_mainSettingFragment_to_mobileDataFragment)
-            }
+    private fun handleSettingClick(settingItem: SettingRowUI) {
+        if (!settingItem.deeplink.isNullOrBlank()) {
+            findNavController()
+                .navigate(
+                    android.net.Uri.parse(settingItem.deeplink),
+                    NavOptions.Builder()
+                        .setEnterAnim(R.anim.fade_in_anim)
+                        .setExitAnim(R.anim.fade_out_anim)
+                        .setPopEnterAnim(R.anim.fade_in_anim)
+                        .setPopExitAnim(R.anim.fade_out_anim)
+                        .build()
+                )
+        } else {
+            when (settingItem.settingId) {
+                SettingActionId.SETTING_MOBILE_DATA -> {
+                    findNavController().navigate(R.id.action_mainSettingFragment_to_mobileDataFragment)
+                }
 
-            SettingActionId.SETTING_STORAGE -> {
-                findNavController().navigate(R.id.action_mainSettingFragment_to_storageFragment)
-            }
+                SettingActionId.SETTING_STORAGE -> {
+                    findNavController().navigate(R.id.action_mainSettingFragment_to_storageFragment)
+                }
 
-            SettingActionId.SETTING_AUDIO_VOLUME -> {
-                findNavController().navigate(R.id.action_mainSettingFragment_to_audioSettingFragment)
-            }
+                SettingActionId.SETTING_AUDIO_VOLUME -> {
+                    findNavController().navigate(R.id.action_mainSettingFragment_to_audioSettingFragment)
+                }
 
-            SettingActionId.SETTING_DOWNLOAD -> {
-                findNavController().navigate(R.id.action_mainSettingFragment_to_downloadSettingsFragment)
-            }
+                SettingActionId.SETTING_DOWNLOAD -> {
+                    findNavController().navigate(R.id.action_mainSettingFragment_to_downloadSettingsFragment)
+                }
 
-            SettingActionId.SETTING_ADULT_CONTENT -> {
-                findNavController().navigate(R.id.action_mainSettingFragment_to_explicitContentFragment)
-            }
+                SettingActionId.SETTING_ADULT_CONTENT -> {
+                    findNavController().navigate(R.id.action_mainSettingFragment_to_explicitContentFragment)
+                }
 
-            SettingActionId.SETTING_ACCOUNT -> {
-                findNavController().navigate(R.id.action_mainSettingFragment_to_accountSettingFragment)
-            }
+                SettingActionId.SETTING_ACCOUNT -> {
+                    findNavController().navigate(R.id.action_mainSettingFragment_to_accountSettingFragment)
+                }
 
-            SettingActionId.SETTING_ABOUT -> {
-                findNavController().navigate(R.id.action_mainSettingFragment_to_aboutFragment)
+                SettingActionId.SETTING_ABOUT -> {
+                    findNavController().navigate(R.id.action_mainSettingFragment_to_aboutFragment)
+                }
             }
         }
     }
@@ -81,11 +105,6 @@ class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSetting
             settingList.apply {
                 layoutManager = LinearLayoutManager(context)
                 adapter = settingListAdapter
-                addItemDecoration(object : ItemDecoration() {
-                    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-                        super.getItemOffsets(outRect, view, parent, state)
-                    }
-                })
             }
         }
     }
