@@ -3,6 +3,7 @@ package com.creative.spotifykt.ui
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.SwitchCompat
 import androidx.cardview.widget.CardView
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.BindingAdapter
@@ -11,11 +12,12 @@ import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.creative.spotifykt.R
+import com.creative.spotifykt.data.model.local.SwitchUI
 import com.creative.spotifykt.data.model.local.TextLabel
 
 @BindingAdapter("bindImageUrl")
 fun bindImageUrl(view: ImageView, imageUrl: String?) {
-    if (imageUrl == null) {
+    if (imageUrl.isNullOrBlank()) {
         view.visibility = View.GONE
         return
     }
@@ -35,7 +37,7 @@ fun bindImageUrl(view: ImageView, imageUrl: String?) {
 
 @BindingAdapter("bindTextLabel")
 fun bindTextLabel(textView: TextView, textLabel: TextLabel?) {
-    if (textLabel == null) {
+    if (textLabel == null || textLabel.text.isNullOrBlank()) {
         textView.visibility = View.GONE
         return
     }
@@ -93,4 +95,16 @@ fun bindVisibleOrGone(view: View, isVisible: Boolean?) {
         return
     }
     view.visibility = if (isVisible) View.VISIBLE else View.GONE
+}
+
+@BindingAdapter("bindSwitchUI")
+fun bindSwitchUI(view: SwitchCompat, switchUI: SwitchUI?) {
+    if (switchUI == null) {
+        view.visibility = View.GONE
+        return
+    }
+    view.visibility = View.VISIBLE
+    view.apply {
+        isChecked = switchUI.isOn ?: false
+    }
 }

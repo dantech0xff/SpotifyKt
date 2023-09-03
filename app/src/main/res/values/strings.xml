@@ -59,4 +59,22 @@
     <string name="view_plans">VIEW PLANS</string>
     <string name="recommended_for_you">Recommended for you</string>
     <string name="made_for_you">Made for you</string>
+    <string name="mobile_data">Mobile Data</string>
+    <string name="byte_used_by_spotify">%s used by Spotify</string>
+    <string name="byte_used_by_spotify_this_month">%s used by Spotify this month</string>
+    <string name="storage">Storage</string>
+    <string name="audio_settings">Audio Settings</string>
+    <string name="audio_quality_s">Audio quality: %s</string>
+    <string name="download_settings">Download Settings</string>
+    <string name="download_on_wi_fi_only">Download on Wi-Fi only</string>
+    <string name="privacy_settings">Privacy Settings</string>
+    <string name="manage_sharing_your_listening_activity_profile_and_more">Manage sharing your listening activity, profile, and more.</string>
+    <string name="explicit_content">Explicit Content</string>
+    <string name="explicit_content_allowed">Explicit content allowed</string>
+    <string name="account">Account</string>
+    <string name="free_account">Free account</string>
+    <string name="about">About</string>
+    <string name="spotify_lite_version_s">Spotify Lite Version %s</string>
+    <string name="try_spotify_music">Try Spotify Music</string>
+    <string name="logout">Logout</string>
 </resources>

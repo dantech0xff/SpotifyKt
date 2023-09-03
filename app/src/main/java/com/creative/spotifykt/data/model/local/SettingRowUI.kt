@@ -6,14 +6,45 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @JsonClass(generateAdapter = true)
+data class MainSettingUI(
+    val settingList: List<SettingRowUI?>? = null
+): Parcelable
+
+@Parcelize
+@JsonClass(generateAdapter = true)
 data class SettingRowUI(
     val rowType: String? = null,
     val settingId: String? = null,
     val deeplink: String? = null,
     val title: TextLabel? = null,
     val subTitle: TextLabel? = null,
-    val iconUrl: String? = null
+    val iconUrl: String? = null,
+    val sliderUI: SliderUI? = null,
+    val switchUI: SwitchUI? = null,
+    val checkedUI: CheckedUI? = null,
 ) : Parcelable
+
+@Parcelize
+@JsonClass(generateAdapter = true)
+data class CheckedUI(
+    val isChecked: Boolean? = null,
+): Parcelable
+
+@Parcelize
+@JsonClass(generateAdapter = true)
+data class SwitchUI(
+    val isOn: Boolean? = null,
+): Parcelable
+
+@Parcelize
+@JsonClass(generateAdapter = true)
+data class SliderUI(
+    val minValue: Float? = null,
+    val maxValue: Float? = null,
+    val currentValue: Float? = null,
+    val minText: TextLabel? = null,
+    val maxText: TextLabel? = null,
+): Parcelable
 
 enum class SettingRowType(val value: String) {
     ROW_SETTING_TEXT("ROW_SETTING_TEXT"),

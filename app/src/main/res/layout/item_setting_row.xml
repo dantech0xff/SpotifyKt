@@ -1,87 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:paddingTop="@dimen/setting_padding_top"
-                android:paddingBottom="@dimen/setting_padding_bottom"
-                android:paddingStart="@dimen/setting_padding_left"
-                android:paddingEnd="@dimen/setting_padding_right"
-                android:clickable="true"
-                android:background="?android:attr/selectableItemBackground"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:focusable="true">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.creative.spotifykt.data.model.local.SettingRowType"/>
+        <variable
+            name="data"
+            type="com.creative.spotifykt.data.model.local.SettingRowUI" />
+        <variable
+            name="settingRowHandler"
+            type="com.creative.spotifykt.ui.ISettingRowHandler" />
+    </data>
 
-    <com.creative.spotifykt.ui.view.RatioImageView
-            android:id="@+id/setting_icon"
-            android:visibility="gone"
-            android:src="@mipmap/ic_launcher"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="4dp"
-            android:layout_width="38dp"
-            android:layout_height="38dp"/>
-    <com.creative.spotifykt.ui.view.EncoreTextView
-            android:id="@+id/title_center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:layout_toEndOf="@id/setting_icon"
-            android:layout_centerVertical="true"
-            android:visibility="gone"
-            android:textColor="@color/white"
-            android:layout_marginBottom="4dp"
-            android:text="Mobile Data"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:clickable="@{data.rowType.equals(SettingRowType.ROW_SECTION_SEPARATE.value) == false}"
+        android:onClick="@{() -> settingRowHandler.onClick(data)}"
+        android:padding="@dimen/xds_space_m"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <com.creative.spotifykt.ui.view.EncoreTextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/setting_text_title"
-            android:layout_toEndOf="@id/setting_icon"
-            android:textColor="@color/white"
-            android:layout_marginBottom="4dp"
-            android:text="Mobile Data"/>
-
-    <com.creative.spotifykt.ui.view.EncoreTextView
-            android:id="@+id/sub_title"
-            android:layout_below="@id/title"
-            android:layout_toEndOf="@id/setting_icon"
-            android:layout_toStartOf="@id/setting_switch"
-            android:textSize="@dimen/setting_text_sub_title"
-            android:text="459kb used by Spotify Lite this month"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+            <com.creative.spotifykt.ui.view.RatioImageView
+                app:bindImageUrl="@{data.iconUrl}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/setting_icon"
+                tools:src="@mipmap/ic_launcher"
+                android:layout_width="@dimen/xds_icon_size_m"
+                android:layout_height="@dimen/xds_icon_size_m"/>
+            <LinearLayout
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/setting_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/xds_space_m"
+                android:gravity="start|center_vertical"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <com.creative.spotifykt.ui.view.EncoreTextView
+                    app:bindTextLabel="@{data.title}"
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/xds_text_size_heading6"
+                    android:textColor="@color/white"
+                    tools:text="Mobile Data"/>
+                <com.creative.spotifykt.ui.view.EncoreTextView
+                    app:bindTextLabel="@{data.subTitle}"
+                    android:id="@+id/sub_title"
+                    android:textSize="@dimen/xds_text_size_heading7"
+                    tools:text="459kb used by Spotify Lite this month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-    <View
-            android:id="@+id/separate_line"
+                <com.creative.spotifykt.ui.view.RatioImageView
+                    app:bindVisibleOrGone="@{data.checkedUI.isChecked() == true}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/setting_check"
+                    app:tint="@color/xds_color_font_success"
+                    tools:src="@drawable/round_check_24"
+                    android:scaleType="centerInside"
+                    android:layout_width="@dimen/xds_icon_size_m"
+                    android:layout_height="@dimen/xds_icon_size_m"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    app:bindSwitchUI="@{data.switchUI}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/setting_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:bindVisibleOrGone="@{data.sliderUI != null}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_text"
+            android:layout_margin="@dimen/xds_space_m"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:visibility="gone"
-            android:background="?android:attr/windowBackground"
-            android:layout_centerVertical="true"/>
+            android:layout_height="wrap_content">
+            <com.creative.spotifykt.ui.view.EncoreTextView
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="Off"
+                app:bindTextLabel="@{data.sliderUI.minText}"
+                android:textColor="@color/xds_color_font_primary"
+                android:id="@+id/min_slider_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-    <com.creative.spotifykt.ui.view.RatioImageView
-            android:id="@+id/setting_check"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/round_check_24"
-            android:scaleType="centerInside"
-            android:visibility="gone"
-            android:layout_width="30dp"
-            android:layout_height="30dp"/>
-    <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/setting_switch"
-            android:visibility="gone"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <com.creative.spotifykt.ui.view.EncoreTextView
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="12s"
+                app:bindTextLabel="@{data.sliderUI.maxText}"
+                android:textColor="@color/xds_color_font_primary"
+                android:id="@+id/max_slider_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-    <com.google.android.material.slider.Slider
-            android:id="@+id/setting_slider"
-            android:visibility="gone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:valueFrom="0.0"
-            android:valueTo="100.0"
-            android:value="20.0"
-            android:layout_below="@id/sub_title"/>
-</RelativeLayout>
+<!--            <com.google.android.material.slider.Slider-->
+<!--                app:layout_constraintStart_toEndOf="@id/min_slider_text"-->
+<!--                app:layout_constraintEnd_toStartOf="@id/max_slider_text"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                android:layout_marginEnd="@dimen/xds_space_m"-->
+<!--                android:layout_marginStart="@dimen/xds_space_m"-->
+<!--                android:id="@+id/setting_slider"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:valueFrom="@{data.sliderUI.minValue}"-->
+<!--                android:valueTo="@{data.sliderUI.maxValue}"-->
+<!--                android:value="@{data.sliderUI.currentValue}"/>-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            app:bindVisibleOrGone="@{data.rowType.equals(SettingRowType.ROW_SECTION_SEPARATE.value)}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/xds_color_background_secondary"
+            android:padding="@dimen/xds_space_m"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

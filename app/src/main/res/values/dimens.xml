@@ -42,6 +42,8 @@
     <dimen name="xds_text_size_heading4">18sp</dimen>
     <dimen name="xds_text_size_heading5">16sp</dimen>
     <dimen name="xds_text_size_heading6">14sp</dimen>
+    <dimen name="xds_text_size_heading7">12sp</dimen>
+    <dimen name="xds_text_size_heading8">10sp</dimen>
     <dimen name="xds_text_size_body1">16sp</dimen>
     <dimen name="xds_text_size_body2">14sp</dimen>
     <dimen name="xds_text_size_caption">12sp</dimen>

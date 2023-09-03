@@ -10,17 +10,10 @@
 
         <include layout="@layout/layout_toolbar"
             android:id="@+id/setting_toolbar"/>
-
-        <com.creative.spotifykt.ui.view.EncoreTextView
-            android:text="MAIN SETTING FRAGMENT"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:padding="@dimen/xds_space_l"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/setting_list_item"
+            android:id="@+id/setting_list"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_setting_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">

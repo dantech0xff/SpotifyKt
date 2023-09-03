@@ -25,6 +25,7 @@ import com.creative.spotifykt.usecase.favorite.GetTabLayoutUseCase
 import com.creative.spotifykt.usecase.home.GetHomeLayoutUseCase
 import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
 import com.creative.spotifykt.usecase.search.GetSearchTopicUseCase
+import com.creative.spotifykt.usecase.setting.GetMainSettingUseCase
 import dagger.Module
 import dagger.Provides
 
@@ -43,8 +44,8 @@ class FragmentModule (private val fragment: BaseFragment<*, *>) {
         ViewModelProvider(fragment, viewModelFactory { SettingActivityViewModel() })[SettingActivityViewModel::class.java]
 
     @Provides
-    fun provideMainSettingViewModel(): MainSettingViewModel =
-        ViewModelProvider(fragment, viewModelFactory { MainSettingViewModel() })[MainSettingViewModel::class.java]
+    fun provideMainSettingViewModel(getMainSettingUseCase: GetMainSettingUseCase): MainSettingViewModel =
+        ViewModelProvider(fragment, viewModelFactory { MainSettingViewModel(getMainSettingUseCase) })[MainSettingViewModel::class.java]
 
     @Provides
     fun provideMobileDataViewModel(): MobileDataViewModel =

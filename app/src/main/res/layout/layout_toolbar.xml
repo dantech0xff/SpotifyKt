@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="data"
+            type="com.creative.spotifykt.data.model.local.AppBarUI" />
         <variable
             name="appBarHandler"
             type="com.creative.spotifykt.ui.IAppBarHandler" />
@@ -25,6 +29,7 @@
             android:layout_width="@dimen/xds_icon_size_xl"
             android:layout_height="@dimen/xds_icon_size_xl"/>
         <com.creative.spotifykt.ui.view.EncoreBoldTextView
+            app:bindTextLabel="@{data.title}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -33,6 +38,6 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/xds_text_size_body1"
             android:layout_centerInParent="true"
-            android:text="@string/settings"/>
+            tools:text="@string/settings"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

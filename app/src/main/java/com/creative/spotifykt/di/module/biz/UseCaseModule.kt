@@ -6,6 +6,7 @@ import com.creative.spotifykt.usecase.favorite.GetTabLayoutUseCase
 import com.creative.spotifykt.usecase.home.GetHomeLayoutUseCase
 import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
 import com.creative.spotifykt.usecase.search.GetSearchTopicUseCase
+import com.creative.spotifykt.usecase.setting.GetMainSettingUseCase
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -42,4 +43,9 @@ class UseCaseModule {
     fun provideGetHomeLayoutUseCase(
         app: App, moshi: Moshi
     ) = GetHomeLayoutUseCase(app, moshi)
+
+    @Provides
+    fun provideGetMainSettingUseCase(
+        app: App, moshi: Moshi
+    ) = GetMainSettingUseCase(app, moshi)
 }

@@ -22,3 +22,7 @@ data class TextLabel(
      val colorStyle: String? = null,
      val sizeStyle: String? = null,
 ) : Parcelable
+
+enum class ColorStyle(val value: String) {
+    PRIMARY("PRIMARY"),
+}
