@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Set the background color -->
+    <solid android:color="@color/xds_color_background_secondary" /> <!-- Change this to your desired background color -->
+    <stroke
+        android:width="@dimen/xds_space_xxs"
+        android:color="@color/xds_color_white"
+        />
+    <!-- Set the corner radius -->
+    <corners android:radius="@dimen/xds_rounded_corner_l" /> <!-- Change "12dp" to your desired corner radius -->
+</shape>

@@ -10,6 +10,7 @@
     <dimen name="setting_padding_bottom">10dp</dimen>
     <dimen name="vertical_row_height_dp">40dp</dimen>
 
+    <dimen name="xds_space_xxs">1dp</dimen>
     <dimen name="xds_space_xs">2dp</dimen>
     <dimen name="xds_space_s">4dp</dimen>
     <dimen name="xds_space_m">8dp</dimen>
@@ -64,4 +65,5 @@
     <dimen name="xds_elevation_xl">24dp</dimen>
     <dimen name="xds_elevation_xxl">32dp</dimen>
 
+    <dimen name="size_300_dp">300dp</dimen>
 </resources>

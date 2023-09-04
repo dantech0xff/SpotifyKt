@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.creative.spotifykt.R
 import com.creative.spotifykt.databinding.LayoutToolbarBinding
 import com.creative.spotifykt.databinding.MobileDataFragmentBinding
@@ -16,6 +17,13 @@ import com.creative.spotifykt.data.model.local.TextLabel
 import com.creative.spotifykt.ui.IAppBarHandler
 
 class MobileDataFragment : BaseFragment<MobileDataFragmentBinding, MobileDataViewModel>() {
+
+    private val limitMobileDataAdapter by lazy {
+        LimitMobileDataAdapter(
+            getSelectedPosition = { viewModel.getSelectedPosition() },
+            setSelectedPosition = { viewModel.setSelectedPosition(it) }
+        )
+    }
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?) =
         MobileDataFragmentBinding.inflate(inflater, container, false)
@@ -35,6 +43,27 @@ class MobileDataFragment : BaseFragment<MobileDataFragmentBinding, MobileDataVie
                 override fun handleBack() {
                     findNavController().popBackStack()
                 }
+            }
+            listLimitData.adapter = limitMobileDataAdapter
+            listLimitData.layoutManager = GridLayoutManager(
+                context, 3, GridLayoutManager.VERTICAL, false
+            )
+        }
+    }
+
+    override fun setupObservers() {
+        super.setupObservers()
+        viewModel.settingMobileData.observe(viewLifecycleOwner) {
+            when (it) {
+                is SettingMobileDataState.Success -> {
+                    viewBinding?.apply {
+                        data = it.data
+                        executePendingBindings()
+                    }
+                    limitMobileDataAdapter.submitList(it.data.listLimit)
+                }
+
+                else -> {}
             }
         }
     }

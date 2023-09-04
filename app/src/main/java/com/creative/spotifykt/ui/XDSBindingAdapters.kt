@@ -1,6 +1,7 @@
 package com.creative.spotifykt.ui
 
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
@@ -59,6 +60,34 @@ fun bindTextLabel(textView: TextView, textLabel: TextLabel?) {
                 )
             )
         }
+    }
+}
+
+@BindingAdapter("bindBgColorStyle")
+fun bindBgColorStyle(view: ViewGroup, colorStyle: String) {
+    when (colorStyle) {
+        "PRIMARY" -> view.setBackgroundColor(
+            ResourcesCompat.getColor(
+                view.context.resources,
+                R.color.xds_color_background_primary, null
+            )
+        )
+
+        else -> view.setBackgroundColor(
+            ResourcesCompat.getColor(
+                view.context.resources,
+                R.color.xds_color_background_secondary, null
+            )
+        )
+    }
+}
+
+@BindingAdapter("bindBgMobileData")
+fun bindBgMobileData(view: ViewGroup, isSelected: Boolean?) {
+    if (isSelected == true) {
+        view.setBackgroundResource(R.drawable.bg_mobile_data_selected)
+    } else {
+        view.setBackgroundResource(R.drawable.bg_mobile_data_in_selected)
     }
 }
 

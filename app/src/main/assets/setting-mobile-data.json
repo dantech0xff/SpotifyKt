@@ -1,0 +1,145 @@
+{
+  "currentAmount": {
+    "text": "10",
+    "colorStyle": "SUCCESS"
+  },
+  "currentUnit": {
+    "text": "KB",
+    "colorStyle": "SUCCESS"
+  },
+  "limitAmount": {
+    "text": "100",
+    "colorStyle": "DANGER"
+  },
+  "limitUnit": {
+    "text": "GB",
+    "colorStyle": "DANGER"
+  },
+  "headline": {
+    "text": "mobile data used this month",
+    "colorStyle": "PRIMARY"
+  },
+  "subHeadline": {
+    "text": "Your limit will reset on Jan 1st",
+    "colorStyle": "SECONDARY"
+  },
+  "dataProgressBarUI": {
+    "minText": {
+      "text": "0 B",
+      "colorStyle": "SECONDARY"
+    },
+    "maxText": {
+      "text": "100 GB",
+      "colorStyle": "SECONDARY"
+    },
+    "progressValue": 10.0,
+    "usedText": {
+      "text": "Used: 10 KB",
+      "colorStyle": "PRIMARY"
+    },
+    "remainingText": {
+      "text": "Remaining: 99.9 GB",
+      "colorStyle": "SECONDARY"
+    }
+  },
+  "headlineSetDailyLimit": {
+    "text": "Set monthly limit for Spotify Lite:",
+    "colorStyle": "PRIMARY"
+  },
+  "subHeadlineSetDailyLimit": {
+    "text": "We'll let you know if it goes over your limit.",
+    "colorStyle": "SECONDARY"
+  },
+  "listLimit": [
+    {
+      "inactiveText": {
+        "text": "250 MB",
+        "colorStyle": "PRIMARY"
+      },
+      "activeText": {
+        "text": "250 MB",
+        "colorStyle": "SECONDARY"
+      }
+    },
+    {
+      "inactiveText": {
+        "text": "500 MB",
+        "colorStyle": "PRIMARY"
+      },
+        "activeText": {
+            "text": "500 MB",
+            "colorStyle": "SECONDARY"
+        }
+    },
+    {
+      "inactiveText": {
+        "text": "1 GB",
+        "colorStyle": "PRIMARY"
+      },
+        "activeText": {
+            "text": "1 GB",
+            "colorStyle": "SECONDARY"
+        }
+    },
+    {
+      "inactiveText": {
+        "text": "2 GB",
+        "colorStyle": "PRIMARY"
+      },
+        "activeText": {
+            "text": "2 GB",
+            "colorStyle": "SECONDARY"
+        }
+    },
+    {
+      "inactiveText": {
+        "text": "5 GB",
+        "colorStyle": "PRIMARY"
+      },
+        "activeText": {
+            "text": "5 GB",
+            "colorStyle": "SECONDARY"
+        }
+    },
+    {
+      "inactiveText": {
+        "text": "10 GB",
+        "colorStyle": "PRIMARY"
+      },
+        "activeText": {
+            "text": "10 GB",
+            "colorStyle": "SECONDARY"
+        }
+    },
+    {
+      "inactiveText": {
+        "text": "20 GB",
+        "colorStyle": "PRIMARY"
+      },
+        "activeText": {
+            "text": "20 GB",
+            "colorStyle": "SECONDARY"
+        }
+    },
+    {
+      "inactiveText": {
+        "text": "50 GB",
+        "colorStyle": "PRIMARY"
+      },
+        "activeText": {
+            "text": "50 GB",
+            "colorStyle": "SECONDARY"
+        }
+    },
+    {
+      "inactiveText": {
+        "text": "100 GB",
+        "colorStyle": "PRIMARY"
+      },
+        "activeText": {
+            "text": "100 GB",
+            "colorStyle": "SECONDARY"
+        }
+    }
+  ]
+}
