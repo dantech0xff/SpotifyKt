@@ -7,6 +7,7 @@ import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
 import com.creative.spotifykt.usecase.search.GetSearchTopicUseCase
 import com.creative.spotifykt.usecase.setting.GetMainSettingUseCase
 import com.creative.spotifykt.usecase.setting.GetSettingMobileDataUseCase
+import com.creative.spotifykt.usecase.setting.UpdateMobileDataLimitUseCase
 
 /**
  * Created by dan on 20/08/2023
@@ -22,4 +23,5 @@ interface IUseCaseModule {
     val getHomeLayoutUseCase: GetHomeLayoutUseCase
     val getMainSettingUseCase: GetMainSettingUseCase
     val getSettingMobileDataUseCase: GetSettingMobileDataUseCase
+    val updateMobileDataLimitUseCase: UpdateMobileDataLimitUseCase
 }

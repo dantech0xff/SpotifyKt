@@ -8,6 +8,7 @@ import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
 import com.creative.spotifykt.usecase.search.GetSearchTopicUseCase
 import com.creative.spotifykt.usecase.setting.GetMainSettingUseCase
 import com.creative.spotifykt.usecase.setting.GetSettingMobileDataUseCase
+import com.creative.spotifykt.usecase.setting.UpdateMobileDataLimitUseCase
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -54,4 +55,9 @@ class UseCaseModule {
     fun provideGetSettingMobileDataUseCase(
         app: App, moshi: Moshi
     ) = GetSettingMobileDataUseCase(app, moshi)
+
+    @Provides
+    fun provideUpdateMobileDataLimitUseCase(
+        app: App, moshi: Moshi
+    ) = UpdateMobileDataLimitUseCase(app, moshi)
 }

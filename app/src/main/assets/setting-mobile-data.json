@@ -9,11 +9,11 @@
   },
   "limitAmount": {
     "text": "100",
-    "colorStyle": "DANGER"
+    "colorStyle": "PRIMARY"
   },
   "limitUnit": {
     "text": "GB",
-    "colorStyle": "DANGER"
+    "colorStyle": "PRIMARY"
   },
   "headline": {
     "text": "mobile data used this month",
@@ -26,16 +26,16 @@
   "dataProgressBarUI": {
     "minText": {
       "text": "0 B",
-      "colorStyle": "SECONDARY"
+      "colorStyle": "PRIMARY"
     },
     "maxText": {
       "text": "100 GB",
-      "colorStyle": "SECONDARY"
+      "colorStyle": "PRIMARY"
     },
-    "progressValue": 10.0,
+    "progressValue": 69.0,
     "usedText": {
       "text": "Used: 10 KB",
-      "colorStyle": "PRIMARY"
+      "colorStyle": "LINK"
     },
     "remainingText": {
       "text": "Remaining: 99.9 GB",
@@ -52,94 +52,67 @@
   },
   "listLimit": [
     {
-      "inactiveText": {
+      "limitText": {
         "text": "250 MB",
-        "colorStyle": "PRIMARY"
+        "colorStyle": "PRIMARY_INVERSE"
       },
-      "activeText": {
-        "text": "250 MB",
-        "colorStyle": "SECONDARY"
-      }
+      "isSelected": true
     },
     {
-      "inactiveText": {
+      "limitText": {
         "text": "500 MB",
         "colorStyle": "PRIMARY"
       },
-        "activeText": {
-            "text": "500 MB",
-            "colorStyle": "SECONDARY"
-        }
+      "isSelected": false
     },
     {
-      "inactiveText": {
+      "limitText": {
         "text": "1 GB",
         "colorStyle": "PRIMARY"
       },
-        "activeText": {
-            "text": "1 GB",
-            "colorStyle": "SECONDARY"
-        }
+      "isSelected": false
     },
     {
-      "inactiveText": {
+      "limitText": {
         "text": "2 GB",
         "colorStyle": "PRIMARY"
       },
-        "activeText": {
-            "text": "2 GB",
-            "colorStyle": "SECONDARY"
-        }
+      "isSelected": false
     },
     {
-      "inactiveText": {
+      "limitText": {
         "text": "5 GB",
         "colorStyle": "PRIMARY"
       },
-        "activeText": {
-            "text": "5 GB",
-            "colorStyle": "SECONDARY"
-        }
+      "isSelected": false
     },
     {
-      "inactiveText": {
+      "limitText": {
         "text": "10 GB",
         "colorStyle": "PRIMARY"
       },
-        "activeText": {
-            "text": "10 GB",
-            "colorStyle": "SECONDARY"
-        }
+      "isSelected": false
     },
     {
-      "inactiveText": {
+      "limitText": {
         "text": "20 GB",
         "colorStyle": "PRIMARY"
       },
-        "activeText": {
-            "text": "20 GB",
-            "colorStyle": "SECONDARY"
-        }
+      "isSelected": false
     },
     {
-      "inactiveText": {
+      "limitText": {
         "text": "50 GB",
         "colorStyle": "PRIMARY"
       },
-        "activeText": {
-            "text": "50 GB",
-            "colorStyle": "SECONDARY"
-        }
+      "isSelected": false
     },
     {
-      "inactiveText": {
+      "limitText": {
         "text": "100 GB",
         "colorStyle": "PRIMARY"
       },
-        "activeText": {
-            "text": "100 GB",
-            "colorStyle": "SECONDARY"
-        }
+      "isSelected": false
     }
   ]
 }

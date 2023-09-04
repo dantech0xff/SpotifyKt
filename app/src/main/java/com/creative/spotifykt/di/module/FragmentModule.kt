@@ -27,6 +27,7 @@ import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
 import com.creative.spotifykt.usecase.search.GetSearchTopicUseCase
 import com.creative.spotifykt.usecase.setting.GetMainSettingUseCase
 import com.creative.spotifykt.usecase.setting.GetSettingMobileDataUseCase
+import com.creative.spotifykt.usecase.setting.UpdateMobileDataLimitUseCase
 import dagger.Module
 import dagger.Provides
 
@@ -49,9 +50,12 @@ class FragmentModule (private val fragment: BaseFragment<*, *>) {
         ViewModelProvider(fragment, viewModelFactory { MainSettingViewModel(getMainSettingUseCase) })[MainSettingViewModel::class.java]
 
     @Provides
-    fun provideMobileDataViewModel(getSettingMobileDataUseCase: GetSettingMobileDataUseCase): MobileDataViewModel {
+    fun provideMobileDataViewModel(
+        getSettingMobileDataUseCase: GetSettingMobileDataUseCase,
+        updateMobileDataLimitUseCase: UpdateMobileDataLimitUseCase
+    ): MobileDataViewModel {
         return ViewModelProvider(fragment, viewModelFactory {
-            MobileDataViewModel(getSettingMobileDataUseCase)
+            MobileDataViewModel(getSettingMobileDataUseCase, updateMobileDataLimitUseCase)
         })[MobileDataViewModel::class.java]
     }
 

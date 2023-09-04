@@ -22,8 +22,9 @@ data class MobileDataUI(
 @Parcelize
 @JsonClass(generateAdapter = true)
 data class DataLimitCellUI(
-    val inactiveText: TextLabel? = null,
-    val activeText: TextLabel? = null
+    val limitText: TextLabel? = null,
+    val isSelected: Boolean? = null,
+    val limitKbValue: Long? = null
 ): Parcelable
 
 @Parcelize

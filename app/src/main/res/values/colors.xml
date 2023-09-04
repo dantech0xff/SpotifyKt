@@ -31,7 +31,7 @@
     <color name="xds_color_font_secondary">#FFB3B3B3</color>
     <color name="xds_color_font_tertiary">#FF666666</color>
     <color name="xds_color_font_quaternary">#FF333333</color>
-    <color name="xds_color_font_inverse">#FF000000</color>
+    <color name="xds_color_font_primary_inverse">#FF000000</color>
     <color name="xds_color_font_success">#FF00C853</color>
     <color name="xds_color_font_warning">#FFFFD600</color>
     <color name="xds_color_font_error">#FFFF1744</color>

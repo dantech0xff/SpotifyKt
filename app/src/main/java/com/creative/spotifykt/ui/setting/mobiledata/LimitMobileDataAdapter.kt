@@ -1,10 +1,10 @@
 package com.creative.spotifykt.ui.setting.mobiledata
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.creative.spotifykt.data.model.local.DataLimitCellUI
 import com.creative.spotifykt.databinding.ItemMobileDataBinding
 
@@ -15,32 +15,22 @@ import com.creative.spotifykt.databinding.ItemMobileDataBinding
  */
 
 class LimitMobileDataAdapter(
-    val getSelectedPosition: (()-> Int),
-    val setSelectedPosition: ((Int)-> Unit)
-) : ListAdapter<DataLimitCellUI, LimitMobileDataAdapter.LimitMobileDataVH>(DIFF_UTILS) {
-    companion object {
-        val DIFF_UTILS = object : DiffUtil.ItemCallback<DataLimitCellUI>() {
-            override fun areItemsTheSame(oldItem: DataLimitCellUI, newItem: DataLimitCellUI): Boolean {
-                return oldItem == newItem
-            }
+    val setSelectedPosition: (Int) -> Unit
+) : Adapter<LimitMobileDataAdapter.LimitMobileDataVH>() {
 
-            override fun areContentsTheSame(oldItem: DataLimitCellUI, newItem: DataLimitCellUI): Boolean {
-                return oldItem == newItem
-            }
-        }
-    }
+    private val listData = mutableListOf<DataLimitCellUI>()
 
     inner class LimitMobileDataVH(
         val binding: ItemMobileDataBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: DataLimitCellUI, position: Int) {
+        fun bind(item: DataLimitCellUI?, position: Int) {
             binding.apply {
-                isSelected = position == getSelectedPosition.invoke()
-                textLabel = if (isSelected) {
-                    item.activeText
-                } else {
-                    item.inactiveText
+                root.setOnClickListener {
+                    setSelectedPosition.invoke(position)
                 }
+
+                isSelected = item?.isSelected
+                textLabel = item?.limitText
                 executePendingBindings()
             }
         }
@@ -55,7 +45,18 @@ class LimitMobileDataAdapter(
         )
     }
 
+    override fun getItemCount(): Int {
+        return listData.size
+    }
+
     override fun onBindViewHolder(holder: LimitMobileDataVH, position: Int) {
-        holder.bind(getItem(position), position)
+        holder.bind(listData.getOrNull(position), position)
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(newData: List<DataLimitCellUI>) {
+        listData.clear()
+        listData.addAll(newData)
+        notifyDataSetChanged()
     }
 }

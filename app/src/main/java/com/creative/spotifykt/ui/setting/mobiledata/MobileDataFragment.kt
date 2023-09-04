@@ -1,13 +1,16 @@
 package com.creative.spotifykt.ui.setting.mobiledata
 
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.creative.spotifykt.R
-import com.creative.spotifykt.databinding.LayoutToolbarBinding
+import com.creative.spotifykt.core.dpToPixelsInt
 import com.creative.spotifykt.databinding.MobileDataFragmentBinding
 import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.core.ui.BaseFragment
@@ -19,10 +22,7 @@ import com.creative.spotifykt.ui.IAppBarHandler
 class MobileDataFragment : BaseFragment<MobileDataFragmentBinding, MobileDataViewModel>() {
 
     private val limitMobileDataAdapter by lazy {
-        LimitMobileDataAdapter(
-            getSelectedPosition = { viewModel.getSelectedPosition() },
-            setSelectedPosition = { viewModel.setSelectedPosition(it) }
-        )
+        LimitMobileDataAdapter { viewModel.setSelectedPosition(it) }
     }
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?) =
@@ -45,9 +45,22 @@ class MobileDataFragment : BaseFragment<MobileDataFragmentBinding, MobileDataVie
                 }
             }
             listLimitData.adapter = limitMobileDataAdapter
-            listLimitData.layoutManager = GridLayoutManager(
-                context, 3, GridLayoutManager.VERTICAL, false
-            )
+            listLimitData.layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
+            listLimitData.addItemDecoration(object : ItemDecoration() {
+                override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                    super.getItemOffsets(outRect, view, parent, state)
+                    (view as? ViewGroup)?.apply {
+                        layoutParams = layoutParams.apply {
+                            width = context.dpToPixelsInt(86)
+                            height = ViewGroup.LayoutParams.WRAP_CONTENT
+                        }
+                    }
+                    outRect.top = root.context.dpToPixelsInt(10)
+                    outRect.bottom = root.context.dpToPixelsInt(10)
+                    outRect.left = root.context.dpToPixelsInt(10)
+                    outRect.right = root.context.dpToPixelsInt(10)
+                }
+            })
         }
     }
 
@@ -60,7 +73,7 @@ class MobileDataFragment : BaseFragment<MobileDataFragmentBinding, MobileDataVie
                         data = it.data
                         executePendingBindings()
                     }
-                    limitMobileDataAdapter.submitList(it.data.listLimit)
+                    limitMobileDataAdapter.setData(it.data.listLimit ?: listOf())
                 }
 
                 else -> {}

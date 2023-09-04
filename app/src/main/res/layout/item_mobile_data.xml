@@ -28,7 +28,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             tools:text="250 MB"
             android:textColor="@color/xds_color_font_primary"
-            android:textSize="@dimen/xds_text_size_heading8"
+            android:textSize="@dimen/xds_text_size_heading7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

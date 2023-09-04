@@ -6,12 +6,14 @@ import androidx.lifecycle.viewModelScope
 import com.creative.spotifykt.core.viewmodel.BaseViewModel
 import com.creative.spotifykt.data.model.local.MobileDataUI
 import com.creative.spotifykt.usecase.setting.GetSettingMobileDataUseCase
+import com.creative.spotifykt.usecase.setting.UpdateMobileDataLimitUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MobileDataViewModel(
-    private val getSettingMobileDataUseCase: GetSettingMobileDataUseCase
+    private val getSettingMobileDataUseCase: GetSettingMobileDataUseCase,
+    private val updateMobileDataLimitUseCase: UpdateMobileDataLimitUseCase
 ) : BaseViewModel() {
     private val settingMobileDataLiveData: MutableLiveData<SettingMobileDataState> = MutableLiveData()
     val settingMobileData: LiveData<SettingMobileDataState> = settingMobileDataLiveData
@@ -29,8 +31,16 @@ class MobileDataViewModel(
     fun getSelectedPosition(): Int {
         return selectedPosition
     }
+
     fun setSelectedPosition(position: Int) {
         selectedPosition = position
+        viewModelScope.launch(Dispatchers.Main) {
+            updateMobileDataLimitUseCase.execute(
+                UpdateMobileDataLimitUseCase.Params(position)
+            ).collect {
+                settingMobileDataLiveData.value = it
+            }
+        }
     }
 }
 

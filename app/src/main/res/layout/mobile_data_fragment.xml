@@ -18,7 +18,7 @@
             android:id="@+id/setting_toolbar"/>
 
         <LinearLayout
-            android:layout_marginTop="@dimen/xds_space_m"
+            android:paddingTop="@dimen/xds_space_xl"
             android:orientation="horizontal"
             android:layout_gravity="center"
             android:gravity="center|bottom"
@@ -28,7 +28,7 @@
                 tools:text="1"
                 app:bindTextLabel="@{data.currentAmount}"
                 android:textColor="@color/xds_color_font_success"
-                android:textSize="@dimen/xds_text_size_heading3"
+                android:textSize="@dimen/xds_text_size_heading1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <com.creative.spotifykt.ui.view.EncoreTextView
@@ -41,7 +41,8 @@
             <com.creative.spotifykt.ui.view.EncoreTextView
                 tools:text="/"
                 android:text="/"
-                android:textSize="@dimen/xds_text_size_heading3"
+                android:textColor="@color/white"
+                android:textSize="@dimen/xds_text_size_heading1"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:layout_width="wrap_content"
@@ -49,7 +50,7 @@
             <com.creative.spotifykt.ui.view.EncoreTextView
                 tools:text="999"
                 app:bindTextLabel="@{data.limitAmount}"
-                android:textSize="@dimen/xds_text_size_heading3"
+                android:textSize="@dimen/xds_text_size_heading1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <com.creative.spotifykt.ui.view.EncoreTextView
@@ -61,12 +62,13 @@
 
         </LinearLayout>
 
-        <com.creative.spotifykt.ui.view.EncoreBoldTextView
+        <com.creative.spotifykt.ui.view.EncoreTextView
             tools:text="mobile data used this month"
+            android:paddingTop="@dimen/xds_space_m"
+            android:paddingBottom="@dimen/xds_space_m"
             app:bindTextLabel="@{data.headline}"
+            android:textSize="@dimen/xds_text_size_heading4"
             android:textColor="@color/white"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -74,9 +76,9 @@
         <com.creative.spotifykt.ui.view.EncoreTextView
             tools:text="Your limit will reset on August 1."
             app:bindTextLabel="@{data.subHeadline}"
-            android:textSize="11sp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:textSize="@dimen/xds_text_size_heading5"
+            android:paddingTop="@dimen/xds_space_s"
+            android:paddingBottom="@dimen/xds_space_s"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -99,6 +101,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/xds_space_xs">
                     <View
+                        app:bindPercentConstraint="@{data.dataProgressBarUI.progressValue}"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -113,7 +116,7 @@
                     app:layout_constraintStart_toStartOf="@id/data_progress_bar"
                     tools:text="0 B"
                     app:bindTextLabel="@{data.dataProgressBarUI.minText}"
-                    android:textSize="@dimen/xds_text_size_heading8"
+                    android:textSize="@dimen/xds_text_size_heading6"
                     android:gravity="start"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -123,7 +126,7 @@
                     app:layout_constraintEnd_toEndOf="@id/data_progress_bar"
                     tools:text="99 MB"
                     app:bindTextLabel="@{data.dataProgressBarUI.maxText}"
-                    android:textSize="@dimen/xds_text_size_heading8"
+                    android:textSize="@dimen/xds_text_size_heading6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -145,6 +148,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="@dimen/xds_space_xl"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_width="match_parent"
@@ -159,10 +163,12 @@
                 android:layout_height="wrap_content"/>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="@dimen/xds_space_l"
+                android:layout_marginBottom="@dimen/xds_space_l"
                 android:id="@+id/list_limit_data"
                 tools:itemCount="3"
                 tools:listitem="@layout/item_mobile_data"
-                android:layout_width="@dimen/size_300_dp"
+                android:layout_width="@dimen/size_320_dp"
                 android:layout_height="wrap_content"/>
 
             <com.creative.spotifykt.ui.view.EncoreTextView

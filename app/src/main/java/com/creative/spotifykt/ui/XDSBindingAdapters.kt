@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
@@ -52,7 +53,38 @@ fun bindTextLabel(textView: TextView, textLabel: TextLabel?) {
                     R.color.xds_color_font_primary, null
                 )
             )
-
+            "SUCCESS" -> {
+                textView.setTextColor(
+                    ResourcesCompat.getColor(
+                        textView.context.resources,
+                        R.color.xds_color_font_success, null
+                    )
+                )
+            }
+            "ERROR", "DANGER" -> {
+                textView.setTextColor(
+                    ResourcesCompat.getColor(
+                        textView.context.resources,
+                        R.color.xds_color_font_error, null
+                    )
+                )
+            }
+            "LINK" -> {
+                textView.setTextColor(
+                    ResourcesCompat.getColor(
+                        textView.context.resources,
+                        R.color.xds_color_font_link, null
+                    )
+                )
+            }
+            "PRIMARY_INVERSE" -> {
+                textView.setTextColor(
+                    ResourcesCompat.getColor(
+                        textView.context.resources,
+                        R.color.xds_color_font_primary_inverse, null
+                    )
+                )
+            }
             else -> textView.setTextColor(
                 ResourcesCompat.getColor(
                     textView.context.resources,
@@ -60,25 +92,6 @@ fun bindTextLabel(textView: TextView, textLabel: TextLabel?) {
                 )
             )
         }
-    }
-}
-
-@BindingAdapter("bindBgColorStyle")
-fun bindBgColorStyle(view: ViewGroup, colorStyle: String) {
-    when (colorStyle) {
-        "PRIMARY" -> view.setBackgroundColor(
-            ResourcesCompat.getColor(
-                view.context.resources,
-                R.color.xds_color_background_primary, null
-            )
-        )
-
-        else -> view.setBackgroundColor(
-            ResourcesCompat.getColor(
-                view.context.resources,
-                R.color.xds_color_background_secondary, null
-            )
-        )
     }
 }
 
@@ -136,4 +149,14 @@ fun bindSwitchUI(view: SwitchCompat, switchUI: SwitchUI?) {
     view.apply {
         isChecked = switchUI.isOn ?: false
     }
+}
+
+@BindingAdapter("bindPercentConstraint")
+fun bindPercentConstraint(view: View, percent: Float?) {
+    if (percent == null) {
+        view.visibility = View.GONE
+        return
+    }
+    view.visibility = View.VISIBLE
+    (view.layoutParams as? ConstraintLayout.LayoutParams)?.matchConstraintPercentWidth = (percent / 100F)
 }
