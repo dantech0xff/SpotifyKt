@@ -25,4 +25,5 @@ data class TextLabel(
 
 enum class ColorStyle(val value: String) {
     PRIMARY("PRIMARY"),
+    PRIMARY_INVERSE("PRIMARY_INVERSE"),
 }

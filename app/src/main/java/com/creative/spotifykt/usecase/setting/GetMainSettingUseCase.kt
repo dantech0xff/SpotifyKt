@@ -40,7 +40,7 @@ class GetMainSettingUseCase(
                 add(
                     SettingRowUI(
                         rowType = SettingRowType.ROW_SETTING_TEXT.value,
-                        deeplink = "",
+                        deeplink = "spotifykt://app.setting/storage",
                         title = TextLabel(text = app.getString(R.string.storage), colorStyle = "PRIMARY"),
                         subTitle = TextLabel(
                             text = app.getString(R.string.byte_used_by_spotify).format("66.0 MB")
