@@ -1,55 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".ui.setting.about.AboutFragment">
+        android:orientation="vertical">
 
-    <include layout="@layout/layout_toolbar"
-             android:id="@+id/setting_toolbar"/>
+        <include layout="@layout/layout_toolbar"
+            android:id="@+id/setting_toolbar"/>
 
-    <com.creative.spotifykt.ui.view.EncoreBoldTextView
+        <com.creative.spotifykt.ui.view.EncoreTextView
             android:id="@+id/tv_version"
             android:paddingTop="20dp"
-            android:text="1.9.8-rc"
-            android:textSize="22sp"
+            tools:text="1.9.8-rc"
+            android:textSize="@dimen/xds_text_size_heading1"
             android:textColor="@color/white"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    <com.creative.spotifykt.ui.view.EncoreTextView
-            android:text="@string/app_version"
+        <com.creative.spotifykt.ui.view.EncoreTextView
+            tools:text="@string/app_version"
             android:gravity="center"
+            android:paddingTop="@dimen/xds_space_m"
+            android:paddingBottom="@dimen/xds_space_l"
             android:textColor="@color/white"
-            android:layout_marginBottom="20dp"
+            android:textSize="@dimen/xds_text_size_heading3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    <com.creative.spotifykt.ui.view.EncoreTextView
-            android:text="@string/term_and_conditions"
+
+        <com.creative.spotifykt.ui.view.EncoreTextView
+            tools:text="@string/term_and_conditions"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="@dimen/xds_text_size_heading4"
             android:paddingStart="@dimen/setting_padding_left"
             android:paddingEnd="@dimen/setting_padding_right"
             android:paddingTop="@dimen/setting_padding_top"
             android:paddingBottom="@dimen/setting_padding_bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    <com.creative.spotifykt.ui.view.EncoreTextView
-            android:text="@string/privacy_policy"
+        <com.creative.spotifykt.ui.view.EncoreTextView
+            tools:text="@string/privacy_policy"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="@dimen/xds_text_size_heading4"
             android:paddingStart="@dimen/setting_padding_left"
             android:paddingEnd="@dimen/setting_padding_right"
             android:paddingTop="@dimen/setting_padding_top"
             android:paddingBottom="@dimen/setting_padding_bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    <com.creative.spotifykt.ui.view.EncoreTextView
-            android:text="@string/open_source_libraries"
+        <com.creative.spotifykt.ui.view.EncoreTextView
+            tools:text="@string/open_source_libraries"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="@dimen/xds_text_size_heading4"
             android:paddingStart="@dimen/setting_padding_left"
             android:paddingEnd="@dimen/setting_padding_right"
             android:paddingTop="@dimen/setting_padding_top"
@@ -57,4 +59,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-</LinearLayout>
+    </LinearLayout>
+</layout>

@@ -20,6 +20,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <com.creative.spotifykt.ui.view.EncoreBoldTextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Audio Settings"
+            app:bindTextLabel="@{data.sectionText}"
+            tools:visibility="gone"
+            android:textColor="@color/xds_color_font_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_text"
             app:layout_constraintTop_toTopOf="parent"
@@ -143,7 +154,7 @@
 
         <View
             app:bindVisibleOrGone="@{data.rowType.equals(SettingRowType.ROW_SECTION_SEPARATE.value)}"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@color/xds_color_background_secondary"

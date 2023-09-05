@@ -5,13 +5,34 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.creative.spotifykt.R
 import com.creative.spotifykt.core.ui.BaseFragment
+import com.creative.spotifykt.data.model.local.AppBarUI
+import com.creative.spotifykt.data.model.local.ColorStyle
+import com.creative.spotifykt.data.model.local.SettingRowUI
+import com.creative.spotifykt.data.model.local.TextLabel
 import com.creative.spotifykt.databinding.AccountSettingFragmentBinding
 import com.creative.spotifykt.databinding.LayoutToolbarBinding
 import com.creative.spotifykt.di.component.FragmentComponent
+import com.creative.spotifykt.ui.IAppBarHandler
+import com.creative.spotifykt.ui.ISettingRowHandler
+import com.creative.spotifykt.ui.setting.SettingListAdapter
 
-class AccountSettingFragment : BaseFragment<AccountSettingFragmentBinding, AccountSettingViewModel>(), View.OnClickListener {
-    private lateinit var settingToolbarBinding: LayoutToolbarBinding
+class AccountSettingFragment : BaseFragment<AccountSettingFragmentBinding, AccountSettingViewModel>() {
+
+    private val settingListAdapter: SettingListAdapter by lazy {
+        SettingListAdapter(
+            object : ISettingRowHandler {
+                override fun onClick(settingRowUI: SettingRowUI) {}
+
+                override fun onSwitch(settingRowUI: SettingRowUI, isChecked: Boolean) {}
+
+                override fun onChecked(settingRowUI: SettingRowUI, isChecked: Boolean) {}
+
+                override fun onSlider(settingRowUI: SettingRowUI, value: Float) {}
+            }
+        )
+    }
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?): AccountSettingFragmentBinding =
         AccountSettingFragmentBinding.inflate(inflater, container, false)
@@ -21,17 +42,15 @@ class AccountSettingFragment : BaseFragment<AccountSettingFragmentBinding, Accou
     }
 
     override fun setupView(savedInstanceState: Bundle?) {
-        settingToolbarBinding = requireViewBinding().settingToolbar
-        settingToolbarBinding.apply {
-            settingBackNav.setOnClickListener(this@AccountSettingFragment)
-        }
-    }
-
-    override fun onClick(v: View?) {
-        when (v!!) {
-            settingToolbarBinding.settingBackNav -> {
-                findNavController().navigateUp()
+        viewBinding?.apply {
+            settingToolbar.data = AppBarUI(title = TextLabel(getString(R.string.account), ColorStyle.PRIMARY.value))
+            settingToolbar.appBarHandler = object : IAppBarHandler {
+                override fun handleBack() {
+                    findNavController().navigateUp()
+                }
             }
+            listAccountSettings.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)
+            listAccountSettings.adapter = settingListAdapter
         }
     }
 }

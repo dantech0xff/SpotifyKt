@@ -10,7 +10,7 @@
             android:id="@+id/setting_toolbar"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_explicit_setting"
+            android:id="@+id/list_privacy_setting"
             tools:itemCount="3"
             tools:listitem="@layout/item_setting_row"
             android:layout_width="match_parent"

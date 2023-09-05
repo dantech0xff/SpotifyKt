@@ -22,6 +22,7 @@ data class SettingRowUI(
     val sliderUI: SliderUI? = null,
     val switchUI: SwitchUI? = null,
     val checkedUI: CheckedUI? = null,
+    val sectionText: TextLabel? = null,
 ) : Parcelable
 
 @Parcelize

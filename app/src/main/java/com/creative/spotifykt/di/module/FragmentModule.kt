@@ -19,6 +19,7 @@ import com.creative.spotifykt.ui.setting.download.DownloadSettingViewModel
 import com.creative.spotifykt.ui.setting.explicit.ExplicitContentViewModel
 import com.creative.spotifykt.ui.setting.main.MainSettingViewModel
 import com.creative.spotifykt.ui.setting.mobiledata.MobileDataViewModel
+import com.creative.spotifykt.ui.setting.privacy.PrivacySettingViewModel
 import com.creative.spotifykt.ui.setting.storage.StorageViewModel
 import com.creative.spotifykt.usecase.favorite.GetFavoriteListUseCase
 import com.creative.spotifykt.usecase.favorite.GetTabLayoutUseCase
@@ -122,4 +123,8 @@ class FragmentModule (private val fragment: BaseFragment<*, *>) {
                 fragment.arguments?.getFavoriteTab(), getFavoriteListUseCase
             )
         })[ListFavoriteViewModel::class.java]
+
+    @Provides
+    fun providePrivacySettingViewModel(): PrivacySettingViewModel =
+        ViewModelProvider(fragment, viewModelFactory { PrivacySettingViewModel() })[PrivacySettingViewModel::class.java]
 }
