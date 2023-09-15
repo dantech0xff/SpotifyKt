@@ -9,6 +9,7 @@ import com.creative.spotifykt.ui.activity.setting.SettingActivityViewModel
 import com.creative.spotifykt.ui.favorite.FavoriteViewModel
 import com.creative.spotifykt.ui.favorite.list.ListFavoriteViewModel
 import com.creative.spotifykt.ui.home.HomeViewModel
+import com.creative.spotifykt.ui.player.PlayerViewModel
 import com.creative.spotifykt.ui.premium.PremiumViewModel
 import com.creative.spotifykt.ui.search.SearchViewModel
 import com.creative.spotifykt.ui.search.result.SearchResultViewModel
@@ -127,4 +128,8 @@ class FragmentModule (private val fragment: BaseFragment<*, *>) {
     @Provides
     fun providePrivacySettingViewModel(): PrivacySettingViewModel =
         ViewModelProvider(fragment, viewModelFactory { PrivacySettingViewModel() })[PrivacySettingViewModel::class.java]
+
+    @Provides
+    fun providePlayerFragmentViewModel(): PlayerViewModel =
+        ViewModelProvider(fragment, viewModelFactory { PlayerViewModel() })[PlayerViewModel::class.java]
 }

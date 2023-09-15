@@ -24,12 +24,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             object : IDeeplinkHandler {
                 override fun handleDeeplink(deeplink: String?) {
                     activity?.debugToast(deeplink.orEmpty())
-                    activity?.apply {
-                        startActivity(
-                            Intent(Intent.ACTION_VIEW).apply {
-                                data = android.net.Uri.parse(deeplink)
-                            }
-                        )
+                    if (!deeplink.isNullOrEmpty()) {
+                        activity?.apply {
+                            startActivity(
+                                Intent(Intent.ACTION_VIEW).apply {
+                                    data = android.net.Uri.parse(deeplink)
+                                }
+                            )
+                        }
                     }
                 }
             }

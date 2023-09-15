@@ -36,6 +36,7 @@
     <color name="xds_color_font_warning">#FFFFD600</color>
     <color name="xds_color_font_error">#FFFF1744</color>
     <color name="xds_color_font_link">#FF1E88E5</color>
+    <color name="xds_color_transparent">#00000000</color>
 
     <color name="xds_color_background_primary">#FF000000</color>
     <color name="xds_color_background_secondary">#FF1F1F1F</color>
