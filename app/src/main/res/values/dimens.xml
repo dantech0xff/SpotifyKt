@@ -65,6 +65,7 @@
     <dimen name="xds_elevation_xl">24dp</dimen>
     <dimen name="xds_elevation_xxl">32dp</dimen>
 
+    <dimen name="size_200_dp">200dp</dimen>
     <dimen name="size_300_dp">300dp</dimen>
     <dimen name="size_320_dp">320dp</dimen>
 </resources>

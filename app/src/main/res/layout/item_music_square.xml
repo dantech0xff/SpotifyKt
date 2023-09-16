@@ -20,8 +20,8 @@
 
         <com.creative.spotifykt.ui.view.RatioImageView
             android:id="@+id/image_thumb"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
             app:bindImageUrl="@{data.image}"
             android:scaleType="centerCrop"
@@ -32,7 +32,7 @@
             android:maxLines="2"
             app:bindTextLabel="@{data.headline}"
             tools:textColor="@color/xds_color_font_primary"
-            tools:text="Hello my world!123123123123"
+            tools:text="Hello my world!"
             android:gravity="start"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

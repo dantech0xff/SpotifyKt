@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:gravity="center|top"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/left_top_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:src="@drawable/round_arrow_back_24"
+                android:padding="@dimen/xds_space_m"
+                android:layout_width="@dimen/xds_icon_size_xl"
+                android:layout_height="@dimen/xds_icon_size_xl"
+                app:tint="@color/xds_color_white" />
+            <ImageView
+                android:id="@+id/right_top_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:src="@drawable/more_vert"
+                android:padding="@dimen/xds_space_m"
+                android:layout_width="@dimen/xds_icon_size_xl"
+                android:layout_height="@dimen/xds_icon_size_xl"
+                app:tint="@color/xds_color_white" />
+            <LinearLayout
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/left_top_icon"
+                app:layout_constraintStart_toEndOf="@id/left_top_icon"
+                app:layout_constraintEnd_toStartOf="@id/right_top_icon"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <com.creative.spotifykt.ui.view.EncoreTextView
+                    tools:text="PLAYING SUGGESTED SONG"
+                    android:textColor="@color/xds_color_font_primary"
+                    android:textSize="@dimen/xds_text_size_heading6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include layout="@layout/layout_topic_header"/>
+
+        <com.creative.spotifykt.ui.view.EncoreBoldTextView
+            tools:text="Play Shuffle"
+            android:layout_margin="@dimen/xds_space_m"
+            android:textSize="@dimen/xds_text_size_heading4"
+            android:textColor="@color/xds_color_font_primary_inverse"
+            android:paddingTop="@dimen/xds_space_m"
+            android:paddingBottom="@dimen/xds_space_m"
+            android:paddingEnd="@dimen/xds_space_xl"
+            android:paddingStart="@dimen/xds_space_xl"
+            android:background="@drawable/bg_action_button_l"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.creative.spotifykt.ui.view.EncoreTextView
+            tools:text="Đen, PiaLink Nấu ăn cho em : Đen, MTV Band Trốn tìm"
+            android:padding="@dimen/xds_space_l"
+            android:textSize="@dimen/xds_text_size_heading6"
+            android:textColor="@color/xds_color_font_primary"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/list_suggestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

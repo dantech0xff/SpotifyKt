@@ -1,5 +1,7 @@
 package com.creative.spotifykt.ui
 
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -15,7 +17,9 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.creative.spotifykt.R
 import com.creative.spotifykt.data.model.local.SwitchUI
+import com.creative.spotifykt.data.model.local.TextAttr
 import com.creative.spotifykt.data.model.local.TextLabel
+import com.creative.spotifykt.data.model.local.TextStyle
 
 @BindingAdapter("bindImageUrl")
 fun bindImageUrl(view: ImageView, imageUrl: String?) {
@@ -159,4 +163,57 @@ fun bindPercentConstraint(view: View, percent: Float?) {
     }
     view.visibility = View.VISIBLE
     (view.layoutParams as? ConstraintLayout.LayoutParams)?.matchConstraintPercentWidth = (percent / 100F)
+}
+
+@BindingAdapter("bindTextAttr")
+fun bindTextAttr(textView: TextView, textAttr: TextAttr?) {
+    if (textAttr != null) {
+        textView.visibility = View.VISIBLE
+        textView.text = SpannableString(textAttr.text).apply {
+            setSpan(
+                android.text.style.StyleSpan(
+                    when (textAttr.textStyle) {
+                        TextStyle.REGULAR.value -> android.graphics.Typeface.NORMAL
+                        TextStyle.BOLD.value -> android.graphics.Typeface.BOLD
+                        else -> android.graphics.Typeface.NORMAL
+                    }
+                ),
+                0,
+                textAttr.text?.length ?: 0,
+                android.text.Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+        }
+    } else {
+        textView.visibility = View.GONE
+    }
+}
+
+@BindingAdapter("bindListTextAttr")
+fun bindListTextAttr(textView: TextView, listTextAttr: List<TextAttr?>?) {
+    val listAttr = listTextAttr?.filterNotNull()
+    if (listAttr.isNullOrEmpty()) {
+        textView.visibility = View.GONE
+    } else {
+        textView.visibility = View.VISIBLE
+        val spn = SpannableStringBuilder("")
+        listAttr.forEach {
+            spn.append(
+                SpannableStringBuilder(it.text).apply {
+                    setSpan(
+                        android.text.style.StyleSpan(
+                            when (it.textStyle) {
+                                TextStyle.REGULAR.value -> android.graphics.Typeface.NORMAL
+                                TextStyle.BOLD.value -> android.graphics.Typeface.BOLD
+                                else -> android.graphics.Typeface.NORMAL
+                            }
+                        ),
+                        0,
+                        it.text?.length ?: 0,
+                        android.text.Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                }
+            )
+        }
+        textView.text = spn
+    }
 }
