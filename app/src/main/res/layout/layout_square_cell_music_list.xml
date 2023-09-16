@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:textSize="@dimen/xds_text_size_heading1"
+                android:textSize="@dimen/xds_text_size_heading2"
                 android:gravity="center"
                 app:bindTextLabel="@{data.headline}"
                 tools:text="@string/recent_title"/>
@@ -45,14 +45,16 @@
                 android:onClick="@{() -> handleActionIconClick.handleDeeplink(data.actionIcon.deeplink)}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/btn_header_action"
-                android:layout_width="@dimen/xds_icon_size_xl"
-                android:layout_height="@dimen/xds_icon_size_xl"
-                android:layout_gravity="center_vertical|end"
-                android:scaleType="centerInside"
-                app:bindImageUrl="@{data.actionIcon.image}"
-                tools:src="@drawable/round_settings_24" />
+
+                <ImageView
+                    android:id="@+id/btn_header_action"
+                    android:layout_width="@dimen/xds_icon_size_xl"
+                    android:layout_height="@dimen/xds_icon_size_xl"
+                    android:padding="@dimen/xds_space_s"
+                    android:layout_gravity="center_vertical|end"
+                    android:scaleType="centerInside"
+                    app:tint="@color/xds_color_white"
+                    android:src="@drawable/round_settings_24" />
             </androidx.cardview.widget.CardView>
         </FrameLayout>
 

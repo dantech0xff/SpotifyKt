@@ -10,18 +10,16 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import androidx.viewbinding.ViewBinding
 import com.creative.spotifykt.R
-import com.creative.spotifykt.databinding.ItemMusicRowBinding
-import com.creative.spotifykt.databinding.SearchResultAdditionalBinding
-import com.creative.spotifykt.databinding.SearchResultFeatureListBinding
 import com.creative.spotifykt.data.model.local.SearchResult
 import com.creative.spotifykt.data.model.local.SearchResultFeatureList
 import com.creative.spotifykt.data.model.local.SearchResultMusicRow
 import com.creative.spotifykt.data.model.local.SearchResultText
 import com.creative.spotifykt.data.model.local.SearchResultType
+import com.creative.spotifykt.databinding.ItemMusicRowBinding
+import com.creative.spotifykt.databinding.SearchResultAdditionalBinding
+import com.creative.spotifykt.databinding.SearchResultFeatureListBinding
 import com.creative.spotifykt.ui.IDeeplinkHandler
-import com.creative.spotifykt.ui.home.HomeListAdapter
 import com.creative.spotifykt.ui.home.MusicListAdapter
 
 class SearchResultListAdapter(
