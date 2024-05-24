@@ -12,9 +12,11 @@ data class HomeLayoutUI(
 
 @Parcelize
 @JsonClass(generateAdapter = true)
-data class MusicListUI(val id: Int? = null,
+data class MusicListUI(
+    val id: Int? = null,
     val headline: TextLabel? = null,
     val actionIcon: ActionIcon? = null,
+    val subHeadline: TextLabel? = null,
     val items: List<MusicSquareUI?>? = null,
     val layout: LayoutConfig? = null
 ) : Parcelable

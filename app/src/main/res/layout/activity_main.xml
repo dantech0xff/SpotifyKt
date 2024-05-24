@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/container"
         android:background="@color/primaryBackground"
@@ -27,7 +28,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:defaultNavHost="true"
-            app:navGraph="@navigation/mobile_navigation"/>
+            app:navGraph="@navigation/mobile_navigation" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/mini_player_container"
@@ -37,17 +38,21 @@
             app:layout_constraintBottom_toTopOf="@id/bottom_nav_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <androidx.cardview.widget.CardView
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <ImageView
                         android:id="@+id/button_fav"
+                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,7 +61,8 @@
                         android:padding="@dimen/xds_space_s"
                         app:tint="@color/white"
                         android:layout_width="@dimen/xds_icon_size_l"
-                        android:layout_height="@dimen/xds_icon_size_l"/>
+                        android:layout_height="@dimen/xds_icon_size_l" />
+
                     <com.creative.spotifykt.ui.view.EncoreTextView
                         app:layout_constraintStart_toEndOf="@id/button_fav"
                         app:layout_constraintTop_toTopOf="parent"
@@ -65,10 +71,11 @@
                         android:textColor="@color/xds_color_font_primary"
                         tools:text="Hãy trao cho anh x Sơn Tùng x MTP"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                     <ImageView
                         android:id="@+id/button_play_pause"
+                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/button_next"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -77,9 +84,11 @@
                         android:padding="@dimen/xds_space_s"
                         app:tint="@color/white"
                         android:layout_width="@dimen/xds_icon_size_l"
-                        android:layout_height="@dimen/xds_icon_size_l"/>
+                        android:layout_height="@dimen/xds_icon_size_l" />
+
                     <ImageView
                         android:id="@+id/button_next"
+                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"

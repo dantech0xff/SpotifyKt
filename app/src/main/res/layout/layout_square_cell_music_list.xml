@@ -58,6 +58,16 @@
             </androidx.cardview.widget.CardView>
         </FrameLayout>
 
+        <com.creative.spotifykt.ui.view.EncoreBoldTextView
+            tools:text="Popular Hip-Hop playlists"
+            app:bindTextLabel="@{data.subHeadline}"
+            android:gravity="center"
+            android:textSize="@dimen/xds_text_size_heading4"
+            android:padding="@dimen/xds_space_s"
+            android:textColor="@color/xds_color_font_primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             tools:listitem="@layout/item_music_square"

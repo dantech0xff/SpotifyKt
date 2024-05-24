@@ -19,6 +19,7 @@ import com.creative.spotifykt.ui.setting.main.MainSettingFragment
 import com.creative.spotifykt.ui.setting.mobiledata.MobileDataFragment
 import com.creative.spotifykt.ui.setting.privacy.PrivacySettingFragment
 import com.creative.spotifykt.ui.setting.storage.StorageFragment
+import com.creative.spotifykt.ui.topic.MusicTopicFragment
 import dagger.Component
 
 @FragmentScope
@@ -42,4 +43,5 @@ interface FragmentComponent {
     fun inject(fragment: ListFavoriteFragment)
     fun inject(fragment: PrivacySettingFragment)
     fun inject(fragment: PlayerFragment)
+    fun inject(fragment: MusicTopicFragment)
 }
