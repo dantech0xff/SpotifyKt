@@ -1,6 +1,7 @@
 package com.creative.spotifykt.core.ui
 
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.creative.spotifykt.core.toast
@@ -19,16 +20,13 @@ abstract class BaseActivity<VB: ViewBinding, VM: BaseViewModel> : AppCompatActiv
     protected var viewBinding: VB? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         injectDependencies(buildActivityComponent())
-
         super.onCreate(savedInstanceState)
-
         viewBinding = provideViewBinding().apply {
             setContentView(root)
         }
-
         setupView(savedInstanceState)
-
         setupObservers()
     }
 

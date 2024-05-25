@@ -9,5 +9,4 @@ import dagger.Module
  */
 
 @Module
-class RepoModule {
-}
+class RepoModule

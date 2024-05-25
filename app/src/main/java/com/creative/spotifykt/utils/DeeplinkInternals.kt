@@ -21,13 +21,14 @@ fun Fragment.handleDeeplinkInternal(deeplink: String?) {
             val intent = Intent(Intent.ACTION_VIEW).apply {
                 data = android.net.Uri.parse(deeplink)
             }
-            if (packageManager.queryIntentActivities(intent, PackageManager.MATCH_ALL).isEmpty()) {
+            if (packageManager.resolveActivity(intent, PackageManager.MATCH_ALL) == null) {
                 debugToast("No app found to handle the deeplink")
                 return
             }
             startActivity(
                 Intent(Intent.ACTION_VIEW).apply {
                     data = android.net.Uri.parse(deeplink)
+                    `package` = packageName
                 }
             )
             activity?.debugToast(deeplink)

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/premiumFragment"
+    android:id="@+id/premium_navigation">
+
+    <fragment
+        android:id="@+id/premiumFragment"
+        android:name="com.creative.spotifykt.ui.premium.PremiumFragment"
+        android:label="@string/title_premium"
+        tools:layout="@layout/premium_fragment">
+        <deepLink app:uri="spotifykt://app/premium" />
+    </fragment>
+
+</navigation>

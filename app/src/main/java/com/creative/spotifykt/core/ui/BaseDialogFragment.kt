@@ -48,7 +48,7 @@ abstract class BaseDialogFragment<VM: BaseViewModel> : DialogFragment() {
 
     private fun buildFragmentComponent(): DialogFragmentComponent =
         DaggerDialogFragmentComponent.builder().appComponent((requireContext().applicationContext as App).appComponent)
-            .dialogFragmentModule(DialogFragmentModule(this))
+//            .dialogFragmentModule(DialogFragmentModule(this))
             .build()
 
     @LayoutRes

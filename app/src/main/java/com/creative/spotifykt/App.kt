@@ -29,9 +29,9 @@ class App : Application() {
         appComponent = DaggerAppComponent
             .builder()
             .appModule(AppModule(this))
-            .databaseModule(com.creative.spotifykt.di.module.biz.DatabaseModule())
-            .networkModule(com.creative.spotifykt.di.module.biz.NetworkModule())
-            .repoModule(com.creative.spotifykt.di.module.biz.RepoModule())
+//            .databaseModule(com.creative.spotifykt.di.module.biz.DatabaseModule())
+//            .networkModule(com.creative.spotifykt.di.module.biz.NetworkModule())
+//            .repoModule(com.creative.spotifykt.di.module.biz.RepoModule())
             .useCaseModule(UseCaseModule())
             .build()
         appComponent.inject(this)
