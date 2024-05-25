@@ -2,7 +2,9 @@ package com.creative.spotifykt.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.creative.spotifykt.core.debugToast
@@ -52,10 +54,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             when (it) {
                 is HomeListState.Loading -> {
                     // show loading
+                    Log.d("HomeFragment", "Loading")
                 }
 
                 is HomeListState.Error -> {
                     // show error
+                    Log.d("HomeFragment", "Error")
                 }
 
                 is HomeListState.Success -> {
@@ -63,12 +67,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     handleSuccess(it.data)
                 }
 
-                else -> {}
+                else -> {
+                    // show empty
+                    Log.d("HomeFragment", "Empty")
+                }
             }
         }
     }
 
-    fun handleSuccess(list: List<MusicListUI>) {
+    private fun handleSuccess(list: List<MusicListUI>) {
         viewBinding?.let {
             it.homeContainer.removeAllViewsInLayout()
             list.forEach { musicListUI ->
@@ -84,6 +91,4 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             }
         }
     }
-
-    override fun shouldInterceptBackPress(): Boolean = false
 }

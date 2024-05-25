@@ -30,17 +30,16 @@ class MusicListAdapter(
 
             override fun areContentsTheSame(oldItem: MusicSquareUI, newItem: MusicSquareUI): Boolean =
                 oldItem == newItem
+
+            override fun getChangePayload(oldItem: MusicSquareUI, newItem: MusicSquareUI): Any? {
+                return newItem
+            }
         }
         const val ITEM_VIEW_TYPE_SQUARE = 1
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MusicVH {
-        return MusicVH(
-            ItemMusicSquareBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent, false
-            )
-        )
+        return MusicVH(ItemMusicSquareBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: MusicVH, position: Int) {

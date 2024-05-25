@@ -23,6 +23,8 @@
             android:background="@color/xds_color_background_secondary"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            tools:layout_width="100dp"
+            tools:layout_height="100dp"
             android:layout_gravity="center"
             app:bindImageUrl="@{data.image}"
             android:scaleType="centerCrop"
