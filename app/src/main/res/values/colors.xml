@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primaryBackground">#FF000000</color>
+    <color name="primaryBackground">#FF111111</color>
 
     <array name="list_color">
         <item>#ff0000</item>
@@ -38,8 +38,8 @@
     <color name="xds_color_font_link">#FF1E88E5</color>
     <color name="xds_color_transparent">#00000000</color>
 
-    <color name="xds_color_background_primary">#FF000000</color>
-    <color name="xds_color_background_secondary">#FF1F1F1F</color>
+    <color name="xds_color_background_primary">#FF111111</color>
+    <color name="xds_color_background_secondary">#FF393939</color>
 
     <color name="xds_color_purple_200">#FFBB86FC</color>
     <color name="xds_color_purple_500">#FF6200EE</color>

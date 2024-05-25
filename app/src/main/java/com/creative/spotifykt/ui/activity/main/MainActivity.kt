@@ -46,8 +46,14 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>() 
             ).apply {
                 icon = AppCompatResources.getDrawable(context, R.drawable.outline_favorite_24)
             }
+            menu.add(
+                0, R.id.navigation_premium, 0, getString(R.string.title_premium)
+            ).apply {
+                icon = AppCompatResources.getDrawable(context, R.drawable.graphic_eq)
+            }
             setupWithNavController(findNavController(R.id.nav_host_fragment))
         }
+
         viewBinding?.apply {
             ViewCompat.setOnApplyWindowInsetsListener(root) { _, insets ->
                 root.setPadding(

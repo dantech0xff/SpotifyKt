@@ -20,6 +20,7 @@
 
         <com.creative.spotifykt.ui.view.RatioImageView
             android:id="@+id/image_thumb"
+            android:background="@color/xds_color_background_secondary"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
