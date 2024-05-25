@@ -3,16 +3,13 @@ package com.creative.spotifykt.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.creative.spotifykt.App
 import com.creative.spotifykt.core.viewmodel.BaseViewModel
-import com.creative.spotifykt.data.model.local.HomeLayoutUI
 import com.creative.spotifykt.data.model.local.MusicListUI
 import com.creative.spotifykt.usecase.home.GetHomeLayoutUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
-    private val appContext: App,
     private val getHomeLayoutUseCase: GetHomeLayoutUseCase
 ) : BaseViewModel() {
     private val homeListLiveData: MutableLiveData<HomeListState> = MutableLiveData()

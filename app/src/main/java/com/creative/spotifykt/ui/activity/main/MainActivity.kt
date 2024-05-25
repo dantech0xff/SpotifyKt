@@ -1,5 +1,6 @@
 package com.creative.spotifykt.ui.activity.main
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.creative.spotifykt.R
+import com.creative.spotifykt.core.log
 import com.creative.spotifykt.core.ui.BaseActivity
 import com.creative.spotifykt.databinding.ActivityMainBinding
 import com.creative.spotifykt.di.component.ActivityComponent

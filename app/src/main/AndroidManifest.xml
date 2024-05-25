@@ -23,25 +23,31 @@
             android:launchMode="singleTask"
             android:exported="true">
             <nav-graph android:value="@navigation/mobile_navigation" />
-            <intent-filter>
+            <intent-filter >
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-
-        <activity
-            android:name="com.creative.spotifykt.ui.activity.setting.SettingActivity"
-            android:launchMode="singleTask"
-            android:label="@string/settings"
-            android:exported="true">
-            <nav-graph android:value="@navigation/setting_navigation" />
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
                     android:scheme="spotifykt"
-                    android:host="app.setting" />
+                    android:host="app" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.creative.spotifykt.ui.activity.setting.SettingActivity"
+            android:exported="false"
+            android:label="@string/settings"
+            android:launchMode="singleTask"
+            tools:ignore="AppLinkUrlError">
+            <nav-graph android:value="@navigation/setting_navigation" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="spotifykt" android:host="app.setting" />
             </intent-filter>
         </activity>
     </application>

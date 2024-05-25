@@ -41,7 +41,7 @@ class MobileDataFragment : BaseFragment<MobileDataFragmentBinding, MobileDataVie
             )
             settingToolbar.appBarHandler = object : IAppBarHandler {
                 override fun handleBack() {
-                    findNavController().navigateUp()
+                    findNavController().popBackStack()
                 }
             }
             listLimitData.adapter = limitMobileDataAdapter

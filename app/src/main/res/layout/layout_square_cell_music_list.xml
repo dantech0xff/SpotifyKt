@@ -50,6 +50,7 @@
                     android:id="@+id/btn_header_action"
                     android:layout_width="@dimen/xds_icon_size_xl"
                     android:layout_height="@dimen/xds_icon_size_xl"
+                    android:contentDescription="@string/settings"
                     android:padding="@dimen/xds_space_s"
                     android:layout_gravity="center_vertical|end"
                     android:scaleType="centerInside"

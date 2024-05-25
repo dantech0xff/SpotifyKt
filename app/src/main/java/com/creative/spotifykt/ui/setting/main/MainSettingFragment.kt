@@ -1,6 +1,5 @@
 package com.creative.spotifykt.ui.setting.main
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,6 +7,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.creative.spotifykt.R
+import com.creative.spotifykt.core.log
 import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.data.model.local.AppBarUI
 import com.creative.spotifykt.data.model.local.SettingActionId
@@ -18,6 +18,7 @@ import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IAppBarHandler
 import com.creative.spotifykt.ui.ISettingRowHandler
 import com.creative.spotifykt.ui.setting.SettingListAdapter
+import com.creative.spotifykt.utils.handleDeeplinkInternal
 
 class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSettingViewModel>() {
 
@@ -45,18 +46,8 @@ class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSetting
     }
 
     private fun handleSettingClick(settingItem: SettingRowUI) {
-        if (!settingItem.deeplink.isNullOrBlank()) {
-            findNavController()
-                .navigate(
-                    android.net.Uri.parse(settingItem.deeplink),
-                    NavOptions.Builder()
-                        .setEnterAnim(R.anim.fade_in_anim)
-                        .setExitAnim(R.anim.fade_out_anim)
-                        .setPopEnterAnim(R.anim.fade_in_anim)
-                        .setPopExitAnim(R.anim.fade_out_anim)
-                        .build()
-                )
-        } else {
+        if (!findNavController().handleDeeplinkInternal(settingItem.deeplink)) {
+            log("SettingFragment", "Deep link not found: ${settingItem.deeplink}")
             when (settingItem.settingId) {
                 SettingActionId.SETTING_MOBILE_DATA -> {
                     findNavController().navigate(R.id.action_mainSettingFragment_to_mobileDataFragment)
@@ -93,15 +84,10 @@ class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSetting
         viewBinding?.apply {
             settingToolbar.appBarHandler = object : IAppBarHandler {
                 override fun handleBack() {
-                    activity?.onBackPressedDispatcher?.onBackPressed()
+                    activity?.finish()
                 }
             }
-            settingToolbar.data = AppBarUI(
-                TextLabel(
-                    getString(R.string.settings)
-                )
-            )
-
+            settingToolbar.data = AppBarUI(TextLabel(getString(R.string.settings)))
             settingList.apply {
                 layoutManager = LinearLayoutManager(context)
                 adapter = settingListAdapter

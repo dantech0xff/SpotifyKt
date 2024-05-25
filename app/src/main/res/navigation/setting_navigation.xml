@@ -11,7 +11,6 @@
         android:name="com.creative.spotifykt.ui.setting.main.MainSettingFragment"
         android:label="main_setting_fragment"
         tools:layout="@layout/main_setting_fragment">
-
         <action
             android:id="@+id/action_mainSettingFragment_to_mobileDataFragment"
             app:enterAnim="@anim/fade_in_anim"
@@ -74,11 +73,7 @@
         android:name="com.creative.spotifykt.ui.setting.mobiledata.MobileDataFragment"
         android:label="mobile_data_fragment"
         tools:layout="@layout/mobile_data_fragment">
-
-        <deepLink
-            android:id="@+id/deepLink"
-            app:action="ACTION_VIEW"
-            app:uri="spotifykt://app.setting/mobile-data" />
+        <deepLink app:uri="spotifykt://app.setting/mobile-data" />
     </fragment>
 
     <fragment
@@ -86,10 +81,7 @@
         android:name="com.creative.spotifykt.ui.setting.storage.StorageFragment"
         android:label="storage_fragment"
         tools:layout="@layout/storage_fragment">
-        <deepLink
-            android:id="@+id/deepLink"
-            app:action="ACTION_VIEW"
-            app:uri="spotifykt://app.setting/storage" />
+        <deepLink app:uri="spotifykt://app.setting/storage" />
     </fragment>
     <fragment
         android:id="@+id/audioSettingFragment"

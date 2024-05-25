@@ -1,6 +1,8 @@
 package com.creative.spotifykt.ui.home
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,22 +16,15 @@ import com.creative.spotifykt.databinding.FragmentHomeBinding
 import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IDeeplinkHandler
 import com.creative.spotifykt.ui.view.SquareMusicListLayout
+import com.creative.spotifykt.utils.handleDeeplinkInternal
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     private val deeplinkHandler: IDeeplinkHandler by lazy {
         object : IDeeplinkHandler {
+            @SuppressLint("QueryPermissionsNeeded")
             override fun handleDeeplink(deeplink: String?) {
-                activity?.debugToast(deeplink.orEmpty())
-                if (!deeplink.isNullOrEmpty()) {
-                    activity?.apply {
-                        startActivity(
-                            Intent(Intent.ACTION_VIEW).apply {
-                                data = android.net.Uri.parse(deeplink)
-                            }
-                        )
-                    }
-                }
+                handleDeeplinkInternal(deeplink)
             }
         }
     }

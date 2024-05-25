@@ -41,7 +41,7 @@ class FragmentModule (private val fragment: BaseFragment<*, *>) {
     fun provideHomeViewModel(app: App, getHomeLayoutUseCase: GetHomeLayoutUseCase): HomeViewModel =
         ViewModelProvider(fragment,
             viewModelFactory {
-                HomeViewModel(app, getHomeLayoutUseCase)
+                HomeViewModel(getHomeLayoutUseCase)
             })[HomeViewModel::class.java]
 
     @Provides
