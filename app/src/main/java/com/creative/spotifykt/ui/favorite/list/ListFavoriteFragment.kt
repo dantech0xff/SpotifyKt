@@ -32,7 +32,11 @@ class ListFavoriteFragment : BaseFragment<ListFavoriteFragmentBinding, ListFavor
         super.setupObservers()
         viewModel.listFavorite.observe(viewLifecycleOwner) {
             if (it is ListFavoriteState.Success) {
-                favAdapter.submitList(it.data)
+                favAdapter.submitList(it.data.mapIndexed { index, favoriteMusicRow ->
+                    favoriteMusicRow.copy(headline = favoriteMusicRow.headline?.copy(
+                        text = "${index + 1}. ${favoriteMusicRow.headline.text.orEmpty()}"
+                    ))
+                })
             }
         }
     }

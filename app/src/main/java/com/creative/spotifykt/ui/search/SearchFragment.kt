@@ -82,7 +82,7 @@ class SearchFragment : BaseFragment<SearchFragmentBinding, SearchViewModel>(), I
                 }
 
                 is ListTopicSearchState.Success -> {
-                    log("Success")
+                    log("SearchFragment", "Success ${viewModel.hashCode()}")
                     listSearchAdapter.submitList(it.data)
                 }
 
@@ -95,5 +95,25 @@ class SearchFragment : BaseFragment<SearchFragmentBinding, SearchViewModel>(), I
 
     override fun handleDeeplink(deeplink: String?) {
         log("handleDeeplink: $deeplink")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        log("SearchFragment", "onDestroy $this")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        log("SearchFragment", "onDestroyView $this")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        log("SearchFragment", "onCreate $this")
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        log("SearchFragment", "onCreateView $this")
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 }

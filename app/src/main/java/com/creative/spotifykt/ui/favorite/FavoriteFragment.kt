@@ -1,11 +1,12 @@
 package com.creative.spotifykt.ui.favorite
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.creative.spotifykt.core.log
 import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.data.model.local.FavMusicTab
 import com.creative.spotifykt.databinding.FavoriteFragmentBinding
@@ -22,7 +23,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class FavoriteFragment : BaseFragment<FavoriteFragmentBinding, FavoriteViewModel>() {
 
     private val pagerAdapter: ScreenSlidePagerAdapter by lazy {
-        ScreenSlidePagerAdapter(requireActivity())
+        ScreenSlidePagerAdapter(this)
     }
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?): FavoriteFragmentBinding =
@@ -39,14 +40,20 @@ class FavoriteFragment : BaseFragment<FavoriteFragmentBinding, FavoriteViewModel
                 tab.text = (viewModel.tabLayout.value as? TabLayoutState.Success)?.data?.getOrNull(position)?.title.orEmpty()
             }.attach()
         }
+        log("FavoriteFragment", "setupView")
     }
 
+    override fun onStart() {
+        super.onStart()
+        log("FavoriteFragment", "onStart")
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
     override fun setupObservers() {
         super.setupObservers()
         viewModel.tabLayout.observe(viewLifecycleOwner) {
-            if (it is TabLayoutState.Success) {
-                pagerAdapter.updateList(it.data)
-            }
+            log("FavoriteFragment", "tabLayout: $it")
+            pagerAdapter.notifyDataSetChanged()
         }
     }
 
@@ -55,24 +62,41 @@ class FavoriteFragment : BaseFragment<FavoriteFragmentBinding, FavoriteViewModel
      * sequence.
      */
     private inner class ScreenSlidePagerAdapter(
-        fa: FragmentActivity
-    ) : FragmentStateAdapter(fa) {
+        f: Fragment
+    ) : FragmentStateAdapter(f) {
 
-        private var listTabs: List<FavMusicTab> = listOf()
+        private fun listTabs(): MutableList<FavMusicTab> = viewModel.tabLayout.value?.let {
+            (it as? TabLayoutState.Success)?.data.orEmpty().toMutableList()
+        } ?: mutableListOf()
 
-        fun updateList(list: List<FavMusicTab>) {
-            listTabs = list
-            notifyDataSetChanged()
-        }
-
-        override fun getItemCount(): Int = listTabs.size
+        override fun getItemCount(): Int = listTabs().size
 
         override fun createFragment(position: Int): Fragment {
             return ListFavoriteFragment().apply {
                 arguments = Bundle().apply {
-                    putParcelable(FavMusicTab::class.java.name, listTabs.getOrNull(position))
+                    putParcelable(FavMusicTab::class.java.name, listTabs().getOrNull(position))
                 }
             }
         }
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        log("FavoriteFragment", "onViewStateRestored")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        log("FavoriteFragment", "onSaveInstanceState")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        log("FavoriteFragment", "onDestroyView")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        log("FavoriteFragment", "onDestroy")
     }
 }

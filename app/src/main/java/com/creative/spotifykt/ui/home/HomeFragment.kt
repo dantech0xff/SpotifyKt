@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.creative.spotifykt.core.debugToast
+import com.creative.spotifykt.core.log
 import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.data.model.local.MusicListUI
 import com.creative.spotifykt.databinding.FragmentHomeBinding
@@ -85,5 +86,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 )
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        log("HomeFragment", "onDestroy $this")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        log("HomeFragment", "onDestroyView $this")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        log("HomeFragment", "onCreate $this")
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        log("HomeFragment", "onCreateView $this")
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 }

@@ -8,6 +8,8 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.NavigationUiSaveStateControl
 import androidx.navigation.ui.setupWithNavController
 import com.creative.spotifykt.R
 import com.creative.spotifykt.core.ui.BaseActivity
@@ -22,6 +24,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>() 
         activityComponent.inject(this)
     }
 
+    @OptIn(NavigationUiSaveStateControl::class)
     override fun setupView(savedInstanceState: Bundle?) {
         window?.apply {
             clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -51,7 +54,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>() 
             ).apply {
                 icon = AppCompatResources.getDrawable(context, R.drawable.graphic_eq)
             }
-            setupWithNavController(findNavController(R.id.nav_host_fragment))
+            NavigationUI.setupWithNavController(this, findNavController(R.id.nav_host_fragment))
         }
 
         viewBinding?.apply {
