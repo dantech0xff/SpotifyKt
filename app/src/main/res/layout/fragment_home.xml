@@ -23,6 +23,46 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+                <com.creative.spotifykt.ui.home.SquareMusicListLayout
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <com.creative.spotifykt.ui.home.SquareMusicListLayout
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <com.creative.spotifykt.ui.home.SquareMusicListLayout
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <com.creative.spotifykt.ui.home.SquareMusicListLayout
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <com.creative.spotifykt.ui.home.SquareMusicListLayout
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <com.creative.spotifykt.ui.home.SquareMusicListLayout
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <com.creative.spotifykt.ui.home.SquareMusicListLayout
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <com.creative.spotifykt.ui.home.SquareMusicListLayout
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <com.creative.spotifykt.ui.home.SquareMusicListLayout
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <com.creative.spotifykt.ui.home.SquareMusicListLayout
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </FrameLayout>

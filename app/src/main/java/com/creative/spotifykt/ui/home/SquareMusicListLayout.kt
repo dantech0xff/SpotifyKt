@@ -1,58 +1,52 @@
-package com.creative.spotifykt.ui.view
+package com.creative.spotifykt.ui.home
 
+import android.content.Context
 import android.graphics.Rect
+import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleOwner
+import android.widget.FrameLayout
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.creative.spotifykt.R
 import com.creative.spotifykt.data.model.local.LayoutOrientation
 import com.creative.spotifykt.data.model.local.MusicListUI
 import com.creative.spotifykt.databinding.LayoutSquareCellMusicListBinding
-import com.creative.spotifykt.ui.IDeeplinkHandler
-import com.creative.spotifykt.ui.home.MusicListAdapter
 
 /**
- * Created by dan on 16/09/2023
+ * Created by dan on 26/5/24
  *
- * Copyright © 2023 1010 Creative. All rights reserved.
+ * Copyright © 2024 1010 Creative. All rights reserved.
  */
 
-class SquareMusicListLayout(private val layoutInflater: LayoutInflater, private var handleDeeplink: IDeeplinkHandler? = null) {
+class SquareMusicListLayout : FrameLayout {
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+
+    private var binding: LayoutSquareCellMusicListBinding = LayoutSquareCellMusicListBinding.inflate(LayoutInflater.from(context), this, true)
 
     companion object {
         const val MAGIC_COL_PER_WIDTH_SCREEN_HORIZONTAL = 3
     }
 
     private val musicAdapter: MusicListAdapter by lazy {
-        MusicListAdapter(handleDeeplink = handleDeeplink)
+        MusicListAdapter()
     }
 
-    private val binding: LayoutSquareCellMusicListBinding by lazy {
-        LayoutSquareCellMusicListBinding.inflate(layoutInflater).apply {
-            recyclerView.adapter = musicAdapter
-        }
-    }
-
-    val root: View by lazy {
-        binding.root
-    }
-
-    fun bind(musicListUI: MusicListUI, viewLifecycle: LifecycleOwner) {
-
+    fun bind(musicListUI: MusicListUI) {
+        // do something
         val spanCount = musicListUI.layout?.spanCount ?: 1
         val orientation = musicListUI.layout?.orientation ?: LayoutOrientation.VERTICAL.value
 
-        val screenWidth: Int = root.context.resources.displayMetrics.widthPixels
-        val spaceLeftRight = root.context.resources.getDimensionPixelSize(R.dimen.xds_space_l)
-        val spaceBetween = root.context.resources.getDimensionPixelSize(R.dimen.xds_space_s)
-
+        val screenWidth: Int = context.resources.displayMetrics.widthPixels
+        val spaceLeftRight = context.resources.getDimensionPixelSize(R.dimen.xds_space_l)
+        val spaceBetween = context.resources.getDimensionPixelSize(R.dimen.xds_space_s)
         binding.apply {
             data = musicListUI
-            handleActionIconClick = handleDeeplink
-
+            recyclerView.adapter = musicAdapter
             recyclerView.layoutManager = if (orientation == LayoutOrientation.HORIZONTAL.value) {
                 recyclerView.addItemDecoration(object : RecyclerView.ItemDecoration() {
                     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
@@ -104,10 +98,7 @@ class SquareMusicListLayout(private val layoutInflater: LayoutInflater, private 
                     }
                 }
             }
-
             musicAdapter.submitList(musicListUI.items)
-            lifecycleOwner = viewLifecycle
-
             executePendingBindings()
         }
     }

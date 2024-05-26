@@ -8,7 +8,6 @@ import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.data.model.local.MusicListUI
 import com.creative.spotifykt.databinding.FragmentMusicTopicBinding
 import com.creative.spotifykt.di.component.FragmentComponent
-import com.creative.spotifykt.ui.view.SquareMusicListLayout
 
 /**
  * Created by dan on 17/09/2023
@@ -28,26 +27,6 @@ class MusicTopicFragment : BaseFragment<FragmentMusicTopicBinding, MusicTopicVie
     override fun setupView(savedInstanceState: Bundle?) {
         viewBinding?.apply {
 
-        }
-    }
-
-    override fun setupObservers() {
-        super.setupObservers()
-    }
-
-    fun bindListSuggestion(listSuggestData: List<MusicListUI>) {
-        viewBinding?.apply {
-            listSuggestion.removeAllViews()
-            listSuggestData.forEach {
-                val squareMusicListLayout = SquareMusicListLayout(layoutInflater, handleDeeplink = null)
-                squareMusicListLayout.bind(it, viewLifecycleOwner)
-                listSuggestion.addView(
-                    squareMusicListLayout.root, LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                    )
-                )
-            }
         }
     }
 }

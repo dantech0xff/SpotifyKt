@@ -29,16 +29,16 @@ fun bindImageUrl(view: ImageView, imageUrl: String?) {
     }
     view.visibility = View.VISIBLE
 
-    Glide.with(view.context)
-        .load(imageUrl)
-        .apply(
-            RequestOptions()
-                .centerCrop()
-                .downsample(DownsampleStrategy.AT_MOST)
-        )
-        .transition(DrawableTransitionOptions.withCrossFade())
-        .error(R.drawable.ic_launcher_foreground)
-        .into(view)
+//    Glide.with(view.context)
+//        .load(imageUrl)
+//        .apply(
+//            RequestOptions()
+//                .centerCrop()
+//                .downsample(DownsampleStrategy.AT_MOST)
+//        )
+//        .transition(DrawableTransitionOptions.withCrossFade())
+//        .error(R.drawable.ic_launcher_foreground)
+//        .into(view)
 }
 
 @BindingAdapter("bindTextLabel")

@@ -1,22 +1,18 @@
 package com.creative.spotifykt.ui.home
 
 import android.annotation.SuppressLint
-import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.creative.spotifykt.core.debugToast
 import com.creative.spotifykt.core.log
 import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.data.model.local.MusicListUI
 import com.creative.spotifykt.databinding.FragmentHomeBinding
 import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IDeeplinkHandler
-import com.creative.spotifykt.ui.view.SquareMusicListLayout
 import com.creative.spotifykt.utils.handleDeeplinkInternal
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
@@ -71,21 +67,39 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         }
     }
 
+
     private fun handleSuccess(list: List<MusicListUI>) {
+        val start = System.currentTimeMillis()
         viewBinding?.let {
-            it.homeContainer.removeAllViewsInLayout()
-            list.forEach { musicListUI ->
-                it.homeContainer.addView(
-                    SquareMusicListLayout(layoutInflater, this@HomeFragment.deeplinkHandler).apply {
-                        bind(musicListUI, viewLifecycleOwner)
-                    }.root,
-                    LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
+            val childCount = it.homeContainer.childCount
+            val listCount = list.size
+            for (i in 0 until childCount) {
+                it.homeContainer.getChildAt(i).visibility = View.INVISIBLE
+            }
+            if (listCount > childCount) {
+                val diff = listCount - childCount
+                for (i in 0 until diff) {
+                    val view = SquareMusicListLayout(requireContext())
+                    view.visibility = View.INVISIBLE
+                    it.homeContainer.addView(
+                        view,
+                        LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT
+                        )
                     )
-                )
+                }
+                log("HomeFragment", "listCount: $listCount, childCount: $childCount")
+            }
+            list.forEachIndexed { index, musicListUI ->
+                val view = it.homeContainer.getChildAt(index)
+                if (view is SquareMusicListLayout) {
+                    view.visibility = View.VISIBLE
+                    view.bind(musicListUI)
+                }
             }
         }
+        log("HomeFragment", "handleSuccess: ${System.currentTimeMillis() - start}")
     }
 
     override fun onDestroy() {
