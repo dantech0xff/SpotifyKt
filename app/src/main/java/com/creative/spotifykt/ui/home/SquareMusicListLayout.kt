@@ -14,6 +14,7 @@ import com.creative.spotifykt.R
 import com.creative.spotifykt.data.model.local.LayoutOrientation
 import com.creative.spotifykt.data.model.local.MusicListUI
 import com.creative.spotifykt.databinding.LayoutSquareCellMusicListBinding
+import com.creative.spotifykt.ui.IDeeplinkHandler
 
 /**
  * Created by dan on 26/5/24
@@ -36,7 +37,7 @@ class SquareMusicListLayout : FrameLayout {
         MusicListAdapter()
     }
 
-    fun bind(musicListUI: MusicListUI) {
+    fun bind(musicListUI: MusicListUI, deeplinkHandler: IDeeplinkHandler? = null) {
         // do something
         val spanCount = musicListUI.layout?.spanCount ?: 1
         val orientation = musicListUI.layout?.orientation ?: LayoutOrientation.VERTICAL.value
@@ -46,7 +47,10 @@ class SquareMusicListLayout : FrameLayout {
         val spaceBetween = context.resources.getDimensionPixelSize(R.dimen.xds_space_s)
         binding.apply {
             data = musicListUI
-            recyclerView.adapter = musicAdapter
+            handleActionIconClick = deeplinkHandler
+            recyclerView.adapter = musicAdapter.apply {
+                this.handleDeeplink = deeplinkHandler
+            }
             recyclerView.layoutManager = if (orientation == LayoutOrientation.HORIZONTAL.value) {
                 recyclerView.addItemDecoration(object : RecyclerView.ItemDecoration() {
                     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {

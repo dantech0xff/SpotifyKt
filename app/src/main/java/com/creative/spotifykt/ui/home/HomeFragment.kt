@@ -95,7 +95,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 val view = it.homeContainer.getChildAt(index)
                 if (view is SquareMusicListLayout) {
                     view.visibility = View.VISIBLE
-                    view.bind(musicListUI)
+                    view.bind(musicListUI, deeplinkHandler)
                 }
             }
         }

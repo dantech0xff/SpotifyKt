@@ -2,6 +2,7 @@ package com.creative.spotifykt.usecase.setting
 
 import com.creative.spotifykt.App
 import com.creative.spotifykt.R
+import com.creative.spotifykt.data.model.local.SettingActionId.SETTING_DOWNLOAD
 import com.creative.spotifykt.data.model.local.SettingRowType
 import com.creative.spotifykt.data.model.local.SettingRowUI
 import com.creative.spotifykt.data.model.local.TextLabel
@@ -61,6 +62,7 @@ class GetMainSettingUseCase(
                     SettingRowUI(
                         rowType = SettingRowType.ROW_SETTING_TEXT.value,
                         deeplink = "",
+                        settingId = SETTING_DOWNLOAD,
                         title = TextLabel(text = app.getString(R.string.download_settings), colorStyle = "PRIMARY"),
                         subTitle = TextLabel(
                             text = app.getString(R.string.download_on_wi_fi_only)

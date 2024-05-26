@@ -10,7 +10,7 @@ import com.creative.spotifykt.data.model.local.MusicSquareUI
 import com.creative.spotifykt.ui.IDeeplinkHandler
 
 class MusicListAdapter(
-    private val handleDeeplink: IDeeplinkHandler? = null
+    internal var handleDeeplink: IDeeplinkHandler? = null
 ) : ListAdapter<MusicSquareUI, MusicListAdapter.MusicVH>(DIFF_CALLBACK) {
 
     inner class MusicVH(private val itemViewBinding: ItemMusicSquareBinding) : RecyclerView.ViewHolder(itemViewBinding.root) {
