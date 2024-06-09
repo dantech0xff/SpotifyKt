@@ -1,5 +1,8 @@
 package com.creative.spotifykt.ui.setting.account
 
-import com.creative.spotifykt.core.viewmodel.BaseViewModel
+import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class AccountSettingViewModel : BaseViewModel()
+@HiltViewModel
+class AccountSettingViewModel @Inject constructor() : ViewModel()

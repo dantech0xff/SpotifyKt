@@ -1,5 +1,8 @@
 package com.creative.spotifykt.ui.setting.storage
 
-import com.creative.spotifykt.core.viewmodel.BaseViewModel
+import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class StorageViewModel : BaseViewModel()
+@HiltViewModel
+class StorageViewModel @Inject constructor() : ViewModel()

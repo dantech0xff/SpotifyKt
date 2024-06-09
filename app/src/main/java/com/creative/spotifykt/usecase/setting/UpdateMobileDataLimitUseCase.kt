@@ -1,12 +1,16 @@
 package com.creative.spotifykt.usecase.setting
 
+import android.content.Context
 import com.creative.spotifykt.App
 import com.creative.spotifykt.data.model.local.MobileDataUI
 import com.creative.spotifykt.ui.setting.mobiledata.SettingMobileDataState
 import com.creative.spotifykt.usecase.BaseFlowUseCase
 import com.squareup.moshi.Moshi
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
 
 /**
  * Created by dan on 04/09/2023
@@ -14,8 +18,9 @@ import kotlinx.coroutines.flow.flow
  * Copyright © 2023 1010 Creative. All rights reserved.
  */
 
-class UpdateMobileDataLimitUseCase (
-    private val app: App, private val moshi: Moshi
+@ViewModelScoped
+class UpdateMobileDataLimitUseCase @Inject constructor (
+    @ApplicationContext private val app: Context, private val moshi: Moshi
 ) : BaseFlowUseCase<UpdateMobileDataLimitUseCase.Params, SettingMobileDataState>() {
     data class Params(
         val selectPosition: Int

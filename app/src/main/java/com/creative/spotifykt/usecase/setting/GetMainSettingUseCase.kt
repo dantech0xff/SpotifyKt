@@ -1,5 +1,6 @@
 package com.creative.spotifykt.usecase.setting
 
+import android.content.Context
 import com.creative.spotifykt.App
 import com.creative.spotifykt.R
 import com.creative.spotifykt.data.model.local.SettingActionId.SETTING_DOWNLOAD
@@ -9,10 +10,13 @@ import com.creative.spotifykt.data.model.local.TextLabel
 import com.creative.spotifykt.ui.setting.main.MainSettingListState
 import com.creative.spotifykt.usecase.BaseFlowUseCase
 import com.squareup.moshi.Moshi
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import javax.inject.Inject
 
 /**
  * Created by dan on 02/09/2023
@@ -20,8 +24,10 @@ import kotlinx.coroutines.flow.flowOn
  * Copyright © 2023 1010 Creative. All rights reserved.
  */
 
-class GetMainSettingUseCase(
-    private val app: App,
+@ViewModelScoped
+class GetMainSettingUseCase @Inject
+     constructor(
+    @ApplicationContext private val app: Context,
     private val moshi: Moshi
 ) : BaseFlowUseCase<Unit, MainSettingListState>() {
     override fun create(input: Unit): Flow<MainSettingListState> {

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,14 +13,17 @@ import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.creative.spotifykt.R
 import com.creative.spotifykt.core.dpToPixelsInt
 import com.creative.spotifykt.databinding.MobileDataFragmentBinding
-import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.data.model.local.AppBarUI
 import com.creative.spotifykt.data.model.local.ColorStyle
 import com.creative.spotifykt.data.model.local.TextLabel
 import com.creative.spotifykt.ui.IAppBarHandler
+import dagger.hilt.android.AndroidEntryPoint
 
-class MobileDataFragment : BaseFragment<MobileDataFragmentBinding, MobileDataViewModel>() {
+@AndroidEntryPoint
+class MobileDataFragment : BaseFragment<MobileDataFragmentBinding>() {
+
+    private val viewModel: MobileDataViewModel by viewModels()
 
     private val limitMobileDataAdapter by lazy {
         LimitMobileDataAdapter { viewModel.setSelectedPosition(it) }
@@ -28,8 +32,9 @@ class MobileDataFragment : BaseFragment<MobileDataFragmentBinding, MobileDataVie
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?) =
         MobileDataFragmentBinding.inflate(inflater, container, false)
 
-    override fun injectDependencies(fragmentComponent: FragmentComponent) {
-        fragmentComponent.inject(this)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupObservers()
     }
 
     override fun setupView(savedInstanceState: Bundle?) {
@@ -64,8 +69,7 @@ class MobileDataFragment : BaseFragment<MobileDataFragmentBinding, MobileDataVie
         }
     }
 
-    override fun setupObservers() {
-        super.setupObservers()
+    private fun setupObservers() {
         viewModel.settingMobileData.observe(viewLifecycleOwner) {
             when (it) {
                 is SettingMobileDataState.Success -> {

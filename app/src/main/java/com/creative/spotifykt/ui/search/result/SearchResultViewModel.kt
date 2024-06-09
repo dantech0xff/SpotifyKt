@@ -2,16 +2,19 @@ package com.creative.spotifykt.ui.search.result
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.creative.spotifykt.core.viewmodel.BaseViewModel
 import com.creative.spotifykt.data.model.local.SearchResult
 import com.creative.spotifykt.usecase.search.GetSearchResultUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SearchResultViewModel(
+@HiltViewModel
+class SearchResultViewModel @Inject constructor(
     private val getSearchResultUseCase: GetSearchResultUseCase,
-) : BaseViewModel() {
+) : ViewModel() {
 
     private val searchResultLiveData: MutableLiveData<SearchResultState> = MutableLiveData()
     val searchResult: LiveData<SearchResultState> = searchResultLiveData

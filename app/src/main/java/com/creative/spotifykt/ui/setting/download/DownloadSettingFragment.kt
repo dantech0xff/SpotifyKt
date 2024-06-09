@@ -12,12 +12,13 @@ import com.creative.spotifykt.data.model.local.ColorStyle
 import com.creative.spotifykt.data.model.local.SettingRowUI
 import com.creative.spotifykt.data.model.local.TextLabel
 import com.creative.spotifykt.databinding.DownloadSettingFragmentBinding
-import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IAppBarHandler
 import com.creative.spotifykt.ui.ISettingRowHandler
 import com.creative.spotifykt.ui.setting.SettingListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
-class DownloadSettingFragment : BaseFragment<DownloadSettingFragmentBinding, DownloadSettingViewModel>() {
+@AndroidEntryPoint
+class DownloadSettingFragment : BaseFragment<DownloadSettingFragmentBinding>() {
 
     private val settingListAdapter: SettingListAdapter by lazy {
         SettingListAdapter(
@@ -35,10 +36,6 @@ class DownloadSettingFragment : BaseFragment<DownloadSettingFragmentBinding, Dow
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?): DownloadSettingFragmentBinding =
         DownloadSettingFragmentBinding.inflate(inflater, container, false)
-
-    override fun injectDependencies(fragmentComponent: FragmentComponent) {
-        fragmentComponent.inject(this)
-    }
 
     override fun setupView(savedInstanceState: Bundle?) {
         viewBinding?.apply {

@@ -2,19 +2,21 @@ package com.creative.spotifykt.ui.setting.mobiledata
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.creative.spotifykt.core.viewmodel.BaseViewModel
 import com.creative.spotifykt.data.model.local.MobileDataUI
 import com.creative.spotifykt.usecase.setting.GetSettingMobileDataUseCase
 import com.creative.spotifykt.usecase.setting.UpdateMobileDataLimitUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MobileDataViewModel(
+@HiltViewModel
+class MobileDataViewModel @Inject constructor(
     private val getSettingMobileDataUseCase: GetSettingMobileDataUseCase,
     private val updateMobileDataLimitUseCase: UpdateMobileDataLimitUseCase
-) : BaseViewModel() {
+) : ViewModel() {
     private val settingMobileDataLiveData: MutableLiveData<SettingMobileDataState> = MutableLiveData()
     val settingMobileData: LiveData<SettingMobileDataState> = settingMobileDataLiveData
 

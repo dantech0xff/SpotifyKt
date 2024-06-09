@@ -1,14 +1,18 @@
 package com.creative.spotifykt.usecase.favorite
 
+import android.content.Context
 import com.creative.spotifykt.App
 import com.creative.spotifykt.data.model.local.ListFavMusicTab
 import com.creative.spotifykt.ui.favorite.TabLayoutState
 import com.creative.spotifykt.usecase.BaseFlowUseCase
 import com.squareup.moshi.Moshi
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import javax.inject.Inject
 
 /**
  * Created by dan on 20/08/2023
@@ -16,8 +20,9 @@ import kotlinx.coroutines.flow.flowOn
  * Copyright © 2023 1010 Creative. All rights reserved.
  */
 
-class GetTabLayoutUseCase(
-    private val app: App,
+@ViewModelScoped
+class GetTabLayoutUseCase @Inject constructor(
+    @ApplicationContext private val app: Context,
     private val moshi: Moshi
 ) : BaseFlowUseCase<Unit, TabLayoutState>() {
     override fun create(input: Unit): Flow<TabLayoutState> {

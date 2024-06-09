@@ -7,15 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.fragment.app.viewModels
 import com.creative.spotifykt.core.log
 import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.data.model.local.MusicListUI
 import com.creative.spotifykt.databinding.FragmentHomeBinding
-import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IDeeplinkHandler
 import com.creative.spotifykt.utils.handleDeeplinkInternal
+import dagger.hilt.android.AndroidEntryPoint
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
+@AndroidEntryPoint
+class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+
+    private val viewModel: HomeViewModel by viewModels()
 
     private val deeplinkHandler: IDeeplinkHandler by lazy {
         object : IDeeplinkHandler {
@@ -26,12 +30,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupObservers()
+    }
+
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?) =
         FragmentHomeBinding.inflate(inflater, container, false)
-
-    override fun injectDependencies(fragmentComponent: FragmentComponent) {
-        fragmentComponent.inject(this)
-    }
 
     override fun setupView(savedInstanceState: Bundle?) {
         viewBinding?.apply {
@@ -40,8 +45,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         }
     }
 
-    override fun setupObservers() {
-        super.setupObservers()
+    private fun setupObservers() {
         viewModel.homeList.observe(viewLifecycleOwner) {
             when (it) {
                 is HomeListState.Loading -> {

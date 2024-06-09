@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.databinding.FragmentPlayerBinding
-import com.creative.spotifykt.di.component.FragmentComponent
+import dagger.hilt.android.AndroidEntryPoint
 
-class PlayerFragment : BaseFragment<FragmentPlayerBinding, PlayerViewModel>() {
+@AndroidEntryPoint
+class PlayerFragment : BaseFragment<FragmentPlayerBinding>() {
 
     companion object {
         fun newInstance() = PlayerFragment()
@@ -15,10 +16,6 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding, PlayerViewModel>() {
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentPlayerBinding {
         return FragmentPlayerBinding.inflate(inflater, container, false)
-    }
-
-    override fun injectDependencies(fragmentComponent: FragmentComponent) {
-        fragmentComponent.inject(this)
     }
 
     override fun setupView(savedInstanceState: Bundle?) {

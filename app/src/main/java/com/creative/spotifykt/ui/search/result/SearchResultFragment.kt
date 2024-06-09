@@ -2,22 +2,21 @@ package com.creative.spotifykt.ui.search.result
 
 import android.content.Context
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.creative.spotifykt.core.log
 import com.creative.spotifykt.core.ui.BaseFragment
-import com.creative.spotifykt.data.model.local.SearchResult
 import com.creative.spotifykt.databinding.SearchResultFragmentBinding
-import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IDeeplinkHandler
 
-class SearchResultFragment : BaseFragment<SearchResultFragmentBinding, SearchResultViewModel>() {
+class SearchResultFragment : BaseFragment<SearchResultFragmentBinding>() {
+    private val viewModel: SearchResultViewModel by viewModels()
 
     private val searchResultAdapter: SearchResultListAdapter by lazy {
         SearchResultListAdapter(deeplinkHandler)
@@ -31,12 +30,14 @@ class SearchResultFragment : BaseFragment<SearchResultFragmentBinding, SearchRes
             }
         }
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupObservers()
+    }
+
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?): SearchResultFragmentBinding =
         SearchResultFragmentBinding.inflate(inflater, container, false)
-
-    override fun injectDependencies(fragmentComponent: FragmentComponent) {
-        fragmentComponent.inject(this)
-    }
 
     override fun setupView(savedInstanceState: Bundle?) {
         viewBinding?.apply {
@@ -65,8 +66,7 @@ class SearchResultFragment : BaseFragment<SearchResultFragmentBinding, SearchRes
         }
     }
 
-    override fun setupObservers() {
-        super.setupObservers()
+    private fun setupObservers() {
         viewModel.searchResult.observe(viewLifecycleOwner) {
             if(it is SearchResultState.Success) {
                 searchResultAdapter.submitList(it.data)

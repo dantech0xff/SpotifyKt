@@ -2,8 +2,9 @@ package com.creative.spotifykt.ui.setting.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavOptions
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.creative.spotifykt.R
@@ -14,13 +15,15 @@ import com.creative.spotifykt.data.model.local.SettingActionId
 import com.creative.spotifykt.data.model.local.SettingRowUI
 import com.creative.spotifykt.data.model.local.TextLabel
 import com.creative.spotifykt.databinding.MainSettingFragmentBinding
-import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IAppBarHandler
 import com.creative.spotifykt.ui.ISettingRowHandler
 import com.creative.spotifykt.ui.setting.SettingListAdapter
 import com.creative.spotifykt.utils.handleDeeplinkInternal
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSettingViewModel>() {
+@AndroidEntryPoint
+class MainSettingFragment : BaseFragment<MainSettingFragmentBinding>() {
+    private val viewModel: MainSettingViewModel by viewModels()
 
     private val settingListAdapter by lazy {
         SettingListAdapter(
@@ -40,10 +43,6 @@ class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSetting
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?) =
         MainSettingFragmentBinding.inflate(inflater, container, false)
-
-    override fun injectDependencies(fragmentComponent: FragmentComponent) {
-        fragmentComponent.inject(this)
-    }
 
     private fun handleSettingClick(settingItem: SettingRowUI) {
         if (!findNavController().handleDeeplinkInternal(settingItem.deeplink)) {
@@ -95,13 +94,18 @@ class MainSettingFragment : BaseFragment<MainSettingFragmentBinding, MainSetting
         }
     }
 
-    override fun setupObservers() {
-        super.setupObservers()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupObservers()
+    }
+
+    private fun setupObservers() {
         viewModel.listSetting.observe(viewLifecycleOwner) {
             when (it) {
                 is MainSettingListState.Success -> {
                     settingListAdapter.submitList(it.data)
                 }
+
                 else -> {}
             }
         }

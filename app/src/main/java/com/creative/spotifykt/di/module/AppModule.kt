@@ -1,33 +1,26 @@
 package com.creative.spotifykt.di.module
 
 import android.content.Context
-import com.creative.spotifykt.App
-import com.creative.spotifykt.di.ApplicationContext
 import com.creative.spotifykt.di.CacheDirectory
 import com.creative.spotifykt.di.FileDirectory
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import java.io.File
 import javax.inject.Singleton
 
 @Module
-class AppModule (private val application: App) {
-
-    @Provides
-    @Singleton
-    fun provideApplication(): App = application
-
-    @Provides
-    @Singleton
-    @ApplicationContext
-    fun provideAppContext(): Context = application
+@InstallIn(SingletonComponent::class)
+object AppModule {
 
     @Provides
     @Singleton
     @FileDirectory
-    fun provideRootFilePath(): File {
-        val fileRoot = File(application.filesDir.absolutePath + "/files/")
+    fun provideRootFilePath(@ApplicationContext context: Context): File {
+        val fileRoot = File(context.filesDir.absolutePath + "/files/")
         if (!fileRoot.exists()) {
             fileRoot.mkdir()
         }
@@ -37,8 +30,8 @@ class AppModule (private val application: App) {
     @Provides
     @Singleton
     @CacheDirectory
-    fun provideRootCachePath(): File {
-        val fileRootCache = File(application.cacheDir.absolutePath + "/caches/")
+    fun provideRootCachePath(@ApplicationContext context: Context): File {
+        val fileRootCache = File(context.cacheDir.absolutePath + "/caches/")
         if (!fileRootCache.exists()) {
             fileRootCache.mkdir()
         }

@@ -11,12 +11,13 @@ import com.creative.spotifykt.data.model.local.ColorStyle
 import com.creative.spotifykt.data.model.local.SettingRowUI
 import com.creative.spotifykt.data.model.local.TextLabel
 import com.creative.spotifykt.databinding.ExplicitContentFragmentBinding
-import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IAppBarHandler
 import com.creative.spotifykt.ui.ISettingRowHandler
 import com.creative.spotifykt.ui.setting.SettingListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
-class ExplicitContentFragment : BaseFragment<ExplicitContentFragmentBinding, ExplicitContentViewModel>() {
+@AndroidEntryPoint
+class ExplicitContentFragment : BaseFragment<ExplicitContentFragmentBinding>() {
     private val settingListAdapter: SettingListAdapter by lazy {
         SettingListAdapter(
             object : ISettingRowHandler {
@@ -32,10 +33,6 @@ class ExplicitContentFragment : BaseFragment<ExplicitContentFragmentBinding, Exp
     }
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?): ExplicitContentFragmentBinding =
         ExplicitContentFragmentBinding.inflate(inflater, container, false)
-
-    override fun injectDependencies(fragmentComponent: FragmentComponent) {
-        fragmentComponent.inject(this)
-    }
 
     override fun setupView(savedInstanceState: Bundle?) {
         viewBinding?.apply {

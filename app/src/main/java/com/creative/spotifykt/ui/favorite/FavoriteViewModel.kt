@@ -2,16 +2,19 @@ package com.creative.spotifykt.ui.favorite
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.creative.spotifykt.core.viewmodel.BaseViewModel
 import com.creative.spotifykt.data.model.local.FavMusicTab
 import com.creative.spotifykt.usecase.favorite.GetTabLayoutUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class FavoriteViewModel(
+@HiltViewModel
+class FavoriteViewModel @Inject constructor(
     private val getTabLayoutUseCase: GetTabLayoutUseCase
-) : BaseViewModel() {
+) : ViewModel() {
 
     private val tabLayoutLiveData: MutableLiveData<TabLayoutState> = MutableLiveData<TabLayoutState>()
     val tabLayout: LiveData<TabLayoutState> = tabLayoutLiveData

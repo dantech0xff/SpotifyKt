@@ -1,5 +1,8 @@
 package com.creative.spotifykt.ui.setting.download
 
-import com.creative.spotifykt.core.viewmodel.BaseViewModel
+import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class DownloadSettingViewModel : BaseViewModel()
+@HiltViewModel
+class DownloadSettingViewModel @Inject constructor() : ViewModel()

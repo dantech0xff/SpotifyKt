@@ -11,10 +11,10 @@ import com.creative.spotifykt.data.model.local.ColorStyle
 import com.creative.spotifykt.data.model.local.SettingRowUI
 import com.creative.spotifykt.data.model.local.TextLabel
 import com.creative.spotifykt.databinding.PrivacySettingFragmentBinding
-import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IAppBarHandler
 import com.creative.spotifykt.ui.ISettingRowHandler
 import com.creative.spotifykt.ui.setting.SettingListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Created by dan on 05/09/2023
@@ -22,7 +22,8 @@ import com.creative.spotifykt.ui.setting.SettingListAdapter
  * Copyright © 2023 1010 Creative. All rights reserved.
  */
 
-class PrivacySettingFragment : BaseFragment<PrivacySettingFragmentBinding, PrivacySettingViewModel>() {
+@AndroidEntryPoint
+class PrivacySettingFragment : BaseFragment<PrivacySettingFragmentBinding>() {
 
     private val settingListAdapter: SettingListAdapter by lazy {
         SettingListAdapter(
@@ -42,10 +43,6 @@ class PrivacySettingFragment : BaseFragment<PrivacySettingFragmentBinding, Priva
         return PrivacySettingFragmentBinding.inflate(
             inflater, container, false
         )
-    }
-
-    override fun injectDependencies(fragmentComponent: FragmentComponent) {
-        fragmentComponent.inject(this)
     }
 
     override fun setupView(savedInstanceState: Bundle?) {

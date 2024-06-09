@@ -1,5 +1,8 @@
 package com.creative.spotifykt.ui.activity.setting
 
-import com.creative.spotifykt.core.viewmodel.BaseViewModel
+import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class SettingActivityViewModel : BaseViewModel()
+@HiltViewModel
+class SettingActivityViewModel @Inject constructor() : ViewModel()

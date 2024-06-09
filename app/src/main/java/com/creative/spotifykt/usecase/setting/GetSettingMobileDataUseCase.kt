@@ -1,17 +1,23 @@
 package com.creative.spotifykt.usecase.setting
 
+import android.content.Context
 import com.creative.spotifykt.App
 import com.creative.spotifykt.data.model.local.MobileDataUI
 import com.creative.spotifykt.ui.setting.mobiledata.SettingMobileDataState
 import com.creative.spotifykt.usecase.BaseFlowUseCase
 import com.squareup.moshi.Moshi
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import javax.inject.Inject
 
-data class GetSettingMobileDataUseCase(
-    private val app: App, private val moshi: Moshi
+@ViewModelScoped
+data class GetSettingMobileDataUseCase @Inject
+    constructor(
+    @ApplicationContext private val app: Context, private val moshi: Moshi
 ) : BaseFlowUseCase<Unit, SettingMobileDataState>() {
     override fun create(input: Unit): Flow<SettingMobileDataState> {
         return flow {

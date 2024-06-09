@@ -1,7 +1,8 @@
 package com.creative.spotifykt.ui.premium
 
-import com.creative.spotifykt.core.viewmodel.BaseViewModel
+import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class PremiumViewModel : BaseViewModel() {
-
-}
+@HiltViewModel
+class PremiumViewModel @Inject constructor() : ViewModel()

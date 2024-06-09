@@ -10,17 +10,14 @@ import com.creative.spotifykt.data.model.local.AppBarUI
 import com.creative.spotifykt.data.model.local.ColorStyle
 import com.creative.spotifykt.data.model.local.TextLabel
 import com.creative.spotifykt.databinding.StorageFragmentBinding
-import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IAppBarHandler
+import dagger.hilt.android.AndroidEntryPoint
 
-class StorageFragment : BaseFragment<StorageFragmentBinding, StorageViewModel>() {
+@AndroidEntryPoint
+class StorageFragment : BaseFragment<StorageFragmentBinding>() {
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?) =
         StorageFragmentBinding.inflate(inflater, container, false)
-
-    override fun injectDependencies(fragmentComponent: FragmentComponent) {
-        fragmentComponent.inject(this)
-    }
 
     override fun setupView(savedInstanceState: Bundle?) {
         viewBinding?.apply {

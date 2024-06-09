@@ -4,27 +4,22 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import androidx.activity.viewModels
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.NavigationUiSaveStateControl
-import androidx.navigation.ui.setupWithNavController
 import com.creative.spotifykt.R
 import com.creative.spotifykt.core.ui.BaseActivity
 import com.creative.spotifykt.databinding.ActivityMainBinding
-import com.creative.spotifykt.di.component.ActivityComponent
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>() {
+@AndroidEntryPoint
+class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun provideViewBinding() = ActivityMainBinding.inflate(layoutInflater)
 
-    override fun injectDependencies(activityComponent: ActivityComponent) {
-        activityComponent.inject(this)
-    }
-
-    @OptIn(NavigationUiSaveStateControl::class)
     override fun setupView(savedInstanceState: Bundle?) {
         window?.apply {
             clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)

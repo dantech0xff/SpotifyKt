@@ -2,16 +2,19 @@ package com.creative.spotifykt.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.creative.spotifykt.core.viewmodel.BaseViewModel
 import com.creative.spotifykt.data.model.local.MusicListUI
 import com.creative.spotifykt.usecase.home.GetHomeLayoutUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeViewModel(
+@HiltViewModel
+class HomeViewModel @Inject constructor(
     private val getHomeLayoutUseCase: GetHomeLayoutUseCase
-) : BaseViewModel() {
+) : ViewModel() {
     private val homeListLiveData: MutableLiveData<HomeListState> = MutableLiveData()
     val homeList: LiveData<HomeListState> = homeListLiveData
 

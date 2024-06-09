@@ -3,16 +3,18 @@ package com.creative.spotifykt.ui.favorite
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.creative.spotifykt.core.log
 import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.data.model.local.FavMusicTab
 import com.creative.spotifykt.databinding.FavoriteFragmentBinding
-import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.favorite.list.ListFavoriteFragment
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Created by dan on 20/08/2023
@@ -20,7 +22,10 @@ import com.google.android.material.tabs.TabLayoutMediator
  * Copyright © 2023 1010 Creative. All rights reserved.
  */
 
-class FavoriteFragment : BaseFragment<FavoriteFragmentBinding, FavoriteViewModel>() {
+@AndroidEntryPoint
+class FavoriteFragment : BaseFragment<FavoriteFragmentBinding>() {
+
+    private val viewModel: FavoriteViewModel by viewModels()
 
     private val pagerAdapter: ScreenSlidePagerAdapter by lazy {
         ScreenSlidePagerAdapter(this)
@@ -28,10 +33,6 @@ class FavoriteFragment : BaseFragment<FavoriteFragmentBinding, FavoriteViewModel
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?): FavoriteFragmentBinding =
         FavoriteFragmentBinding.inflate(inflater, container, false)
-
-    override fun injectDependencies(fragmentComponent: FragmentComponent) {
-        fragmentComponent.inject(this)
-    }
 
     override fun setupView(savedInstanceState: Bundle?) {
         viewBinding?.apply {
@@ -48,9 +49,13 @@ class FavoriteFragment : BaseFragment<FavoriteFragmentBinding, FavoriteViewModel
         log("FavoriteFragment", "onStart")
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupObservers()
+    }
+
     @SuppressLint("NotifyDataSetChanged")
-    override fun setupObservers() {
-        super.setupObservers()
+    private  fun setupObservers() {
         viewModel.tabLayout.observe(viewLifecycleOwner) {
             log("FavoriteFragment", "tabLayout: $it")
             pagerAdapter.notifyDataSetChanged()

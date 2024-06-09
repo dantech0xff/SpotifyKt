@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,20 +14,25 @@ import com.creative.spotifykt.R
 import com.creative.spotifykt.core.log
 import com.creative.spotifykt.core.ui.BaseFragment
 import com.creative.spotifykt.databinding.SearchFragmentBinding
-import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IDeeplinkHandler
+import dagger.hilt.android.AndroidEntryPoint
 
-class SearchFragment : BaseFragment<SearchFragmentBinding, SearchViewModel>(), IDeeplinkHandler {
+@AndroidEntryPoint
+class SearchFragment : BaseFragment<SearchFragmentBinding>(), IDeeplinkHandler {
+
+    private val viewModel: SearchViewModel by viewModels()
+
     private val listSearchAdapter: SearchListAdapter by lazy {
         SearchListAdapter(this@SearchFragment)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupObservers()
+    }
+
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?): SearchFragmentBinding =
         SearchFragmentBinding.inflate(inflater, container, false)
-
-    override fun injectDependencies(fragmentComponent: FragmentComponent) {
-        fragmentComponent.inject(this)
-    }
 
     override fun setupView(savedInstanceState: Bundle?) {
         viewBinding?.apply {
@@ -73,8 +79,7 @@ class SearchFragment : BaseFragment<SearchFragmentBinding, SearchViewModel>(), I
         }
     }
 
-    override fun setupObservers() {
-        super.setupObservers()
+    private fun setupObservers() {
         viewModel.listSearch.observe(viewLifecycleOwner) {
             when (it) {
                 is ListTopicSearchState.Loading -> {

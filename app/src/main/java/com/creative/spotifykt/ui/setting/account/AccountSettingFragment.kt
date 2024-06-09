@@ -2,7 +2,6 @@ package com.creative.spotifykt.ui.setting.account
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.creative.spotifykt.R
@@ -12,13 +11,13 @@ import com.creative.spotifykt.data.model.local.ColorStyle
 import com.creative.spotifykt.data.model.local.SettingRowUI
 import com.creative.spotifykt.data.model.local.TextLabel
 import com.creative.spotifykt.databinding.AccountSettingFragmentBinding
-import com.creative.spotifykt.databinding.LayoutToolbarBinding
-import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IAppBarHandler
 import com.creative.spotifykt.ui.ISettingRowHandler
 import com.creative.spotifykt.ui.setting.SettingListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
-class AccountSettingFragment : BaseFragment<AccountSettingFragmentBinding, AccountSettingViewModel>() {
+@AndroidEntryPoint
+class AccountSettingFragment : BaseFragment<AccountSettingFragmentBinding>() {
 
     private val settingListAdapter: SettingListAdapter by lazy {
         SettingListAdapter(
@@ -36,10 +35,6 @@ class AccountSettingFragment : BaseFragment<AccountSettingFragmentBinding, Accou
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?): AccountSettingFragmentBinding =
         AccountSettingFragmentBinding.inflate(inflater, container, false)
-
-    override fun injectDependencies(fragmentComponent: FragmentComponent) {
-        fragmentComponent.inject(this)
-    }
 
     override fun setupView(savedInstanceState: Bundle?) {
         viewBinding?.apply {

@@ -12,12 +12,13 @@ import com.creative.spotifykt.data.model.local.ColorStyle
 import com.creative.spotifykt.data.model.local.SettingRowUI
 import com.creative.spotifykt.data.model.local.TextLabel
 import com.creative.spotifykt.databinding.AudioSettingFragmentBinding
-import com.creative.spotifykt.di.component.FragmentComponent
 import com.creative.spotifykt.ui.IAppBarHandler
 import com.creative.spotifykt.ui.ISettingRowHandler
 import com.creative.spotifykt.ui.setting.SettingListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
-class AudioSettingFragment : BaseFragment<AudioSettingFragmentBinding, AudioSettingViewModel>() {
+@AndroidEntryPoint
+class AudioSettingFragment : BaseFragment<AudioSettingFragmentBinding>() {
 
     private val settingListAdapter: SettingListAdapter by lazy {
         SettingListAdapter(
@@ -35,10 +36,6 @@ class AudioSettingFragment : BaseFragment<AudioSettingFragmentBinding, AudioSett
 
     override fun provideViewBinding(inflater: LayoutInflater, container: ViewGroup?): AudioSettingFragmentBinding =
         AudioSettingFragmentBinding.inflate(inflater, container, false)
-
-    override fun injectDependencies(fragmentComponent: FragmentComponent) {
-        fragmentComponent.inject(this)
-    }
 
     override fun setupView(savedInstanceState: Bundle?) {
         viewBinding?.apply {

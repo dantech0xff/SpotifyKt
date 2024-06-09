@@ -8,13 +8,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.creative.spotifykt.core.ui.BaseActivity
 import com.creative.spotifykt.databinding.ActivitySettingsBinding
-import com.creative.spotifykt.di.component.ActivityComponent
+import dagger.hilt.android.AndroidEntryPoint
 
-class SettingActivity : BaseActivity<ActivitySettingsBinding, SettingActivityViewModel>() {
+@AndroidEntryPoint
+class SettingActivity : BaseActivity<ActivitySettingsBinding>() {
     override fun provideViewBinding(): ActivitySettingsBinding = ActivitySettingsBinding.inflate(layoutInflater)
-    override fun injectDependencies(activityComponent: ActivityComponent) {
-        activityComponent.inject(this)
-    }
 
     override fun setupView(savedInstanceState: Bundle?) {
         window?.apply {

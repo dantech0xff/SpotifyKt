@@ -1,5 +1,8 @@
 package com.creative.spotifykt.ui.setting.audio
 
-import com.creative.spotifykt.core.viewmodel.BaseViewModel
+import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class AudioSettingViewModel : BaseViewModel()
+@HiltViewModel
+class AudioSettingViewModel @Inject constructor() : ViewModel()
